@@ -7,6 +7,5 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
         $this->load->helper('my_url');
         $this->load->view('Common/top');
-        $this->load->view('Common/left');
     }
 }

@@ -1,158 +1,561 @@
-<!--logo区开始-->
-<div id="metro_box" class="a_link">
+<!-- Main bar -->
+<div class="mainbar">
 
-  <dl>
-    <dd style="display:none;"></dd>
-    <dd style="display:bolck;">
-    <!--名站导航-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://www.google.com.hk"><img src="<?php echo static_url('img/logo_001.png'); ?>" width="240" height="120" alt="google"></a><span><a href="#">谷歌</a></span></li>
-        <li id="logo_002"><a href="http://www.baidu.com/index.php?tn=divencheng_pg"><img src="<?php echo static_url('img/logo_baidu.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">百度</a></span></li>
-        <li id="logo_003"><a href="http://www.youku.com"><img src="<?php echo static_url('img/logo_003.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">优酷</a></span></li>
-        <li class="four" id="logo_004"><a href="http://weibo.com"><img src="<?php echo static_url('img/logo_004.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新浪微博</a></span></li>
-        <li class="one" id="logo_005"><a href="http://www.taobao.com/go/chn/tbk_channel/onsale.php?pid=mm_29437161_0_0&eventid=101329"><img src="<?php echo static_url('img/logo_005.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">淘宝网</a></span></li>
-        <li id="logo_006"><a href="http://p.yiqifa.com/c?s=be16e1c0&w=660466&c=254&i=160&l=0&e=win8&t=http://www.jd.com"><img src="<?php echo static_url('img/logo_006.png'); ?>" width="239" height="120" alt=""></a><span><a href="#">京东商城</a></span></li>
-        <li id="logo_007"><a href="http://p.yiqifa.com/c?s=6834e481&w=660466&c=6858&i=23922&l=0&e=win8&t=http://www.amazon.cn"><img src="<?php echo static_url('img/logo_007.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">亚马逊</a></span></li>
-        <li class="four" id="logo_008"><a href="http://p.yiqifa.com/c?s=8577e211&w=660466&c=247&i=159&l=0&e=win8&t=http://www.dangdang.com"><img src="<?php echo static_url('img/logo_008.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">当当网</a></span></li>
-        <li class="one" id="logo_009"><a href="http://www.3399.com/?fr=10097-1"><img src="<?php echo static_url('img/logo_004d.png'); ?>" width="240" height="120" alt="3399小游戏"></a><span><a href="#">3399小游戏</a></span></li>
-        <li id="logo_010"><a href="http://www.iqiyi.com"><img src="<?php echo static_url('img/logo_009.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">奇艺网</a></span></li>
-        <li id="logo_011"><a href="http://www.renren.com"><img src="<?php echo static_url('img/logo_011.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">人人网</a></span></li>
-        <li class="four" id="logo_012"><a href="http://p.yiqifa.com/c?s=b126d1bf&w=660466&c=255&i=150&l=0&e=win8&t=http://www.vancl.com"><img src="<?php echo static_url('img/logo_012.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">凡客诚品</a></span></li>
-        <li class="one" id="logo_013"><a href="http://www.sina.com.cn"><img src="<?php echo static_url('img/logo_012c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新浪网</a></span></li>
-        <li id="logo_014"><a href="http://www.qq.com"><img src="<?php echo static_url('img/logo_qq.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">腾讯网</a></span></li>
-        <li id="logo_015"><a href="http://www.sohu.com"><img src="<?php echo static_url('img/logo_015.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">搜狐网</a></span></li>
-        <li class="four" id="logo_016"><a href="http://www.163.com"><img src="<?php echo static_url('img/logo_016.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">网易</a></span></li>
-      </ul>
-    </dd>
-  
-   <dd style="display:none;">
-   <!--视频音乐-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://www.youku.com"><img src="<?php echo static_url('img/logo_001b.png'); ?>" width="240" height="120" alt="youku"></a><span><a href="#">优酷视频</a></span></li>
-        <li id="logo_002"><a href="http://www.iqiyi.com"><img src="<?php echo static_url('img/logo_002b.png'); ?>" width="240" height="120" alt="qiyi"></a><span><a href="#">奇艺网</a></span></li>
-        <li id="logo_003"><a href="http://www.tudou.com"><img src="<?php echo static_url('img/logo_003b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">土豆网</a></span></li>
-        <li class="four" id="logo_004"><a href="http://www.cntv.cn"><img src="<?php echo static_url('img/logo_004b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">中国网络电视台</a></span></li>
-        <li class="one" id="logo_005"><a href="http://tv.sohu.com"><img src="<?php echo static_url('img/logo_005b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">搜狐高清</a></span></li>
-        <li id="logo_006"><a href="http://www.ku6.com"><img src="<?php echo static_url('img/logo_006b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">酷六视频</a></span></li>
-        <li id="logo_007"><a href="http://www.56.com"><img src="<?php echo static_url('img/logo_007b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">56视频</a></span></li>
-        <li class="four" id="logo_008"><a href="http://v.qq.com"><img src="<?php echo static_url('img/logo_008b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">腾讯视频</a></span></li>
-        <li class="one" id="logo_009"><a href="http://www.kankan.com/"><img src="<?php echo static_url('img/logo_009b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">迅雷看看</a></span></li>
-        <li id="logo_010"><a href="http://www.pptv.com"><img src="<?php echo static_url('img/logo_010b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">PPTV</a></span></li>
-        <li id="logo_011"><a href="http://v.ifeng.com"><img src="<?php echo static_url('img/logo_011b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">凤凰视频</a></span></li>
-        <li class="four" id="logo_012"><a href="http://video.sina.com.cn"><img src="<?php echo static_url('img/logo_012b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新浪视频</a></span></li>
-        <li class="one" id="logo_013"><a href="http://www.baofeng.com"><img src="<?php echo static_url('img/logo_013b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">暴风影音</a></span></li>
-        <li id="logo_014"><a href="http://www.kugou.com"><img src="<?php echo static_url('img/logo_014b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">酷狗音乐</a></span></li>
-        <li id="logo_015"><a href="http://www.funshion.com"><img src="<?php echo static_url('img/logo_015b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">风行电影</a></span></li>
-        <li class="four" id="logo_016"><a href="http://bbs.heirui.cn/"><img src="<?php echo static_url('img/logo_016b.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">乐视网</a></span></li>
-      </ul>
-    </dd>
-    <dd style="display:none;">
-    <!--新闻资讯-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://news.baidu.com"><img src="<?php echo static_url('img/logo_001c.png'); ?>" width="240" height="120" alt="baidu"></a><span><a href="#">百度新闻</a></span></li>
-        <li id="logo_002"><a href="http://news.sohu.com"><img src="<?php echo static_url('img/logo_002c.png'); ?>" width="240" height="120" alt="sohu"></a><span><a href="#">搜狐新闻</a></span></li>
-        <li id="logo_003"><a href="http://www.people.com.cn"><img src="<?php echo static_url('img/logo_003c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">人民网</a></span></li>
-        <li class="four" id="logo_004"><a href="http://www.cntv.cn"><img src="<?php echo static_url('img/logo_004c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">中国网络电视台</a></span></li>
-        <li class="one" id="logo_005"><a href="http://www.yahoo.com.cn"><img src="<?php echo static_url('img/logo_005c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">雅虎中国</a></span></li>
-        <li id="logo_006"><a href="http://www.ifeng.com"><img src="<?php echo static_url('img/logo_ifeng.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">凤凰网</a></span></li>
-        <li id="logo_007"><a href="http://www.huanqiu.com"><img src="<?php echo static_url('img/logo_007c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">环球网</a></span></li>
-        <li class="four" id="logo_008"><a href="http://news.qq.com"><img src="<?php echo static_url('img/logo_008c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">腾讯新闻</a></span></li>
-        <li class="one" id="logo_009"><a href="http://www.21cn.com"><img src="<?php echo static_url('img/logo_009c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">21cn新闻</a></span></li>
-        <li id="logo_010"><a href="http://www.china.com"><img src="<?php echo static_url('img/logo_010c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">中华网</a></span></li>
-        <li id="logo_011"><a href="http://www.bjnews.com.cn"><img src="<?php echo static_url('img/logo_011c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新京报网</a></span></li>
-        <li class="four" id="logo_012"><a href="http://news.sina.com"><img src="<?php echo static_url('img/logo_012c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新浪新闻</a></span></li>
-        <li class="one" id="logo_013"><a href="http://www.zaobao.com"><img src="<?php echo static_url('img/logo_013c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">联合早报</a></span></li>
-        <li id="logo_014"><a href="http://www.xinhuanet.com"><img src="<?php echo static_url('img/logo_014c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新华网</a></span></li>
-        <li id="logo_015"><a href="http://www.chinanews.com/"><img src="<?php echo static_url('img/logo_015c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">中国新闻网</a></span></li>
-        <li class="four" id="logo_016"><a href="http://bbs.heirui.cn/"><img src="<?php echo static_url('img/logo_016c.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">和讯网</a></span></li>
-      </ul>
-    </dd>
-    <dd style="display:none;">
-    <!--购物淘宝-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://www.taobao.com/go/chn/tbk_channel/onsale.php?pid=mm_29437161_0_0&eventid=101329"><img src="<?php echo static_url('img/logo_001a.png'); ?>" width="240" height="120" alt="taobao"></a><span><a href="#">淘宝网</a></span></li>
-        <li id="logo_002"><a href="http://p.yiqifa.com/c?s=be16e1c0&w=660466&c=254&i=160&l=0&e=win8&t=http://www.jd.com"><img src="<?php echo static_url('img/logo_002a.png'); ?>" width="240" height="120" alt="京东商城"></a><span><a href="#">京东商城</a></span></li>
-        <li id="logo_003"><a href="http://p.yiqifa.com/c?s=b126d1bf&w=660466&c=255&i=150&l=0&e=win8&t=http://www.vancl.com"><img src="<?php echo static_url('img/logo_003a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">凡客诚品</a></span></li>
-        <li class="four" id="logo_004"><a href="http://p.yiqifa.com/c?s=5da69415&w=660466&c=139&i=802&l=0&e=win8&t=http://www.yihaodian.com/"><img src="<?php echo static_url('img/logo_004a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">1号店超市</a></span></li>
-        <li class="one" id="logo_005"><a href="http://p.yiqifa.com/c?s=6834e481&w=660466&c=6858&i=23922&l=0&e=win8&t=http://www.amazon.cn"><img src="<?php echo static_url('img/logo_005a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">亚马逊</a></span></li>
-        <li id="logo_006"><a href="http://p.yiqifa.com/c?s=061dd459&w=660466&c=280&i=240&l=0&e=win8&t=http://www.newegg.com.cn"><img src="<?php echo static_url('img/logo_006a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新蛋商城</a></span></li>
-        <li id="logo_007"><a href="http://p.yiqifa.com/c?s=595d946b&w=660466&c=4275&i=4662&l=0&e=win8&t=http://www.m18.com"><img src="<?php echo static_url('img/logo_007a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">麦考林</a></span></li>
-        <li class="four" id="logo_008"><a href="http://p.yiqifa.com/c?s=8577e211&w=660466&c=247&i=159&l=0&e=win8&t=http://www.dangdang.com"><img src="<?php echo static_url('img/logo_008a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">当当网</a></span></li>
-        <li class="one" id="logo_009"><a href="http://p.yiqifa.com/c?s=dc348771&w=660466&c=4459&i=5662&l=0&e=win8&t=http://www.suning.com/"><img src="<?php echo static_url('img/logo_009a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">苏宁易购</a></span></li>
-        <li id="logo_010"><a href="http://p.yiqifa.com/c?s=27a2d307&w=660466&c=4018&i=2882&l=0&e=win8&t=http://www.vipshop.com/"><img src="<?php echo static_url('img/logo_010a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">唯品会</a></span></li>
-        <li id="logo_011"><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB05%2Bm7rfGKas1PIKp0U37pZuBotzOg7OjeU9mIWS5%2B5UROBz6sq4fiHePnGhf6UrWuOtfD2G6QGcAHIXpjhEtESpuqsRo0a&pid=mm_29437161_0_0"><img src="<?php echo static_url('img/logo_011a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">淘宝聚划算</a></span></li>
-        <li class="four" id="logo_012"><a href="http://p.yiqifa.com/c?s=baeda93f&w=660466&c=5579&i=14922&l=0&e=win8&t=http://www.gome.com.cn/"><img src="<?php echo static_url('img/logo_012a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">国美电器</a></span></li>
-        <li class="one" id="logo_013a"><a href="http://p.yiqifa.com/c?s=97c9f3d7&w=660466&c=5402&i=11642&l=0&e=win8&t=http://bj.meituan.com/"><img src="<?php echo static_url('img/logo_013a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">美团网</a></span></li>
-        <li id="logo_003"><a href="http://p.yiqifa.com/c?s=b73b4c6e&w=660466&c=298&i=20483&l=0&e=win8&t=http://www.moonbasa.com/"><img src="<?php echo static_url('img/logo_014a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">梦芭莎</a></span></li>
-        <li id="logo_015a"><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB05%2Bm7rfGGjlY60oHcc7bkKOQnIUn1QqiBfh0EDuhSTDiNLkN3J4tOyYuvzuQuhDq3HtsvWBKcstCb7MQ5koC5V4MYlSvu5DkI8cYbj7A%3D%3D"><img src="<?php echo static_url('img/logo_015a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">淘宝商城</a></span></li>
-        <li class="four" id="logo_016"><a href="http://www.alipay.com"><img src="<?php echo static_url('img/logo_016a.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">支付宝</a></span></li>
-      </ul>
-    </dd>
-    <dd style="display:none;">
-    <!--游戏娱乐-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://www.3399.com/?fr=10097-1"><img src="<?php echo static_url('img/logo_004d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">3399小游戏</a></span></li>
-        <li id="logo_002"><a href="http://www.2233dh.com/link/21"><img src="<?php echo static_url('img/logo_002d.png'); ?>" width="240" height="120" alt="JJ比赛"></a><span><a href="#">JJ比赛</a></span></li>
-        <li id="logo_003"><a href="http://www.17173.com/"><img src="<?php echo static_url('img/logo_003d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">17173游戏</a></span></li>
-        <li class="four" id="logo_004"><a href="http://www.4399.com/"><img src="<?php echo static_url('img/logo_001d.png'); ?>" width="240" height="120" alt="4399小游戏"></a><span><a href="#">4399小游戏</a></span></li>
-        <li class="one" id="logo_005"><a href="http://click.t3nlink.com/link/140699"><img src="<?php echo static_url('img/logo_005d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">神仙道</a></span></li>
-        <li id="logo_006"><a href="http://www.shandagames.com/web/"><img src="<?php echo static_url('img/logo_006d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">盛大游戏</a></span></li>
-        <li id="logo_007"><a href="http://game.qq.com/"><img src="<?php echo static_url('img/logo_007d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">腾讯游戏</a></span></li>
-        <li class="four" id="logo_008"><a href="http://nie.163.com/"><img src="<?php echo static_url('img/logo_008d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">网易游戏</a></span></li>
-        <li class="one" id="logo_009"><a href="http://www.yinyuetai.com"><img src="<?php echo static_url('img/logo_009d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">音悦台mtv</a></span></li>
-        <li id="logo_010"><a href="http://www.huaban.com"><img src="<?php echo static_url('img/logo_010d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">花瓣网</a></span></li>
-        <li id="logo_011"><a href="http://www.2233dh.com/tv.htm"><img src="<?php echo static_url('img/logo_011d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">V电影</a></span></li>
-        <li class="four" id="logo_012"><a href="http://www.mtime.com"><img src="<?php echo static_url('img/logo_012d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">时光网</a></span></li>
-        <li class="one" id="logo_013"><a href="http://www.2233dh.com/book.htm"><img src="<?php echo static_url('img/logo_013d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">言情小说网</a></span></li>
-        <li id="logo_014"><a href="http://www.zongheng.com"><img src="<?php echo static_url('img/logo_014d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">纵横中文网</a></span></li>
-        <li id="logo_015"><a href="http://douban.fm/"><img src="<?php echo static_url('img/logo_015d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">豆瓣FM</a></span></li>
-        <li class="four" id="logo_016"><a href="http://www.qidian.com/"><img src="<?php echo static_url('img/logo_016d.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">起点中文网</a></span></li>
-      </ul>
-    </dd>
-    <dd style="display:none;">
-    <!--实用工具-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://www.kuaidi100.com/"><img src="<?php echo static_url('img/logo_016f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">快递查询</a></span></li>
-        <li id="logo_002"><a href="http://115.com"><img src="<?php echo static_url('img/logo_002e.png'); ?>" width="240" height="120" alt="115网盘"></a><span><a href="#">115网盘</a></span></li>
-        <li id="logo_003"><a href="http://translate.google.com.hk/"><img src="<?php echo static_url('img/logo_003e.png'); ?>" width="240" height="120" alt=""></a><span><a href="">谷歌翻译</a></span></li>
-        <li class="four" id="logo_004"><a href="http://weather.news.sina.com.cn/"><img src="<?php echo static_url('img/logo_001e.png'); ?>" width="240" height="120" alt="天气预报"></a><span><a href="#">天气预报</a></span></li>
-        <li class="one" id="logo_005"><a href="http://p.yiqifa.com/c?s=f82e466a&w=660466&c=297&i=19323&l=0&e=win8&t=http://u.ctrip.com/union/redirect.aspx"><img src="<?php echo static_url('img/logo_005e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">机票酒店</a></span></li>
-        <li id="logo_006"><a href="http://web.qq.com"><img src="<?php echo static_url('img/logo_006e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">Web QQ</a></span></li>
-        <li id="logo_007"><a href="http://mail.163.com"><img src="<?php echo static_url('img/logo_007e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">网易邮箱</a></span></li>
-        <li class="four" id="logo_008"><a href="http://union.500.com/pages/interfacehezuo.php?coopid=5558&adid=97&jumpurl=http%3A%2F%2Fkaijiang.500.com%2F"><img src="<?php echo static_url('img/logo_008e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">彩票开奖</a></span></li>
-        <li class="one" id="logo_009"><a href="http://p.yiqifa.com/c?s=de065bbc&w=660466&c=6451&i=19382&l=0&e=win8&t=http://tj.tieyou.com/gw.php"><img src="<?php echo static_url('img/logo_009e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">火车票订购</a></span></li>
-        <li id="logo_010"><a href="http://map.baidu.com"><img src="<?php echo static_url('img/logo_010e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">百度地图</a></span></li>
-        <li id="logo_011"><a href="http://10086.cn/"><img src="<?php echo static_url('img/logo_011e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">中国移动网上营业厅</a></span></li>
-        <li class="four" id="logo_012"><a href="http://www.weizhangwang.com/"><img src="<?php echo static_url('img/logo_012e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">交通违章</a></span></li>
-        <li class="one" id="logo_013"><a href="http://dl.union.ijinshan.com/duba/download.php?cid=44&sid=104480"><img src="<?php echo static_url('img/logo_013e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">金山毒霸</a></span></li>
-        <li id="logo_014"><a href="http://www.8684.cn"><img src="<?php echo static_url('img/logo_014e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">公交火车查询</a></span></li>
-        <li id="logo_015"><a href="http://maps.google.com.hk/"><img src="<?php echo static_url('img/logo_015e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">谷歌地图</a></span></li>
-        <li class="four" id="logo_016"><a href="http://bbs.heirui.cn/"><img src="<?php echo static_url('img/logo_016e.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">万年历</a></span></li>
-      </ul>
-    </dd>
-     <dd style="display:none;">
-     <!--影视资源-->
-      <ul>
-        <li class="one" id="logo_001"><a href="http://www.81baobao.com/"><img src="<?php echo static_url('img/logo_baobao.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">八一宝宝儿歌下载</a></span></li>
-        <li id="logo_002"><a href="http://www.verycd.com"><img src="<?php echo static_url('img/logo_002f.png'); ?>" width="240" height="120" alt="电驴"></a><span><a href="#">电驴资源</a></span></li>
-        <li id="logo_003"><a href="http://ishare.iask.sina.com.cn/"><img src="<?php echo static_url('img/logo_003f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">新浪共享资料</a></span></li>
-        <li class="four" id="logo_004"><a href="http://www.piaohua.com"><img src="<?php echo static_url('img/logo_004f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">飘花资源网</a></span></li>
-        <li class="one" id="logo_005"><a href="http://www.dy2018.com"><img src="<?php echo static_url('img/logo_005f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">电影天堂</a></span></li>
-        <li id="logo_006"><a href="http://daquan.xunlei.com"><img src="<?php echo static_url('img/logo_006f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">迅雷大全</a></span></li>
-        <li id="logo_007"><a href="http://www.2233dh.com/tv.htm"><img src="<?php echo static_url('img/logo_007f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">好看的电影</a></span></li>
-        <li class="four" id="logo_008"><a href="http://www.ffdy.cc"><img src="<?php echo static_url('img/logo_008f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">放放电影</a></span></li>
-        <li class="one" id="logo_009"><a href="http://www.skycn.com"><img src="<?php echo static_url('img/logo_009f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">天空软件站</a></span></li>
-        <li id="logo_010"><a href="http://www.newhua.com"><img src="<?php echo static_url('img/logo_010f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">华军软件园</a></span></li>
-        <li id="logo_011"><a href="http://www.xiazaiba.com"><img src="<?php echo static_url('img/logo_011f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">下载吧</a></span></li>
-        <li class="four" id="logo_012"><a href="http://www.7060.com"><img src="<?php echo static_url('img/logo_012f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">7060手机电影</a></span></li>
-        <li class="one" id="logo_013"><a href="http://www.a67.com"><img src="<?php echo static_url('img/logo_013f.png'); ?>" width="240" height="120" alt=""></a><span>a67手机电影网</span></li>
-        <li id="logo_014"><a href="http://www.y80s.net/"><img src="<?php echo static_url('img/logo_014f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">80s手机电影网</a></span></li>
-        <li id="logo_015"><a href="http://www.txt99.com/"><img src="<?php echo static_url('img/logo_015f.png'); ?>" width="240" height="120" alt=""></a><span><a href="#">久久小说下载</a></span></li>
-        <li class="four" id="logo_016"><a href="http://www.ziyuanhai.com/"><img src="<?php echo static_url('img/logo_001f.png'); ?>" width="240" height="120" alt="google"></a><span><a href="#">唐老鼠</a></span></li>
-      </ul>
-    </dd>
-  </dl>
-  
- 
+<!-- Page heading -->
+<div class="page-head">
+    <h2 class="pull-left"><i class="icon-home"></i> 首页</h2>
+
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="index.html"><i class="icon-home"></i> 首页</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="#" class="bread-current">控制台</a>
+    </div>
+
+    <div class="clearfix"></div>
+
 </div>
-<!--logo区结束--> 
+<!-- Page heading ends -->
+
+
+
+<!-- Matter -->
+
+<div class="matter">
+<div class="container">
+
+<!-- Today status. jQuery Sparkline plugin used. -->
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- List starts -->
+        <ul class="today-datas">
+            <!-- List #1 -->
+            <li>
+                <!-- Graph -->
+                <div><span id="todayspark1" class="spark"><canvas width="77" height="30" style="display: inline-block; width: 77px; height: 30px; vertical-align: top;"></canvas></span></div>
+                <!-- Text -->
+                <div class="datas-text">12,000 visitors/day</div>
+            </li>
+            <li>
+                <div><span id="todayspark2" class="spark"><canvas width="77" height="30" style="display: inline-block; width: 77px; height: 30px; vertical-align: top;"></canvas></span></div>
+                <div class="datas-text">30,000 Pageviews</div>
+            </li>
+            <li>
+                <div><span id="todayspark3" class="spark"><canvas width="77" height="30" style="display: inline-block; width: 77px; height: 30px; vertical-align: top;"></canvas></span></div>
+                <div class="datas-text">15.66% Bounce Rate</div>
+            </li>
+            <li>
+                <div><span id="todayspark4" class="spark"><canvas width="77" height="30" style="display: inline-block; width: 77px; height: 30px; vertical-align: top;"></canvas></span></div>
+                <div class="datas-text">$12,000 Revenue/Day</div>
+            </li>
+            <li>
+                <div><span id="todayspark5" class="spark"><canvas width="250" height="30" style="display: inline-block; width: 250px; height: 30px; vertical-align: top;"></canvas></span></div>
+                <div class="datas-text">15,000000 visitors till date</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Today status ends -->
+
+<!-- Dashboard Graph starts -->
+
+<div class="row">
+    <div class="col-md-8">
+
+        <!-- Widget -->
+        <div class="widget">
+            <!-- Widget head -->
+            <div class="widget-head">
+                <div class="pull-left">图表</div>
+                <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!-- Widget content -->
+            <div class="widget-content">
+                <div class="padd">
+
+                    <!-- Curve chart (Blue color). jQuery Flot plugin used. -->
+                    <div id="curve-chart" style="padding: 0px; position: relative;"><canvas class="base" width="744" height="250"></canvas><canvas class="overlay" width="744" height="250" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller"><div class="xAxis x1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:center;left:-20px;top:228px;width:93px">0</div><div class="tickLabel" style="position:absolute;text-align:center;left:85px;top:228px;width:93px">2</div><div class="tickLabel" style="position:absolute;text-align:center;left:191px;top:228px;width:93px">4</div><div class="tickLabel" style="position:absolute;text-align:center;left:297px;top:228px;width:93px">6</div><div class="tickLabel" style="position:absolute;text-align:center;left:403px;top:228px;width:93px">8</div><div class="tickLabel" style="position:absolute;text-align:center;left:508px;top:228px;width:93px">10</div><div class="tickLabel" style="position:absolute;text-align:center;left:614px;top:228px;width:93px">12</div></div><div class="yAxis y1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:right;top:194px;right:723px;width:21px">-1.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:148px;right:723px;width:21px">-0.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:103px;right:723px;width:21px">0.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:57px;right:723px;width:21px">0.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:11px;right:723px;width:21px">1.0</div></div></div><div class="legend"><div style="position: absolute; width: 50px; height: 48px; top: 9px; right: 9px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(30,175,237);overflow:hidden"></div></div></td><td class="legendLabel">sin(x)</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(30,175,237);overflow:hidden"></div></div></td><td class="legendLabel">cos(x)</td></tr></tbody></table></div></div>
+
+                    <hr>
+                    <!-- Hover location -->
+                    <div id="hoverdata">Mouse hovers at
+                        (<span id="x">-4.35</span>, <span id="y">1.22</span>). <span id="clickdata"></span></div>
+
+                    <!-- Skil this line. <div class="uni"><input id="enableTooltip" type="checkbox">Enable tooltip</div> -->
+
+                </div>
+            </div>
+            <!-- Widget ends -->
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="widget">
+
+            <div class="widget-head">
+                <div class="pull-left">今天统计</div>
+                <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="widget-content">
+                <div class="padd">
+
+                    <!-- Visitors, pageview, bounce rate, etc., Sparklines plugin used -->
+                    <ul class="current-status">
+                        <li>
+                            <span id="status1"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">Visits : 2000</span>
+                        </li>
+                        <li>
+                            <span id="status2"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">Unique Visitors : 1,345</span>
+                        </li>
+                        <li>
+                            <span id="status3"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">Pageviews : 2000</span>
+                        </li>
+                        <li>
+                            <span id="status4"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">Pages / Visit : 2000</span>
+                        </li>
+                        <li>
+                            <span id="status5"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">Avg. Visit Duration : 2000</span>
+                        </li>
+                        <li>
+                            <span id="status6"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">Bounce Rate : 2000</span>
+                        </li>
+                        <li>
+                            <span id="status7"><canvas width="80" height="20" style="display: inline-block; width: 80px; height: 20px; vertical-align: top;"></canvas></span> <span class="bold">% New Visits : 2000</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Dashboard graph ends -->
+
+<!-- Chats, File upload and Recent Comments -->
+<div class="row">
+
+<div class="col-md-4">
+    <!-- Widget -->
+    <div class="widget">
+        <!-- Widget title -->
+        <div class="widget-head">
+            <div class="pull-left">图表</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+            <!-- Widget content -->
+            <div class="padd">
+
+                <ul class="chats">
+
+                    <!-- Chat by us. Use the class "by-me". -->
+                    <li class="by-me">
+                        <!-- Use the class "pull-left" in avatar -->
+                        <div class="avatar pull-left">
+                            <img src="img/user.jpg" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                            <!-- In meta area, first include "name" and then "time" -->
+                            <div class="chat-meta">Ashok <span class="pull-right">3 hours ago</span></div>
+                            Vivamus diam elit diam, consectetur dapibus adipiscing elit.
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                    <!-- Chat by other. Use the class "by-other". -->
+                    <li class="by-other">
+                        <!-- Use the class "pull-right" in avatar -->
+                        <div class="avatar pull-right">
+                            <img src="img/user.jpg" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                            <!-- In the chat meta, first include "time" then "name" -->
+                            <div class="chat-meta">3 hours ago <span class="pull-right">Ravi</span></div>
+                            Vivamus diam elit diam, consectetur fconsectetur dapibus adipiscing elit.
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                    <li class="by-me">
+                        <div class="avatar pull-left">
+                            <img src="img/user.jpg" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                            <div class="chat-meta">Ashok <span class="pull-right">4 hours ago</span></div>
+                            Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                    <li class="by-other">
+                        <!-- Use the class "pull-right" in avatar -->
+                        <div class="avatar pull-right">
+                            <img src="img/user.jpg" alt="">
+                        </div>
+
+                        <div class="chat-content">
+                            <!-- In the chat meta, first include "time" then "name" -->
+                            <div class="chat-meta">3 hours ago <span class="pull-right">Ravi</span></div>
+                            Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Widget footer -->
+            <div class="widget-foot">
+
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type your message here...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- File Upload widget -->
+<div class="col-md-4">
+    <div class="widget">
+        <!-- Widget title -->
+        <div class="widget-head">
+            <div class="pull-left">文件上传</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+            <!-- Widget content -->
+            <ul class="file-upload">
+
+                <li>
+                    <strong><i class="icon-upload-alt"></i> File_Name_Here.Mp3</strong>
+                    <div class="file-meta">3.3 of 5MB - 5 mins - 1MB/Sec</div>
+
+                    <div class="progress progress-animated progress-striped">
+                        <div class="progress-bar progress-bar-success" data-percentage="100" style="width: 100%;">100%</div>
+                    </div>
+                </li>
+
+                <li>
+                    <strong><i class="icon-ok"></i> Third_File_Here.Mp3</strong>
+                    <div class="file-meta">5MB - 5 mins - Stopped</div>
+                </li>
+
+                <li>
+                    <strong><i class="icon-ok"></i> Third_File_Here.Mp3</strong>
+                    <div class="file-meta">5MB - 5 mins - Stopped</div>
+                </li>
+            </ul>
+
+            <div class="widget-foot">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="widget">
+        <!-- Widget title -->
+        <div class="widget-head">
+            <div class="pull-left">浏览器统计</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="widget-content referrer">
+            <!-- Widget content -->
+
+            <table class="table table-striped table-bordered table-hover">
+                <tbody><tr>
+                    <th><center>#</center></th>
+                    <th>Browsers</th>
+                    <th>Visits</th>
+                </tr>
+                <tr>
+                    <td><img src="img/icons/chrome.png" alt="">
+                    </td><td>Google Chrome</td>
+                    <td>3,005</td>
+                </tr>
+                <tr>
+                    <td><img src="img/icons/firefox.png" alt="">
+                    </td><td>Mozilla Firefox</td>
+                    <td>2,505</td>
+                </tr>
+                <tr>
+                    <td><img src="img/icons/ie.png" alt="">
+                    </td><td>Internet Explorer</td>
+                    <td>1,405</td>
+                </tr>
+                <tr>
+                    <td><img src="img/icons/opera.png" alt="">
+                    </td><td>Opera</td>
+                    <td>4,005</td>
+                </tr>
+                <tr>
+                    <td><img src="img/icons/safari.png" alt="">
+                    </td><td>Safari</td>
+                    <td>505</td>
+                </tr>
+                </tbody></table>
+
+            <div class="widget-foot">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="col-md-4">
+    <!-- Widget -->
+    <div class="widget">
+        <!-- Widget title -->
+        <div class="widget-head">
+            <div class="pull-left">最近评论</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="widget-content">
+            <!-- Widget content -->
+            <div class="padd">
+
+                <ul class="recent">
+
+
+                    <li>
+
+                        <div class="recent-content">
+                            <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
+                            <div>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-default"><i class="icon-ok"></i> </button>
+                                <button class="btn btn-xs btn-default"><i class="icon-pencil"></i> </button>
+                                <button class="btn btn-xs btn-default"><i class="icon-remove"></i> </button>
+                            </div>
+
+                            <button class="btn btn-xs btn-danger pull-right">Spam</button>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+
+
+                    <li>
+
+                        <div class="recent-content">
+                            <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
+                            <div>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-default"><i class="icon-ok"></i> </button>
+                                <button class="btn btn-xs btn-default"><i class="icon-pencil"></i> </button>
+                                <button class="btn btn-xs btn-default"><i class="icon-remove"></i> </button>
+                            </div>
+
+                            <button class="btn btn-xs btn-danger pull-right">Spam</button>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+
+
+                    <li>
+
+                        <div class="recent-content">
+                            <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
+                            <div>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-default"><i class="icon-ok"></i> </button>
+                                <button class="btn btn-xs btn-default"><i class="icon-pencil"></i> </button>
+                                <button class="btn btn-xs btn-default"><i class="icon-remove"></i> </button>
+                            </div>
+
+                            <button class="btn btn-xs btn-danger pull-right">Spam</button>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <!-- Widget footer -->
+            <div class="widget-foot">
+
+
+                <ul class="pagination pull-right">
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="widget wblack">
+            <div class="widget-head">
+                <div class="pull-left">黑色图表</div>
+                <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+                <div class="padd">
+
+                    <div id="bar-chart" style="padding: 0px; position: relative;"><canvas class="base" width="543" height="250"></canvas><canvas class="overlay" width="543" height="250" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller"><div class="xAxis x1Axis" style="color:#777"><div class="tickLabel" style="position:absolute;text-align:center;left:-9px;top:228px;width:54px">0.0</div><div class="tickLabel" style="position:absolute;text-align:center;left:54px;top:228px;width:54px">2.5</div><div class="tickLabel" style="position:absolute;text-align:center;left:116px;top:228px;width:54px">5.0</div><div class="tickLabel" style="position:absolute;text-align:center;left:179px;top:228px;width:54px">7.5</div><div class="tickLabel" style="position:absolute;text-align:center;left:241px;top:228px;width:54px">10.0</div><div class="tickLabel" style="position:absolute;text-align:center;left:304px;top:228px;width:54px">12.5</div><div class="tickLabel" style="position:absolute;text-align:center;left:367px;top:228px;width:54px">15.0</div><div class="tickLabel" style="position:absolute;text-align:center;left:429px;top:228px;width:54px">17.5</div><div class="tickLabel" style="position:absolute;text-align:center;left:492px;top:228px;width:54px">20.0</div></div><div class="yAxis y1Axis" style="color:#777"><div class="tickLabel" style="position:absolute;text-align:right;top:212px;right:530px;width:13px">0</div><div class="tickLabel" style="position:absolute;text-align:right;top:176px;right:530px;width:13px">10</div><div class="tickLabel" style="position:absolute;text-align:right;top:139px;right:530px;width:13px">20</div><div class="tickLabel" style="position:absolute;text-align:right;top:103px;right:530px;width:13px">30</div><div class="tickLabel" style="position:absolute;text-align:right;top:66px;right:530px;width:13px">40</div><div class="tickLabel" style="position:absolute;text-align:right;top:30px;right:530px;width:13px">50</div><div class="tickLabel" style="position:absolute;text-align:right;top:-7px;right:530px;width:13px">60</div></div></div></div>
+
+                </div>
+                <div class="widget-foot">
+                    <!-- Footer goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="widget">
+            <div class="widget-head">
+                <div class="pull-left">快速提交</div>
+                <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+                <div class="padd">
+
+                    <div class="form quick-post">
+                        <!-- Edit profile form (not working)-->
+                        <form class="form-horizontal">
+                            <!-- Title -->
+                            <div class="form-group">
+                                <label class="control-label col-lg-3" for="title">Title</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="title">
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="form-group">
+                                <label class="control-label col-lg-3" for="content">Content</label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" id="content"></textarea>
+                                </div>
+                            </div>
+                            <!-- Cateogry -->
+                            <div class="form-group">
+                                <label class="control-label col-lg-3">Category</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control">
+                                        <option value="">- Choose Cateogry -</option>
+                                        <option value="1">General</option>
+                                        <option value="2">News</option>
+                                        <option value="3">Media</option>
+                                        <option value="4">Funny</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Tags -->
+                            <div class="form-group">
+                                <label class="control-label col-lg-3" for="tags">Tags</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="tags">
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="form-group">
+                                <!-- Buttons -->
+                                <div class="col-lg-offset-2 col-lg-9">
+                                    <button type="submit" class="btn btn-success">Publish</button>
+                                    <button type="submit" class="btn btn-danger">Save Draft</button>
+                                    <button type="reset" class="btn btn-default">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+                <div class="widget-foot">
+                    <!-- Footer goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+<!-- Matter ends -->
+
+</div>
+
+<!-- Mainbar ends -->
+<div class="clearfix"></div>
