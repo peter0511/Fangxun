@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8' />
@@ -25,7 +25,7 @@
     <!-- CLEditor -->
     <link rel="stylesheet" href="<?php echo static_url('css/jquery.cleditor.css'); ?>">
     <!-- Uniform -->
-    <link rel="stylesheet" href="<?php echo static_url('css/uniform.default.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/uniform.default.css'); ?>">
     <!-- Bootstrap toggle -->
     <link rel="stylesheet" href="<?php echo static_url('css/bootstrap-switch.css'); ?>">
     <!-- Main stylesheet -->
