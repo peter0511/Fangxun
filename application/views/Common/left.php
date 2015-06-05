@@ -6,7 +6,7 @@
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav" style="">
         <!-- Main menu with font awesome icon -->
-        <li><a href="#" class="open"><i class="icon-home"></i> 首页</a>
+        <li><a href="<?php echo site_url(); ?>" class="open"><i class="icon-home"></i> 首页</a>
             <!-- Sub menu markup
             <ul>
               <li><a href="#">Submenu #1</a></li>
@@ -16,20 +16,20 @@
         </li>
         <li class="has_sub"><a href="#" class=""><i class="icon-list-alt"></i>员工信息<span class="pull-right"><i class="icon-chevron-right"></i></span></a>
             <ul style="display: none;">
-                <li><a href="widgets1.html">员工列表</a></li>
-                <li><a href="widgets2.html">:qsafasf</a></li>
-                <li><a href="widgets3.html">插件页面 #3</a></li>
+                <li><a href="<?php echo site_url('user'); ?>">员工列表</a></li>
+                <li><a href="<?php echo site_url('user/add'); ?>">添加员工</a></li>
+                <li><a href="#">备用</a></li>
             </ul>
         </li>
-        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 页面模块1 <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>房源信息<span class="pull-right"><i class="icon-chevron-right"></i></span></a>
             <ul style="">
-                <li><a href="post.html">表单Post</a></li>
-                <li><a href="login.html">登录页</a></li>
-                <li><a href="register.html">注册页面</a></li>
-                <li><a href="support.html">帮助页</a></li>
+                <li><a href="<?php echo site_url('house'); ?>">房源列表</a></li>
+                <li><a href="<?php echo site_url('house/add'); ?>">添加房源</a></li>
+                <li><a href="#">备用</a></li>
+                <!--<li><a href="support.html">帮助页</a></li>
                 <li><a href="invoice.html">购物清单</a></li>
                 <li><a href="profile.html">个人资料</a></li>
-                <li><a href="gallery.html">相册页面</a></li>
+                <li><a href="gallery.html">相册页面</a></li>-->
             </ul>
         </li>
         <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 页面模块2  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
