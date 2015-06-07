@@ -1032,3 +1032,143 @@ DEBUG - 2015-06-08 01:23:46 --> Config file loaded: /Users/Peter/Work/test/Fangx
 INFO - 2015-06-08 01:23:46 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/first.php
 INFO - 2015-06-08 01:23:46 --> Final output sent to browser
 DEBUG - 2015-06-08 01:23:46 --> Total execution time: 0.1017
+INFO - 2015-06-08 01:30:14 --> Config Class Initialized
+INFO - 2015-06-08 01:30:14 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:30:14 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:30:14 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:30:14 --> URI Class Initialized
+DEBUG - 2015-06-08 01:30:14 --> No URI present. Default controller set.
+INFO - 2015-06-08 01:30:14 --> Router Class Initialized
+INFO - 2015-06-08 01:30:14 --> Output Class Initialized
+INFO - 2015-06-08 01:30:14 --> Security Class Initialized
+DEBUG - 2015-06-08 01:30:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:30:14 --> Input Class Initialized
+INFO - 2015-06-08 01:30:14 --> Language Class Initialized
+INFO - 2015-06-08 01:30:14 --> Loader Class Initialized
+INFO - 2015-06-08 01:30:14 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:30:14 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:30:14 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:30:14 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:30:14 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/first.php
+INFO - 2015-06-08 01:30:14 --> Final output sent to browser
+DEBUG - 2015-06-08 01:30:14 --> Total execution time: 0.0942
+INFO - 2015-06-08 01:30:18 --> Config Class Initialized
+INFO - 2015-06-08 01:30:18 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:30:18 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:30:18 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:30:18 --> URI Class Initialized
+INFO - 2015-06-08 01:30:18 --> Router Class Initialized
+INFO - 2015-06-08 01:30:18 --> Output Class Initialized
+INFO - 2015-06-08 01:30:18 --> Security Class Initialized
+DEBUG - 2015-06-08 01:30:18 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:30:18 --> Input Class Initialized
+INFO - 2015-06-08 01:30:18 --> Language Class Initialized
+INFO - 2015-06-08 01:30:18 --> Loader Class Initialized
+INFO - 2015-06-08 01:30:18 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:30:18 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:30:18 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:30:18 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:30:18 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/top.php
+INFO - 2015-06-08 01:30:18 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/left.php
+INFO - 2015-06-08 01:30:18 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Index.php
+INFO - 2015-06-08 01:30:18 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/footer.php
+INFO - 2015-06-08 01:30:18 --> Final output sent to browser
+DEBUG - 2015-06-08 01:30:18 --> Total execution time: 0.0508
+INFO - 2015-06-08 01:31:25 --> Config Class Initialized
+INFO - 2015-06-08 01:31:25 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:31:25 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:31:25 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:31:25 --> URI Class Initialized
+DEBUG - 2015-06-08 01:31:25 --> No URI present. Default controller set.
+INFO - 2015-06-08 01:31:25 --> Router Class Initialized
+INFO - 2015-06-08 01:31:25 --> Output Class Initialized
+INFO - 2015-06-08 01:31:25 --> Security Class Initialized
+DEBUG - 2015-06-08 01:31:25 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:31:25 --> Input Class Initialized
+INFO - 2015-06-08 01:31:25 --> Language Class Initialized
+INFO - 2015-06-08 01:31:25 --> Loader Class Initialized
+INFO - 2015-06-08 01:31:25 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:31:25 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:31:25 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:31:25 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:31:25 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/first.php
+INFO - 2015-06-08 01:31:25 --> Final output sent to browser
+DEBUG - 2015-06-08 01:31:25 --> Total execution time: 0.0361
+INFO - 2015-06-08 01:35:25 --> Config Class Initialized
+INFO - 2015-06-08 01:35:25 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:35:25 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:35:25 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:35:25 --> URI Class Initialized
+DEBUG - 2015-06-08 01:35:25 --> No URI present. Default controller set.
+INFO - 2015-06-08 01:35:25 --> Router Class Initialized
+INFO - 2015-06-08 01:35:25 --> Output Class Initialized
+INFO - 2015-06-08 01:35:25 --> Security Class Initialized
+DEBUG - 2015-06-08 01:35:25 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:35:25 --> Input Class Initialized
+INFO - 2015-06-08 01:35:25 --> Language Class Initialized
+INFO - 2015-06-08 01:35:25 --> Loader Class Initialized
+INFO - 2015-06-08 01:35:25 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:35:25 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:35:25 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:35:25 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:35:25 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/first.php
+INFO - 2015-06-08 01:35:25 --> Final output sent to browser
+DEBUG - 2015-06-08 01:35:25 --> Total execution time: 0.1004
+INFO - 2015-06-08 01:35:27 --> Config Class Initialized
+INFO - 2015-06-08 01:35:27 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:35:27 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:35:27 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:35:27 --> URI Class Initialized
+INFO - 2015-06-08 01:35:27 --> Router Class Initialized
+INFO - 2015-06-08 01:35:27 --> Output Class Initialized
+INFO - 2015-06-08 01:35:27 --> Security Class Initialized
+DEBUG - 2015-06-08 01:35:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:35:27 --> Input Class Initialized
+INFO - 2015-06-08 01:35:27 --> Language Class Initialized
+INFO - 2015-06-08 01:35:27 --> Loader Class Initialized
+INFO - 2015-06-08 01:35:27 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:35:27 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:35:27 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:35:27 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:35:27 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/login.php
+INFO - 2015-06-08 01:35:27 --> Final output sent to browser
+DEBUG - 2015-06-08 01:35:27 --> Total execution time: 0.0310
+INFO - 2015-06-08 01:35:58 --> Config Class Initialized
+INFO - 2015-06-08 01:35:58 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:35:58 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:35:58 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:35:58 --> URI Class Initialized
+DEBUG - 2015-06-08 01:35:58 --> No URI present. Default controller set.
+INFO - 2015-06-08 01:35:58 --> Router Class Initialized
+INFO - 2015-06-08 01:35:58 --> Output Class Initialized
+INFO - 2015-06-08 01:35:58 --> Security Class Initialized
+DEBUG - 2015-06-08 01:35:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:35:58 --> Input Class Initialized
+INFO - 2015-06-08 01:35:58 --> Language Class Initialized
+INFO - 2015-06-08 01:35:58 --> Loader Class Initialized
+INFO - 2015-06-08 01:35:58 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:35:58 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:35:58 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:35:58 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:35:58 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/first.php
+INFO - 2015-06-08 01:35:58 --> Final output sent to browser
+DEBUG - 2015-06-08 01:35:58 --> Total execution time: 0.0273
+INFO - 2015-06-08 01:36:00 --> Config Class Initialized
+INFO - 2015-06-08 01:36:00 --> Hooks Class Initialized
+DEBUG - 2015-06-08 01:36:00 --> UTF-8 Support Enabled
+INFO - 2015-06-08 01:36:00 --> Utf8 Class Initialized
+INFO - 2015-06-08 01:36:00 --> URI Class Initialized
+INFO - 2015-06-08 01:36:00 --> Router Class Initialized
+INFO - 2015-06-08 01:36:00 --> Output Class Initialized
+INFO - 2015-06-08 01:36:00 --> Security Class Initialized
+DEBUG - 2015-06-08 01:36:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-08 01:36:00 --> Input Class Initialized
+INFO - 2015-06-08 01:36:00 --> Language Class Initialized
+INFO - 2015-06-08 01:36:00 --> Loader Class Initialized
+INFO - 2015-06-08 01:36:00 --> Helper loaded: url_helper
+INFO - 2015-06-08 01:36:00 --> Helper loaded: my_url_helper
+INFO - 2015-06-08 01:36:00 --> Controller Class Initialized
+DEBUG - 2015-06-08 01:36:00 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-08 01:36:00 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/login.php
+INFO - 2015-06-08 01:36:00 --> Final output sent to browser
+DEBUG - 2015-06-08 01:36:00 --> Total execution time: 0.0260

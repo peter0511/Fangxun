@@ -5,18 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<!-- Le styles -->
 <link href="<?php echo static_url('css/bootstrap2.css'); ?>" rel="stylesheet">
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
-<!-- Main menu starts here -->
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container "><a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -220,7 +212,7 @@
              
         </div>
         <div class="copy-rights">
-              	<p>Copyright (c) websitename. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> <br>
+              	<p> aaaaaaaa<a href="<?php echo site_url('login'); ?>" target="" title="模板之家">西宁房讯</a> <br>
 
 All rights reserved.</p>
               </div>
@@ -229,9 +221,5 @@ All rights reserved.</p>
     </div>
 
 </div>
-
-<!-- Le javascript
-    ================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
 </body>
 </html>
