@@ -20,7 +20,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container "><a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-    <span><img src=img/"menu-icon.png" width="22" height="23"></span>
+    <span><img src="<?php echo static_url('img/menu-icon.png'); ?>" width="22" height="23"></span>
     </a>
       <div class="nav-collapse collapse">
         <ul class="nav">
@@ -50,9 +50,9 @@
       </div>
       <h2 class="hide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit commodo risus eros non At vero eos et accusamus commodo  
         et iusto Donec venenatis nisi at tortor volutpat ac adipiscing laoreet libero hasellus </h2>
-      <p><a href="#" class="btn-header">Gravidaim&nbsp;<img src="img/button-arrow.png" width="22" height="23"></a></p>
+      <p><a href="#" class="btn-header">Gravidaim&nbsp;<img src="<?php echo static_url('img/button-arrow.png'); ?>" width="22" height="23"></a></p>
       <div class="row-fluid">
-        <div class="header-image"><img src="img/main-banner.jpg" width="1170" height="485" alt="paradiso banner"></div>
+        <div class="header-image"><img src="<?php echo static_url('img/main-banner.jpg'); ?>" width="1170" height="485" alt="paradiso banner"></div>
       </div>
     </div>
     <div class="row-fluid spacing-top-bottom">
@@ -100,7 +100,7 @@
           </ul>
           <div class="tab-content pad-top">
             <div class="tab-pane active" id="tab1">
-              <div class="span4"><div class="thumbnail"><img src="img/model2.png" width="270" height="169" alt="model" ></div></div>
+              <div class="span4"><div class="thumbnail"><img src="<?php echo static_url('img/model2.png'); ?>" width="270" height="169" alt="model" ></div></div>
               <div class="span8">
                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
                 <p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.</p>
@@ -139,7 +139,7 @@
         <p><a href="#" class="btn btn-large mar-top">More</a></p>
       </div>
       <div class="span6">
-        <div class="media"> <a class="pull-left" href="#"><img src="img/model4.jpg" width="70" height="70" class="media-object thumbnail-small"> </a>
+        <div class="media"> <a class="pull-left" href="#"><img src="<?php echo static_url('img/model4.jpg'); ?>" width="70" height="70" class="media-object thumbnail-small"> </a>
           <div class="media-body">
             <h2 class="media-heading">Media Dolor repellendus loremin temporibus</h2>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
@@ -148,7 +148,7 @@
             
           </div>
         </div>
-        <div class="media"> <a class="pull-left" href="#"><img src="img/model5.jpg" width="70" height="70" class="media-object thumbnail-small"> </a>
+        <div class="media"> <a class="pull-left" href="#"><img src="<?php echo static_url('img/model5.jpg'); ?>" width="70" height="70" class="media-object thumbnail-small"> </a>
           <div class="media-body">
             <h2 class="media-heading">Dolor repellendus loremin temporibus</h2>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
@@ -157,7 +157,7 @@
             
           </div>
         </div>
-        <div class="media"> <a class="pull-left" href="#"><img src="img/model6.jpg" width="70" height="70" class="media-object thumbnail-small"> </a>
+        <div class="media"> <a class="pull-left" href="#"><img src="<?php echo static_url('img/model6.jpg'); ?>" width="70" height="70" class="media-object thumbnail-small"> </a>
           <div class="media-body">
             <h2 class="media-heading">Media Dolor repellendus loremin temporibus</h2>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
@@ -213,9 +213,9 @@
        	<h1 class="footer-heading">Nullam quis justo enim</h1>
               <div class="social">
               <ul>
-              	<li><a href="#"><img src="img/facebook.png" width="41" height="40" alt="facebook"></a></li>
-                <li><a href="#"><img src="img/twitter.png" width="41" height="40" alt="twitter"></a></li>
-                <li><a href="#"><img src="img/linkedin.png" width="41" height="40" alt="linked in"></a></li>
+              	<li><a href="#"><img src="<?php echo static_url('img/facebook.png'); ?>" width="41" height="40" alt="facebook"></a></li>
+                <li><a href="#"><img src="<?php echo static_url('img/twitter.png'); ?>" width="41" height="40" alt="twitter"></a></li>
+                <li><a href="#"><img src="<?php echo static_url('img/linkedin.png'); ?>" width="41" height="40" alt="linked in"></a></li>
               </ul>
              
         </div>
