@@ -209,9 +209,10 @@ $config['directory_trigger'] = 'd';
 |
 | For a live site you'll usually only enable Errors (1) to be logged otherwise
 | your log files will fill up very fast.
-|
+| ??????????日志log
 */
-$config['log_threshold'] = 0;
+
+$config['log_threshold'] = 3;
 
 /*
 |--------------------------------------------------------------------------
@@ -222,7 +223,7 @@ $config['log_threshold'] = 0;
 | application/logs/ directory. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = '';
+$config['log_path'] = BASEPATH.'../shared/log/';
 
 /*
 |--------------------------------------------------------------------------

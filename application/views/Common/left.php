@@ -25,14 +25,11 @@
             <ul style="">
                 <li><a href="<?php echo site_url('house'); ?>">房源列表</a></li>
                 <li><a href="<?php echo site_url('house/add'); ?>">添加房源</a></li>
+                <li><a href="<?php echo site_url('house/address') ?>">添加地址</a></li>
                 <li><a href="#">备用</a></li>
-                <!--<li><a href="support.html">帮助页</a></li>
-                <li><a href="invoice.html">购物清单</a></li>
-                <li><a href="profile.html">个人资料</a></li>
-                <li><a href="gallery.html">相册页面</a></li>-->
             </ul>
         </li>
-        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 页面模块2  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+        <!--<li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 页面模块2  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
             <ul style="">
                 <li><a href="media.html">媒体</a></li>
                 <li><a href="statement.html">描述</a></li>
@@ -41,14 +38,14 @@
                 <li><a href="calendar.html">日历</a></li>
                 <li><a href="grid.html">网格</a></li>
             </ul>
-        </li>
-        <li><a href="charts.html"><i class="icon-bar-chart"></i>图表</a></li>
-        <li><a href="tables.html"><i class="icon-table"></i>表格</a></li>
-        <li><a href="forms.html"><i class="icon-tasks"></i>表单</a></li>
-        <li><a href="ui.html"><i class="icon-magic"></i>UI图标</a></li>
-        <li><a href="calendar.html"><i class="icon-calendar"></i>日历</a></li>
+        </li>-->
+        <li><a href="#"><i class="icon-bar-chart"></i>租户信息</a></li>
+        <li><a href="#"><i class="icon-table"></i>房东信息</a></li>
+        <li><a href="forms.html"><i class="icon-tasks"></i>订单信息</a></li>
+        <li><a href="ui.html"><i class="icon-magic"></i>合同信息</a></li>
+        <!--<li><a href="calendar.html"><i class="icon-calendar"></i></a></li>-->
     </ul>
 </div>
 
-<!-- Sidebar ends -->
+<!--Sidebar ends -->
 
