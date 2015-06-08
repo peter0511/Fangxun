@@ -6,7 +6,7 @@
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav" style="">
         <!-- Main menu with font awesome icon -->
-        <li><a href="<?php echo site_url(); ?>" class="open"><i class="icon-home"></i> 首页</a>
+        <li><a href="<?php echo site_url('xnfx'); ?>" class="open"><i class="icon-home"></i> 首页</a>
             <!-- Sub menu markup
             <ul>
               <li><a href="#">Submenu #1</a></li>

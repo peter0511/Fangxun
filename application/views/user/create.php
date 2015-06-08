@@ -53,23 +53,222 @@
 <form class="form-horizontal">
 <!-- Name -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="name1">Name</label>
+    <label class="control-label col-lg-3" for="name1">员工姓名</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="name1">
+        <input type="text" class="form-control" name="name">
+    </div>
+</div>
+<!-- Password -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="password2">员工密码</label>
+    <div class="col-lg-6">
+        <input type="password" class="form-control" name="password">
     </div>
 </div>
 <!-- Email -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="email1">Email</label>
+    <label class="control-label col-lg-3" for="email1">出生日期</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="email1">
+        <input type="text" class="form-control" name="age" placeholder="格式:2014-12-20">
     </div>
 </div>
 <!-- Telephone -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="telephone">Telephone</label>
+    <label class="control-label col-lg-3" for="telephone">员工性别</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="telephone">
+        <input type="radio" name="optionsRadios" name="sex" value="man">男&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="optionsRadios" name="sex" value="woman" checked>女
+    </div>
+</div>
+<!-- Address -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="address">员工籍贯</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="native">
+    </div>
+</div>
+<!-- State -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="city">员工电话</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="moblie">
+    </div>
+</div>
+<!-- City -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="city">员工学历</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="education">
+    </div>
+</div>
+<!-- Username -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="username2">员工身份证</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="identity">
+    </div>
+</div>
+<!-- Email -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="email1">家庭地址</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="address">
+    </div>
+</div>
+<!-- Email -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="email1">应急电话</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="phone">
+    </div>
+</div>
+<!-- Email -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="email1">员工职位</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="position">
+    </div>
+</div>
+<!-- Email -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="email1">员工状态</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="status">
+    </div>
+</div>
+<!-- City -->
+<div class="form-group">
+    <label class="control-label col-lg-3" for="city">员工照片</label>
+    <div class="col-lg-6">
+        <input type="file" class="form-control" name="avatar">
+    </div>
+</div>
+<!-- Checkbox -->
+<div class="form-group">
+    <div class="col-lg-6 col-lg-offset-1">
+        <label class="checkbox inline"><input type="checkbox" id="inlineCheckbox3" value="agree">确定了哦</label>
+    </div>
+</div>
+
+<!-- Buttons -->
+<div class="form-group">
+    <!-- Buttons -->
+    <div class="col-lg-6 col-lg-offset-1">
+        <button type="submit" class="btn btn-success">Update</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </div>
+</div>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- Matter ends -->
+
+</div>
+<div class="clearfix"></div>
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
     </div>
 </div>
 <!-- Address -->
