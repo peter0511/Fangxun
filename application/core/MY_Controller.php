@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller {
 class REAL_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
+        $this->load->helper('form_helper');
         $this->load->helper('my_url');
     }
 }

@@ -9,36 +9,36 @@
     </div>
 </footer>
 <!-- JS -->
-<script src="<?php echo static_url('js/jquery.js'); ?>"</script> <!-- jQuery -->
-<script src="<?php echo static_url('js/bootstrap.js'); ?>"</script> <!-- Bootstrap -->
-<script src="<?php echo static_url('js/jquery-ui-1.9.2.custom.min.js'); ?>"</script> <!-- jQuery UI -->
+<script src="<?php echo static_url('js/jquery.js'); ?>"></script> <!-- jQuery -->
+<script src="<?php echo static_url('js/bootstrap.js'); ?>"></script> <!-- Bootstrap -->
+<script src="<?php echo static_url('js/jquery-ui-1.9.2.custom.min.js'); ?>"></script> <!-- jQuery UI -->
 <script src="<?php echo static_url('js/fullcalendar.min.js'); ?>"</script> <!-- Full Google Calendar - Calendar -->
-<script src="<?php echo static_url('js/jquery.rateit.min.js'); ?>"</script> <!-- RateIt - Star rating -->
-<script src="<?php echo static_url('js/jquery.prettyPhoto.js'); ?>"</script> <!-- prettyPhoto -->
+<script src="<?php echo static_url('js/jquery.rateit.min.js'); ?>"></script> <!-- RateIt - Star rating -->
+<script src="<?php echo static_url('js/jquery.prettyPhoto.js'); ?>"></script> <!-- prettyPhoto -->
 
 <!-- jQuery Flot -->
-<script src="<?php echo static_url('js/excanvas.min.js'); ?>"</script>
-<script src="<?php echo static_url('js/jquery.flot.js'); ?>"</script>
-<script src="<?php echo static_url('js/jquery.flot.resize.js'); ?>"</script>
-<script src="<?php echo static_url('js/jquery.flot.pie.js'); ?>"</script>
-<script src="<?php echo static_url('js/jquery.flot.stack.js'); ?>"</script>
+<script src="<?php echo static_url('js/excanvas.min.js'); ?>"></script>
+<script src="<?php echo static_url('js/jquery.flot.js'); ?>"></script>
+<script src="<?php echo static_url('js/jquery.flot.resize.js'); ?>"></script>
+<script src="<?php echo static_url('js/jquery.flot.pie.js'); ?>"></script>
+<script src="<?php echo static_url('js/jquery.flot.stack.js'); ?>"></script>
 
 <!-- jQuery Notification - Noty -->
-<script src="<?php echo static_url('js/jquery.noty.js'); ?>"</script> <!-- jQuery Notify -->
-<script src="<?php echo static_url('js/themes/default.js'); ?>"</script> <!-- jQuery Notify -->
-<script src="<?php echo static_url('js/layouts/bottom.js'); ?>"</script> <!-- jQuery Notify -->
-<script src="<?php echo static_url('js/layouts/topRight.js'); ?>"</script> <!-- jQuery Notify -->
-<script src="<?php echo static_url('js/layouts/top.js'); ?>"</script> <!-- jQuery Notify -->
+<script src="<?php echo static_url('js/jquery.noty.js'); ?>"></script> <!-- jQuery Notify -->
+<script src="<?php echo static_url('js/themes/default.js'); ?>"></script> <!-- jQuery Notify -->
+<script src="<?php echo static_url('js/layouts/bottom.js'); ?>"></script> <!-- jQuery Notify -->
+<script src="<?php echo static_url('js/layouts/topRight.js'); ?>"></script> <!-- jQuery Notify -->
+<script src="<?php echo static_url('js/layouts/top.js'); ?>"></script> <!-- jQuery Notify -->
 <!-- jQuery Notification ends -->
 
-<script src="<?php echo static_url('js/sparklines.js'); ?>"</script> <!-- Sparklines -->
-<script src="<?php echo static_url('js/jquery.cleditor.min.js'); ?>"</script> <!-- CLEditor -->
-<script src="<?php echo static_url('js/bootstrap-datetimepicker.min.js'); ?>"</script> <!-- Date picker -->
-<script src="<?php echo static_url('js/jquery.uniform.min.js'); ?>"</script> <!-- jQuery Uniform -->
-<script src="<?php echo static_url('js/bootstrap-switch.min.js'); ?>"</script> <!-- Bootstrap Toggle -->
-<script src="<?php echo static_url('js/filter.js'); ?>"</script> <!-- Filter for support page -->
-<script src="<?php echo static_url('js/custom.js'); ?>"</script> <!-- Custom codes -->
-<script src="<?php echo static_url('js/charts.js'); ?>"</script> <!-- Charts & Graphs -->
+<script src="<?php echo static_url('js/sparklines.js'); ?>"></script> <!-- Sparklines -->
+<script src="<?php echo static_url('js/jquery.cleditor.min.js'); ?>"></script> <!-- CLEditor -->
+<script src="<?php echo static_url('js/bootstrap-datetimepicker.min.js'); ?>"></script> <!-- Date picker -->
+<script src="<?php echo static_url('js/jquery.uniform.min.js'); ?>"></script> <!-- jQuery Uniform -->
+<script src="<?php echo static_url('js/bootstrap-switch.min.js'); ?>"></script> <!-- Bootstrap Toggle -->
+<script src="<?php echo static_url('js/filter.js'); ?>"></script> <!-- Filter for support page -->
+<script src="<?php echo static_url('js/custom.js'); ?>"></script> <!-- Custom codes -->
+<script src="<?php echo static_url('js/charts.js'); ?>"></script> <!-- Charts & Graphs -->
 
 <!-- Script for this page -->
 <script type="text/javascript">
