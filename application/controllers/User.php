@@ -9,9 +9,17 @@ class User extends MY_Controller {
 	}
 
 	public function add() {
+        $status = C('status.yuangong.text');
+        $education = C('status.education.text');
+        $sex = C('status.sex.text');
+        $position = C('status.position.text');
+        $data['status'] = $status;
+        $data['education'] = $education;
+        $data['sex'] = $sex;
+        $data['position'] = $position;
 
         
-		$this->load->view('User/create');
+		$this->load->view('User/create',$data);
         $this->load->view('Common/footer');
 	}
 }

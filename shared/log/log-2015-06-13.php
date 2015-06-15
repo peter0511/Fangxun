@@ -2536,3 +2536,69 @@ INFO - 2015-06-13 17:48:46 --> Helper loaded: url_helper
 INFO - 2015-06-13 17:48:46 --> Helper loaded: my_url_helper
 INFO - 2015-06-13 17:48:46 --> Controller Class Initialized
 INFO - 2015-06-13 17:48:46 --> Helper loaded: form_helper
+INFO - 2015-06-13 18:11:42 --> Config Class Initialized
+INFO - 2015-06-13 18:11:42 --> Hooks Class Initialized
+DEBUG - 2015-06-13 18:11:42 --> UTF-8 Support Enabled
+INFO - 2015-06-13 18:11:42 --> Utf8 Class Initialized
+INFO - 2015-06-13 18:11:42 --> URI Class Initialized
+INFO - 2015-06-13 18:11:42 --> Router Class Initialized
+INFO - 2015-06-13 18:11:42 --> Output Class Initialized
+INFO - 2015-06-13 18:11:42 --> Security Class Initialized
+DEBUG - 2015-06-13 18:11:42 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-13 18:11:42 --> Input Class Initialized
+INFO - 2015-06-13 18:11:42 --> Language Class Initialized
+INFO - 2015-06-13 18:11:42 --> Loader Class Initialized
+INFO - 2015-06-13 18:11:42 --> Helper loaded: url_helper
+INFO - 2015-06-13 18:11:42 --> Helper loaded: my_url_helper
+INFO - 2015-06-13 18:11:42 --> Controller Class Initialized
+DEBUG - 2015-06-13 18:11:42 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-13 18:11:42 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/top.php
+INFO - 2015-06-13 18:11:42 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/left.php
+INFO - 2015-06-13 18:11:42 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/User/index.php
+INFO - 2015-06-13 18:11:42 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/footer.php
+INFO - 2015-06-13 18:11:42 --> Final output sent to browser
+DEBUG - 2015-06-13 18:11:42 --> Total execution time: 0.0983
+INFO - 2015-06-13 18:11:43 --> Config Class Initialized
+INFO - 2015-06-13 18:11:43 --> Hooks Class Initialized
+DEBUG - 2015-06-13 18:11:43 --> UTF-8 Support Enabled
+INFO - 2015-06-13 18:11:43 --> Utf8 Class Initialized
+INFO - 2015-06-13 18:11:43 --> URI Class Initialized
+INFO - 2015-06-13 18:11:43 --> Router Class Initialized
+INFO - 2015-06-13 18:11:43 --> Output Class Initialized
+INFO - 2015-06-13 18:11:43 --> Security Class Initialized
+DEBUG - 2015-06-13 18:11:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-13 18:11:43 --> Input Class Initialized
+INFO - 2015-06-13 18:11:43 --> Language Class Initialized
+INFO - 2015-06-13 18:11:43 --> Loader Class Initialized
+INFO - 2015-06-13 18:11:43 --> Helper loaded: url_helper
+INFO - 2015-06-13 18:11:43 --> Helper loaded: my_url_helper
+INFO - 2015-06-13 18:11:43 --> Controller Class Initialized
+DEBUG - 2015-06-13 18:11:43 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-13 18:11:43 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/top.php
+INFO - 2015-06-13 18:11:43 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/left.php
+INFO - 2015-06-13 18:11:43 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/User/create.php
+INFO - 2015-06-13 18:11:43 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/footer.php
+INFO - 2015-06-13 18:11:43 --> Final output sent to browser
+DEBUG - 2015-06-13 18:11:43 --> Total execution time: 0.0374
+INFO - 2015-06-13 18:12:08 --> Config Class Initialized
+INFO - 2015-06-13 18:12:08 --> Hooks Class Initialized
+DEBUG - 2015-06-13 18:12:08 --> UTF-8 Support Enabled
+INFO - 2015-06-13 18:12:08 --> Utf8 Class Initialized
+INFO - 2015-06-13 18:12:08 --> URI Class Initialized
+INFO - 2015-06-13 18:12:08 --> Router Class Initialized
+INFO - 2015-06-13 18:12:08 --> Output Class Initialized
+INFO - 2015-06-13 18:12:08 --> Security Class Initialized
+DEBUG - 2015-06-13 18:12:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-06-13 18:12:08 --> Input Class Initialized
+INFO - 2015-06-13 18:12:08 --> Language Class Initialized
+INFO - 2015-06-13 18:12:08 --> Loader Class Initialized
+INFO - 2015-06-13 18:12:08 --> Helper loaded: url_helper
+INFO - 2015-06-13 18:12:08 --> Helper loaded: my_url_helper
+INFO - 2015-06-13 18:12:08 --> Controller Class Initialized
+DEBUG - 2015-06-13 18:12:08 --> Config file loaded: /Users/Peter/Work/test/Fangxun/application/config/my_url.php
+INFO - 2015-06-13 18:12:08 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/top.php
+INFO - 2015-06-13 18:12:08 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/left.php
+INFO - 2015-06-13 18:12:08 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/User/create.php
+INFO - 2015-06-13 18:12:08 --> File loaded: /Users/Peter/Work/test/Fangxun/application/views/Common/footer.php
+INFO - 2015-06-13 18:12:08 --> Final output sent to browser
+DEBUG - 2015-06-13 18:12:08 --> Total execution time: 0.0358

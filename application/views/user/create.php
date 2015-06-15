@@ -66,8 +66,9 @@
 <div class="form-group">
     <label class="control-label col-lg-3">员工性别</label>
     <div class="col-lg-6">
-        <input type="radio" name="optionsRadios" name="sex" value="man">男&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="optionsRadios" name="sex" value="woman" checked>女
+        <?php foreach ($sex as $ke => $va): ?>
+        <input type="radio" name="sex" value="<?php echo $ke ?>"><?php echo $va ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- Address -->
@@ -88,14 +89,16 @@
 <div class="form-group">
     <label class="control-label col-lg-3">员工学历</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="education">
+        <?php foreach ($education as $k => $v): ?>
+        <input type="radio" name="education" value="<?php echo $k; ?>"><?php echo $v; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- Username -->
 <div class="form-group">
     <label class="control-label col-lg-3">员工身份证</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="identity">
+        <input type="text" class="form-control" name="identity" maxlength=18 >
     </div>
 </div>
 <!-- Email -->
@@ -116,14 +119,18 @@
 <div class="form-group">
     <label class="control-label col-lg-3">员工职位</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="position">
+        <?php foreach ($position as $kk => $vv): ?>
+        <input type="radio" name="position" value="<?php echo $kk; ?>"><?php echo $vv; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- Email -->
 <div class="form-group">
     <label class="control-label col-lg-3">员工状态</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="status">
+        <?php foreach ($status as $key => $value): ?>
+        <input type="radio" name="status" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- City -->
@@ -144,7 +151,7 @@
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <button type="submit" class="btn btn-success">嗯 就这样</button>
+        <a type="submit" class="btn btn-success">嗯 就这样</a>
         <button type="reset" class="btn btn-default">错 我要改</button>
     </div>
 </div>
