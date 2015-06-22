@@ -3,13 +3,14 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Copyright info -->
-                <p class="copy">Copyright © 2012 | <a href="#">Your Site</a> </p>
+                <p class="copy">Copyright © 2012 | <a href="#">Peter丶攀</a> </p>
             </div>
         </div>
     </div>
 </footer>
 <!-- JS -->
 <script src="<?php echo static_url('js/jquery.js'); ?>"></script> <!-- jQuery -->
+<script src="<?php echo static_url('js/my.js'); ?>"></script> <!-- jQuery -->
 <script src="<?php echo static_url('js/bootstrap.js'); ?>"></script> <!-- Bootstrap -->
 <script src="<?php echo static_url('js/jquery-ui-1.9.2.custom.min.js'); ?>"></script> <!-- jQuery UI -->
 <script src="<?php echo static_url('js/fullcalendar.min.js'); ?>"</script> <!-- Full Google Calendar - Calendar -->

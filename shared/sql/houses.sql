@@ -9,7 +9,7 @@ CREATE TABLE `houses` (
   `expect` int(11) NOT NULL DEFAULT '0' COMMENT '房东期望价格',
   `condition` varchar(255) DEFAULT '无' COMMENT '房屋条件是否有家具精装简装',
   `status` tinyint(11) unsigned NOT NULL DEFAULT '0',
-  `created` int(11) unsigned NOT NULL,
-  `updated` int(11) unsigned NOT NULL,
+  `created` int(11) NOT NULL,
+  `updated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

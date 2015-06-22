@@ -9,6 +9,10 @@ class MY_Controller extends CI_Controller {
         $this->load->view('Common/top');
         $this->load->view('Common/left');
     }
+
+    protected function _return_json($data) {
+        echo json_encode($data);
+    }
 }
 
 class REAL_Controller extends CI_Controller {

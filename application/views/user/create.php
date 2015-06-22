@@ -43,6 +43,12 @@
 <form class="form-horizontal">
 <!-- Name -->
 <div class="form-group">
+    <label class="control-label col-lg-3">员工ID</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="id" value="<?php //echo ; ?>" readonly>
+    </div>
+</div>
+<div class="form-group">
     <label class="control-label col-lg-3">员工姓名</label>
     <div class="col-lg-6">
         <input type="text" class="form-control" name="name">
@@ -52,7 +58,7 @@
 <div class="form-group">
     <label class="control-label col-lg-3">员工密码</label>
     <div class="col-lg-6">
-        <input type="password" class="form-control" name="password">
+        <input type="password" class="form-control" name="password" maxlength=16>
     </div>
 </div>
 <!-- Email -->
@@ -98,7 +104,7 @@
 <div class="form-group">
     <label class="control-label col-lg-3">员工身份证</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="identity" maxlength=18 >
+        <input type="text" class="form-control" name="identity" maxlength=18>
     </div>
 </div>
 <!-- Email -->
@@ -134,16 +140,16 @@
     </div>
 </div>
 <!-- City -->
-<div class="form-group">
+<!--<div class="form-group">
     <label class="control-label col-lg-3">员工照片</label>
     <div class="col-lg-6">
         <input type="file" class="form-control" name="avatar">
     </div>
-</div>
+</div>-->
 <!-- Checkbox -->
 <div class="form-group">
     <div class="col-lg-6 col-lg-offset-1">
-        <label class="checkbox inline"><input type="checkbox" id="inlineCheckbox3" value="agree">确定了哦</label>
+        <label class="checkbox inline"><input type="checkbox" name="agree" value="agree">确定了哦!怕你看不到,再问一遍,你真的确定了啊!!</label>
     </div>
 </div>
 
@@ -151,7 +157,7 @@
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <a type="submit" class="btn btn-success">嗯 就这样</a>
+        <a type="submit" class="btn btn-success" href="##">嗯 就这样</a>
         <button type="reset" class="btn btn-default">错 我要改</button>
     </div>
 </div>

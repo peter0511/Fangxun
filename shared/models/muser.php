@@ -1,26 +1,5 @@
 <?php
-/*
- * type 字段的二进制含义
- * 1 : 官方账号
- * 2 : 实名认证
- * 4 : 经纪人认证
- */
-defined('USER_USERTYPE_GR')      OR define('USER_USERTYPE_GR', 1);//个人
-defined('USER_USERTYPE_JJR')     OR define('USER_USERTYPE_JJR', 2);//经纪人
-defined('USER_USERTYPE_ZZH')     OR define('USER_USERTYPE_ZZH', 3);//种植户
-defined('USER_USERTYPE_QY')      OR define('USER_USERTYPE_QY', 4);//企业
-defined('USER_USERTYPE_JXS')     OR define('USER_USERTYPE_JXS', 6);//经销商
-defined('USER_USERTYPE_UNKNOWN') OR define('USER_USERTYPE_UNKNOWN', 999);
-
-defined('USER_USERSOURCE_WWW')    OR define('USER_USERSOURCE_WWW', 1);
-defined('USER_USERSOURCE_WWWQQ')  OR define('USER_USERSOURCE_WWWQQ', 11);
-defined('USER_USERSOURCE_MOB')    OR define('USER_USERSOURCE_MOB', 2);
-defined('USER_USERSOURCE_JI')     OR define('USER_USERSOURCE_JI', 12);
-defined('USER_USERSOURCE_JIQQ')   OR define('USER_USERSOURCE_JIQQ', 122);
-defined('USER_USERSOURCE_WEBAPP') OR define('USER_USERSOURCE_WEBAPP', 111);
-
 class MUser extends MY_Model {
-    use MemAuto;
 
     private $table = "users";
 
