@@ -7,11 +7,11 @@ $(document).ready(function(){
       dataType: "json",
       data : {input: Input},
       success : function(data){
-        if (data.status != 1) {
           alert(data.msg);
-        }else{
-          alert(data.msg);
-        }
+      },
+      error : function(){
+          alert('嗯,这个人已经是咱们team之中的了!加油哦!');
+          window.location.href="/user"; 
       }
     })
   })

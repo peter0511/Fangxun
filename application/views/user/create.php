@@ -40,12 +40,18 @@
 <!-- Profile form -->
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<form class="form-horizontal">
+<?php echo form_open('', array('autocomplete' => 'on', 'class' => 'form-horizontal')); ?>
 <!-- Name -->
 <div class="form-group">
     <label class="control-label col-lg-3">员工ID</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="id" value="<?php //echo ; ?>" readonly>
+        <input type="text" class="form-control" name="id" value="<?php echo $id; ?>" readonly>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">登陆账号</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="username">
     </div>
 </div>
 <div class="form-group">
@@ -73,7 +79,7 @@
     <label class="control-label col-lg-3">员工性别</label>
     <div class="col-lg-6">
         <?php foreach ($sex as $ke => $va): ?>
-        <input type="radio" name="sex" value="<?php echo $ke ?>"><?php echo $va ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="sex" value="<?php echo $ke; ?>"><?php echo $va; ?>&nbsp;&nbsp;&nbsp;&nbsp;
         <?php endforeach; ?>
     </div>
 </div>
@@ -88,7 +94,7 @@
 <div class="form-group">
     <label class="control-label col-lg-3">员工电话</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="moblie">
+        <input type="text" class="form-control" name="mobile">
     </div>
 </div>
 <!-- City -->
@@ -161,7 +167,7 @@
         <button type="reset" class="btn btn-default">错 我要改</button>
     </div>
 </div>
-</form>
+<?php echo form_close(); ?>
 </div>
 </div>
 </div>

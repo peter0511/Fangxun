@@ -12,6 +12,17 @@ class MY_Model extends CI_Model
         parent::__construct();
     }
 
+    public function end1($start = 0, $size = 0, $order_by = array())
+    {
+        if($size > 0) {
+            $this->db->limit($size, $start);
+        }
+        foreach($order_by as $field => $order) {
+            $this->db->order_by($field, $order);
+        }
+        return $this->db->get($this->table)->result();
+    } 
+
     /**
      * switch_db
      * @return void
