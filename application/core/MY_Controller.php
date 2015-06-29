@@ -12,6 +12,7 @@ class MY_Controller extends CI_Controller {
 
     protected function _return_json($data) {
         echo json_encode($data);
+        exit;
     }
 }
 

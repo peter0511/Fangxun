@@ -8,13 +8,13 @@ CREATE TABLE `users` (
   `native` varchar(11) NOT NULL COMMENT '籍贯',
   `avatar` varchar(255) DEFAULT '' COMMENT '头像',
   `education` tinyint(11) NOT NULL DEFAULT '0' COMMENT '学历,0:本科,1:大专,2:中专,3:高中,4:初中,5:小学',
-  `identity` tinyint(11) NOT NULL DEFAULT '0' COMMENT '身份证号',
-  `mobile` tinyint(11) NOT NULL DEFAULT '0' COMMENT '电话号码',
+  `identity` varchar(255) NOT NULL DEFAULT '0' COMMENT '身份证号',
+  `mobile` varchar(255) NOT NULL DEFAULT '0' COMMENT '电话号码',
   `address` varchar(255) NOT NULL DEFAULT '0' COMMENT '地址',
-  `phone` tinyint(11) NOT NULL DEFAULT '0' COMMENT '应急电话',
+  `phone` varchar(255) NOT NULL DEFAULT '0' COMMENT '应急电话',
   `position` tinyint(11) NOT NULL DEFAULT '0' COMMENT '员工职务,0:技术,1:老板,2:经理,3:外勤',
   `status` tinyint(11) NOT NULL DEFAULT '0' COMMENT '员工状态,0:在职,1:离职',
-  `created` int(11) unsigned NOT NULL,
-  `updated` int(11) unsigned NOT NULL,
+  `created` int(11) NOT NULL,
+  `updated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

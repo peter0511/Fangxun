@@ -13,9 +13,6 @@ class User extends MY_Controller {
         $this->load->helper('form');
         $Muser = $this->load->model('Muser');
         $user = $this->Muser->end1(0, 1, array('id' => 'DESC'));
-        foreach ($user as $value) {
-            $id = $value->id;
-        }
         $status = C('status.yuangong.text');
         $education = C('status.education.text');
         $sex = C('status.sex.text');
@@ -26,8 +23,14 @@ class User extends MY_Controller {
             'sex'       => $sex,
             'position'  => $position,
             'module'    => array(''),
-            'id'        => $id + 1,
         );
+        $data['id'] = 0;
+        if (!empty($user)) {
+            foreach ($user as $value) {
+                $id = $value->id;
+            }
+            $data['id'] = $id + 1;
+        }
         //$this->form_validation->set_rules('username', '登陆邮箱', 'required|greater_than[0]');
         //$this->form_validation->set_rules('name', '真实姓名', 'required|greater_than[0]');
         //$this->form_validation->set_rules('password', '登陆密码', 'required|greater_than[0]');
@@ -49,28 +52,27 @@ class User extends MY_Controller {
         $str = $this->input->post('input', TRUE);
         $input = preg_replace("/[+]/","", $str);
         $inputs = explode('&', $input);
+        $data = array();
+        $data = array(
+            'created'   => $this->input->server('REQUEST_TIME'),
+            'updated'   => $this->input->server('REQUEST_TIME'),
+        );
         foreach ($inputs as $value) {
             $inputsa = explode('=', $value);
             $data[$inputsa[0]] = trim($inputsa[1]);
         }
         if (!isset($data['agree'])) {
             $res['msg'] = '亲,你还不确定吗?你再重写吧!';
-            $res = json_encode($res);
-            echo $res;
-            exit;
+            $this->_return_json($res);
         }
-        //if (strlen(trim($data['password'])) < 8 || strlen(trim($data['password'])) > 16) {
-        //    $res['msg'] = '你设置密码格式不对哦!亲!';
-        //    $res = json_encode($res);
-        //    echo $res;
-        //    exit;
-        //}
-        //if (!isset($data['username'])) {
-        //    $res['msg'] = '亲,你不给用户名?我就不让加!';
-        //    $res = json_encode($res);
-        //    echo $res;
-        //    exit;
-        //}
+        if (strlen(trim($data['password'])) < 8 || strlen(trim($data['password'])) > 16) {
+            $res['msg'] = '你设置密码格式不对哦!亲!';
+            $this->_return_json($res);
+        }
+        if (!isset($data['username'])) {
+            $res['msg'] = '亲,你不给用户名?我就不让加入团队!';
+            $this->_return_json($res);
+        }
         //if (!isset($data['name']) || !isset($data['age']) || !isset($data['sex']) || !isset($data['native']) || !isset($data['mobile']) || !isset($data['education']) || !isset($data['identity']) || !isset($data['address']) || !isset($data['phone']) || !isset($data['position']) || !isset($data['status'])) {
         //    $res['msg'] = '亲,你看看还有什么没填,这可是你的员工信息啊!';
         //    $res = json_encode($res);
@@ -82,7 +84,11 @@ class User extends MY_Controller {
         $data['password'] = $return;
         unset($data['agree']);
         unset($data['id']);
-        $this->Muser->save($data);
+        $rest = $this->Muser->save($data);
+        if ($rest) {
+            $res['msgs'] = '亲';
+            $this->_return_json($res);
+        }
     }
 }
 
