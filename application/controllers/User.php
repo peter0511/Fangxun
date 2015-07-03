@@ -3,10 +3,6 @@
 class User extends MY_Controller {
 
 	public function index() { 
-        $aaa=$this->session->all_userdata();
-        echo '<pre>'; var_dump($aaa); echo '</pre>'; die();
-
-        
 		$this->load->view('User/index');
         $this->load->view('Common/footer');
 	}
