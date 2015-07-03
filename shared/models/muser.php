@@ -10,7 +10,7 @@ class MUser extends MY_Model {
     function current() {
         static $cur = NULL;
         if(is_null($cur)) {
-            $this->load->library('session');
+            $this->load->library(array('session'));
             $uid = $this->session->userdata('uid');
             if(!empty($uid)) {
                 $cur = $this->info($uid);
@@ -20,9 +20,14 @@ class MUser extends MY_Model {
     }
 
     public function set_current($user = NULL) {
-        $this->load->library('session');
         if(is_object($user)) {
-            $this->session->set_userdata('uid', $user->uid);
+            $data = array(
+                'uid'      => $user->id,
+                'name'     => $user->name,
+                'position' => $user->position,
+                'status'   => $user->status,
+            );
+            $this->session->set_userdata($data);
         } else if(is_null($user)) {
             $this->session->unset_userdata('uid');
         }

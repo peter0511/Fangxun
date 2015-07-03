@@ -3,6 +3,9 @@
 class User extends MY_Controller {
 
 	public function index() { 
+        $aaa=$this->session->all_userdata();
+        echo '<pre>'; var_dump($aaa); echo '</pre>'; die();
+
         
 		$this->load->view('User/index');
         $this->load->view('Common/footer');
@@ -79,8 +82,8 @@ class User extends MY_Controller {
         //    echo $res;
         //    exit;
         //}
-        $return = $this->encrypt->encode($data['password']);
-        $return = sha1($return);
+        $return = sha1($data['password']);
+        $return = $this->encrypt->encode($return);
         $data['password'] = $return;
         unset($data['agree']);
         unset($data['id']);
