@@ -2,18 +2,19 @@
 class MUser extends MY_Model {
 
     private $table = "users";
+    public $logged_in = FALSE;
 
     function __construct() {
         parent::__construct($this->table);
+        $this->user_current();
     }
 
     function current() {
         static $cur = NULL;
         if(is_null($cur)) {
-            $this->load->library(array('session'));
             $uid = $this->session->userdata('uid');
             if(!empty($uid)) {
-                $cur = $this->info($uid);
+                $cur = file_get_contents('/Users/Peter/Work/test/Fangxun/shared/session/');
             }
         }
         return $cur;
@@ -26,11 +27,20 @@ class MUser extends MY_Model {
                 'name'     => $user->name,
                 'position' => $user->position,
                 'status'   => $user->status,
+                'last_time' => $this->input->server('REQUEST_TIME'),
             );
             $this->session->set_userdata($data);
+            redirect('user');
         } else if(is_null($user)) {
             $this->session->unset_userdata('uid');
         }
+    }
+
+    public function user_current(){
+        $logged = $this->session->all_userdata();
+        echo '<pre>'; var_dump($logged); echo '</pre>';
+        $this->logged_in = ($logged) ? TRUE : FALSE;
+        return $this->logged_in;
     }
 
     /**
@@ -170,26 +180,26 @@ class MUser extends MY_Model {
         return $this->db->insert_id();
     }
 
-    function info($uid, $cached = TRUE) {
-        $this->load->library('YmtMemcached');
-        $mkey = "muser::info_{$uid}";
-        $res = $this->ymtmemcached->get($mkey);
-        if ($res && $cached) {
-            return $res;
-        }
-        $info = $this->db->get_where($this->table, array('uid' => $uid, 'status' => 1))->result_array();
-        if($info) {
-            $info[0]['show_type'] = $this->show_type($info[0]['user_type']);
-            $this->ymtmemcached->set($mkey, $info[0]);
-            return $info[0];
-        }
-        return FALSE;
-    }
+//    function info($uid, $cached = TRUE) {
+//        $this->load->library('YmtMemcached');
+//        $mkey = "muser::info_{$uid}";
+//        $res = $this->ymtmemcached->get($mkey);
+//        if ($res && $cached) {
+//            return $res;
+//        }
+//        $info = $this->db->get_where($this->table, array('uid' => $uid, 'status' => 1))->result_array();
+//        if($info) {
+//            $info[0]['show_type'] = $this->show_type($info[0]['user_type']);
+//            $this->ymtmemcached->set($mkey, $info[0]);
+//            return $info[0];
+//        }
+//        return FALSE;
+//    }
 
-    public function reset_memcache($uid) {
-        $this->load->library('YmtMemcached');
-        $this->ymtmemcached->del("muser::info_$uid");
-    }
+//    public function reset_memcache($uid) {
+//        $this->load->library('YmtMemcached');
+//        $this->ymtmemcached->del("muser::info_$uid");
+//    }
 
     function get_by_username($username) {
         return $this->db->where('username', $username)->where('status', 1)->get($this->table)->first_row();

@@ -2,6 +2,10 @@
 
 class Login extends REAL_Controller {
     
+    function __construct() {
+        parent::__construct();
+    }
+
 	public function index() {
 		$this->load->view('login');
 	}
@@ -15,7 +19,7 @@ class Login extends REAL_Controller {
         $passs = $this->encrypt->decode($user->password);
         $password = sha1($pass);
         if ($passs == $password) {
-            $this->Muser->set_current($user);
+            $this->auth->login($user);
         }
     }
 }

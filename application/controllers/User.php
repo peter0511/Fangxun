@@ -2,6 +2,11 @@
 
 class User extends MY_Controller {
 
+    function __construct() {
+        parent::__construct();
+        $this->load->library('Auth');
+    }
+
 	public function index() { 
 		$this->load->view('User/index');
         $this->load->view('Common/footer');
