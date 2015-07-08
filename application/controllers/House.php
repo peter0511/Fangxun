@@ -1,12 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class House extends MY_Controller {
+    protected $user;
     public function __construct() {
         parent::__construct();
         $this->load->Model(array('Mlocation'));
         $this->load->library('Auth');
-        $user = $this->auth->logined();
-        if (!isset($user['uid'])) {
+        $this->user = $this->auth->logined();
+        if (!isset($this->user->uid)) {
             redirect('login');
         }
     }

@@ -1,18 +1,38 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends MY_Controller {
+    protected $user;
 
     function __construct() {
         parent::__construct();
         $this->load->library('Auth');
-        $user = $this->auth->logined();
-        if (!isset($user['uid'])) {
+        $this->user = $this->auth->logined();
+        if (!isset($this->user->uid)) {
             redirect('login');
         }
     }
 
 	public function index() { 
-		$this->load->view('User/index');
+        $this->load->model('Muser');
+        if ($this->user->status < C('status.position.code.waiqing')) {
+            $users = $this->Muser->query(array(array('status <' => C('status.position.code.waiqing'))));
+        } else {
+            $users = $this->Muser->query(array(array('status' => C('status.position.code.waiqing'))));
+        }
+        $data = array();
+        foreach ($users as $value) {
+            $data['user'][] = array(
+                'id'   => $value->id,
+                'name' => $value->name,
+                'sex'  => C('status.sex.text.' . $value->sex),
+                'mobile' => $value->mobile,
+                'position' => C('status.position.text.' . $value->position),
+                'status' => $value->status,
+                'statuss' => C('status.yuangong.text.' . $value->status),
+                'create' => date('Y-m-d', $value->created),
+            );
+        }
+		$this->load->view('User/index', $data);
         $this->load->view('Common/footer');
 	}
 

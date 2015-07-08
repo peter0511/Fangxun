@@ -41,10 +41,10 @@ $config = array(
     ),
     'position' => array(
         'code' => array(
-            '技术' => 0, 
-            '老板' => 1,
-            '经理' => 2,
-            '外勤' => 3,
+            'jishu' => 0, 
+            'laoban' => 1,
+            'jinli' => 2,
+            'waiqing' => 3,
         ),
         'text' => array(
             0 => '技术',

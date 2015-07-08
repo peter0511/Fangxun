@@ -38,6 +38,7 @@ class MUser extends MY_Model {
 
     public function user_current(){
         $cookies = $this->session->all_userdata('uid');
+        $cookies = (object)$cookies;
         return $cookies;
     }
 
