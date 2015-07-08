@@ -16,13 +16,8 @@ class Auth {
         $this->CI->Muser->set_current($user);
     }
 
-    public function logout() {
-        $this->CI->Muser->set_current();
-    }
-
     public function logined() {
-        $res = $this->CI->Muser->user_current();
-        return $res;
+        return $this->CI->Muser->user_current();
     }
 
 

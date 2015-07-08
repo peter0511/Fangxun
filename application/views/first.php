@@ -212,7 +212,7 @@
              
         </div>
         <div class="copy-rights">
-              	<p> aaaaaaaa<a href="<?php echo site_url('login'); ?>" target="" title="模板之家">西宁房讯</a> <br>
+              	<p> aaaaaaaa<a href="<?php echo site_url('xnfx'); ?>" target="" title="模板之家">西宁房讯</a> <br>
 
 All rights reserved.</p>
               </div>

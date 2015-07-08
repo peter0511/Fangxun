@@ -5,6 +5,10 @@ class User extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->library('Auth');
+        $user = $this->auth->logined();
+        if (!isset($user['uid'])) {
+            redirect('login');
+        }
     }
 
 	public function index() { 

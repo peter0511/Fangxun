@@ -37,10 +37,8 @@ class MUser extends MY_Model {
     }
 
     public function user_current(){
-        $logged = $this->session->all_userdata();
-        echo '<pre>'; var_dump($logged); echo '</pre>';
-        $this->logged_in = ($logged) ? TRUE : FALSE;
-        return $this->logged_in;
+        $cookies = $this->session->all_userdata('uid');
+        return $cookies;
     }
 
     /**

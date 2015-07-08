@@ -3,8 +3,12 @@
 class House extends MY_Controller {
     public function __construct() {
         parent::__construct();
-        //$this->load->library(array('AppSecurity', 'YmtMemcached', 'Crawl'));
         $this->load->Model(array('Mlocation'));
+        $this->load->library('Auth');
+        $user = $this->auth->logined();
+        if (!isset($user['uid'])) {
+            redirect('login');
+        }
     }
 
 	public function index() {
@@ -19,7 +23,6 @@ class House extends MY_Controller {
 
 	public function address() {
         //$a = $this->MLocation->count('1');
-        //echo '<pre>'; var_dump($a); echo '</pre>'; die();
 		$this->load->view('House/address');
         $this->load->view('Common/footer');
 	}
