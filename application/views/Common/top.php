@@ -12,24 +12,25 @@
     <link href="<?php echo static_url('css/bootstrap.css'); ?>" rel="stylesheet">
     <!-- Font awesome icon -->
     <link rel="stylesheet" href="<?php echo static_url('css/font-awesome.css'); ?>">
+    <link href="<?php echo static_url('css/style.css'); ?>" rel="stylesheet">
+    <script src="<?php echo static_url('js/jquery.js'); ?>"></script> <!-- jQuery -->
     <!-- jQuery UI -->
-    <link rel="stylesheet" href="<?php echo static_url('css/jquery-ui.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/jquery-ui.css'); ?>">
     <!-- Calendar -->
-    <link rel="stylesheet" href="<?php echo static_url('css/fullcalendar.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/fullcalendar.css'); ?>">
     <!-- prettyPhoto -->
-    <link rel="stylesheet" href="<?php echo static_url('css/prettyPhoto.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/prettyPhoto.css'); ?>">
     <!-- Star rating -->
-    <link rel="stylesheet" href="<?php echo static_url('css/rateit.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/rateit.css'); ?>">
     <!-- Date picker -->
-    <link rel="stylesheet" href="<?php echo static_url('css/bootstrap-datetimepicker.min.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/bootstrap-datetimepicker.min.css'); ?>">
     <!-- CLEditor -->
-    <link rel="stylesheet" href="<?php echo static_url('css/jquery.cleditor.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/jquery.cleditor.css'); ?>">
     <!-- Uniform -->
     <link rel="stylesheet" href="<?php //echo static_url('css/uniform.default.css'); ?>">
     <!-- Bootstrap toggle -->
-    <link rel="stylesheet" href="<?php echo static_url('css/bootstrap-switch.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/bootstrap-switch.css'); ?>">
     <!-- Main stylesheet -->
-    <link href="<?php echo static_url('css/style.css'); ?>" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">

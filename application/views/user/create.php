@@ -179,3 +179,4 @@
 <!-- Matter ends -->
 </div>
 <div class="clearfix"></div>
+<script src="<?php echo static_url('js/my.js'); ?>"></script>

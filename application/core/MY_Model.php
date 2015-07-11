@@ -101,7 +101,7 @@ class MY_Model extends CI_Model
             }
         }
         if(!$status) {
-            $this->db->where('status', 1);
+            $this->db->where('status', 0);
         }
 
         if($size > 0) {

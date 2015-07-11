@@ -65,7 +65,7 @@
                 <td><?php echo $val['sex']; ?></td>
                 <td><?php echo $val['mobile']; ?></td>
                 <td><?php echo $val['position']; ?></td>
-                <td><span class="label <?php echo $val['status'] == '在职' ? 'label-danger' : 'label-success'; ?>"><?php echo $val['statuss']; ?></span></td>
+                <td><span class="label <?php echo $val['status'] == '在职' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <td><?php echo $val['create']; ?></td>
                 <td>
                     <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>

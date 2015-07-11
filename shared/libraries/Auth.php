@@ -17,7 +17,11 @@ class Auth {
     }
 
     public function logined() {
-        return $this->CI->Muser->user_current();
+        $users = $this->CI->Muser->user_current();
+        if ($users->status == C('status.yuangong.code.lizhi')) {
+            redirect('login');
+        }
+        return $users;
     }
 
 

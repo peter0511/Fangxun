@@ -2,6 +2,7 @@
 
 class User extends MY_Controller {
     protected $user;
+    protected $permissions;
 
     function __construct() {
         parent::__construct();
@@ -10,14 +11,15 @@ class User extends MY_Controller {
         if (!isset($this->user->uid)) {
             redirect('login');
         }
+        $this->permissions = $this->user->position;
     }
 
 	public function index() { 
         $this->load->model('Muser');
-        if ($this->user->status < C('status.position.code.waiqing')) {
-            $users = $this->Muser->query(array(array('status <' => C('status.position.code.waiqing'))));
+        if ($this->user->position < C('status.position.code.waiqing')) {
+            $users = $this->Muser->query(array(array('status' => C('status.yuangong.code'))));
         } else {
-            $users = $this->Muser->query(array(array('status' => C('status.position.code.waiqing'))));
+            $users = $this->Muser->query(array(array('position' => C('status.position.code.waiqing'), 'status' => C('status.yuangong.code.zaizhi'))));
         }
         $data = array();
         foreach ($users as $value) {
@@ -27,8 +29,7 @@ class User extends MY_Controller {
                 'sex'  => C('status.sex.text.' . $value->sex),
                 'mobile' => $value->mobile,
                 'position' => C('status.position.text.' . $value->position),
-                'status' => $value->status,
-                'statuss' => C('status.yuangong.text.' . $value->status),
+                'status' => C('status.yuangong.text.' . $value->status),
                 'create' => date('Y-m-d', $value->created),
             );
         }
@@ -37,6 +38,9 @@ class User extends MY_Controller {
 	}
 
 	public function add() {
+        if ($this->permissions > C('status.position.code.jinli')) {
+            redirect('user');
+        }
         //$this->load->library(array('form_validation'));
         $this->load->helper('form');
         $Muser = $this->load->model('Muser');
@@ -114,7 +118,7 @@ class User extends MY_Controller {
         unset($data['id']);
         $rest = $this->Muser->save($data);
         if ($rest) {
-            $res['msgs'] = '亲';
+            $res['msgs'] = '亲,你们的队伍又庞大了,曾攀发来贺';
             $this->_return_json($res);
         }
     }
