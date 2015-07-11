@@ -16,20 +16,20 @@ class User extends MY_Controller {
 
 	public function index() { 
         $this->load->model('Muser');
-        if ($this->user->position < C('status.position.code.waiqing')) {
-            $users = $this->Muser->query(array(array('status' => C('status.yuangong.code'))));
+        if ($this->user->position < C('user.position.code.waiqing')) {
+            $users = $this->Muser->query(array(array('status' => C('user.yuangong.code'))));
         } else {
-            $users = $this->Muser->query(array(array('position' => C('status.position.code.waiqing'), 'status' => C('status.yuangong.code.zaizhi'))));
+            $users = $this->Muser->query(array(array('position' => C('user.position.code.waiqing'), 'status' => C('user.yuangong.code.zaizhi'))));
         }
         $data = array();
         foreach ($users as $value) {
             $data['user'][] = array(
                 'id'   => $value->id,
                 'name' => $value->name,
-                'sex'  => C('status.sex.text.' . $value->sex),
+                'sex'  => C('user.sex.text.' . $value->sex),
                 'mobile' => $value->mobile,
-                'position' => C('status.position.text.' . $value->position),
-                'status' => C('status.yuangong.text.' . $value->status),
+                'position' => C('user.position.text.' . $value->position),
+                'status' => C('user.yuangong.text.' . $value->status),
                 'create' => date('Y-m-d', $value->created),
             );
         }
@@ -38,23 +38,23 @@ class User extends MY_Controller {
 	}
 
 	public function add() {
-        if ($this->permissions > C('status.position.code.jinli')) {
+        if ($this->permissions > C('user.position.code.jinli')) {
             redirect('user');
         }
         //$this->load->library(array('form_validation'));
         $this->load->helper('form');
         $Muser = $this->load->model('Muser');
         $user = $this->Muser->end1(0, 1, array('id' => 'DESC'));
-        $status = C('status.yuangong.text');
-        $education = C('status.education.text');
-        $sex = C('status.sex.text');
-        $position = C('status.position.text');
+        $status = C('user.yuangong.text');
+        $education = C('user.education.text');
+        $sex = C('user.sex.text');
+        $position = C('user.position.text');
+        $data = array();
         $data = array(
             'status'    => $status,
             'education' => $education,
             'sex'       => $sex,
             'position'  => $position,
-            'module'    => array(''),
         );
         $data['id'] = 0;
         if (!empty($user)) {

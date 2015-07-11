@@ -30,7 +30,7 @@ class MUser extends MY_Model {
                 'last_time' => $this->input->server('REQUEST_TIME'),
             );
             $this->session->set_userdata($data);
-            redirect('user');
+            redirect('xnfx');
         } else if(is_null($user)) {
             $this->session->unset_userdata('uid');
         }

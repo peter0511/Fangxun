@@ -53,72 +53,97 @@
 <form class="form-horizontal">
 <!-- Name -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="name1">房东姓名</label>
+    <label class="control-label col-lg-3">房东姓名</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="name1">
+        <input type="text" class="form-control" name="name" placeholder="房东的姓名,你不会不知道吧">
     </div>
 </div>
 <!-- Telephone -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="telephone">房东电话</label>
+    <label class="control-label col-lg-3">房东电话</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="telephone">
+        <input type="text" class="form-control" name="mobile" placeholder="房东的电话">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">房东身份证</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="identity" maxlength=18 placeholder="身份证号应该是18位对不!">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">房东地址</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="site" placeholder="哪个区哪条街哪个小区几号楼几单元几室">
     </div>
 </div>
 <!-- Country -->
 <div class="form-group">
     <label class="control-label col-lg-3">房源位置</label>
     <div class="col-lg-3">
-    <select class="form-control">
+    <select class="form-control town" name="town">
         <option value=""> --- 市区 --- </option>
-        <option value="1">城西区</option>
+        <?php foreach($town as $val): ?>
+        <option value="<?php echo $val['id']; ?>" class="true"><?php echo $val['name']; ?></option>
+        <?php endforeach; ?>
     </select>
     </div>
     <div class="col-lg-3">
-        <select class="form-control">
-            <option value=""> --- 街道,如果没有到去添加地址页面添加 --- </option>
-            <option value="1">昆仑路</option>
+        <select class="form-control street" name="street">
+            <option value="" disabled> --- 街道,如果没有到.去添加地址页面添加 --- </option>
         </select>
     </div>
     <div class="col-lg-3">
-        <select class="form-control">
-            <option value=""> --- 社区,如果没有到去添加地址页面添加 --- </option>
-            <option value="1">二运家属院</option>
+        <select class="form-control community" name="community">
+            <option value="" disabled> --- 社区,如果没有到.去添加地址页面添加 --- </option>
         </select>
     </div>
 </div>
 <!-- Address -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="address">具体地址</label>
+    <label class="control-label col-lg-3">具体地址</label>
     <div class="col-lg-6">
-        <textarea class="form-control" id="address" placeholder="几号楼##几单元##几室@@注意:标点为英文标点o必须按这个格式"></textarea>
+        <textarea class="form-control" name="address" placeholder="仅仅需要几号楼几单元几室"></textarea>
     </div>
 </div>
 <!-- State -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="city">房东期望价</label>
+    <label class="control-label col-lg-3">房东期望价</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="state">
+        <input type="text" class="form-control" name="expect" placeholder="仅仅需要写多少元,不需要单位元">
     </div>
 </div>
 <!-- City -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="city">房屋条件</label>
+    <label class="control-label col-lg-3">房屋条件</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="city">
+        <textarea class="form-control"  name="condition" placeholder="房屋条件,精装简装,是否有卫生间厨房,是否有家具,诸如此类"></textarea>
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label col-lg-3" for="telephone">房源照片</label>
+    <label class="control-label col-lg-3">房源状态</label>
     <div class="col-lg-6">
-        <input type="file" class="form-control" id="telephone">
+        <?php foreach ($house as $key => $value): ?>
+        <input type="radio" name="status" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
+    </div>
+</div>
+<!--<div class="form-group">
+    <label class="control-label col-lg-3">房源照片</label>
+    <div class="col-lg-6">
+        <input type="file" class="form-control" name="telephone">
+    </div>
+</div>-->
+<div class="form-group">
+    <div class="col-lg-6 col-lg-offset-1">
+        <label class="checkbox inline"><input type="checkbox" name="agree" value="agree">确定了哦!怕你看不到,再问一遍,你真的确定了啊!!</label>
     </div>
 </div>
 <!-- Buttons -->
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <button type="submit" class="btn btn-success">确定录入了</button>
+        <a type="submit" class="btn btn-success">确定录入了</a>
         <button type="reset" class="btn btn-default">不对重写吧</button>
     </div>
 </div>
@@ -140,3 +165,4 @@
 
 </div>
 <div class="clearfix"></div>
+<script src="<?php echo static_url('js/house.js'); ?>"></script> 

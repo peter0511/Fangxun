@@ -19,7 +19,21 @@ class House extends MY_Controller {
 	}
 
 	public function add() {
-		$this->load->view('House/create');
+        $this->load->model('Mlocation');
+        $house = C('house.house.text');
+        $data = array();
+        $location = $this->Mlocation->query(array(array('upid' => 0)));
+        $data = array(
+            'house' => $house,
+        );
+        foreach ($location as $value) {
+            $data['town'][] = array(
+                'name' => $value->name,
+                'id'   => $value->id,
+                'upid' => $value->upid,
+            );
+        }
+		$this->load->view('House/create', $data);
         $this->load->view('Common/footer');
 	}
 
@@ -44,7 +58,6 @@ class House extends MY_Controller {
         $this->load->model(array('Muser', 'Mlocation'));
         $user = $this->Muser->geto($this->user->uid);
         $this->load->library(array('form_validation', 'encrypt'));
-        $select = $this->input->post('', TRUE);
         $str = $this->input->post('input', TRUE);
         $input = preg_replace("/[+]/","", $str);
         $inputs = explode('&', $input);
@@ -53,10 +66,10 @@ class House extends MY_Controller {
             $inputsa = explode('=', $value);
             $data[$inputsa[0]] = trim($inputsa[1]);
         }
-        //if (empty($data['communty']) || empty($data['street'])) {
-        //    $res['msg'] = '别逗我啊,你有没有填写的吧';
-        //    $this->_return_json($res);
-        //}
+        if (empty($data['communty']) && empty($data['street'])) {
+            $res['msg'] = '别逗我啊,你有没有填写的吧';
+            $this->_return_json($res);
+        }
 
         if (is_numeric($data['street'])) {
             $item = array();
@@ -64,7 +77,7 @@ class House extends MY_Controller {
                 'upid' => $data['street'],
                 'path' => $data['town'] . '-' . $data['street'],
                 'name' => $data['community'],
-                'user' => $user->name,
+                'user_id' => $user->id,
                 'created' => $this->input->server('REQUEST_TIME'),
                 'updated' => $this->input->server('REQUEST_TIME'),
             );
@@ -79,7 +92,7 @@ class House extends MY_Controller {
                 'upid' => $data['town'],
                 'path' => $data['town'],
                 'name' => $data['street'],
-                'user' => $user->name,
+                'user_id' => $user->id,
                 'created' => $this->input->server('REQUEST_TIME'),
                 'updated' => $this->input->server('REQUEST_TIME'),
             );
@@ -90,7 +103,7 @@ class House extends MY_Controller {
                     'upid' => $rest,
                     'path' => $data['town'] . '-' . $rest,
                     'name' => $data['community'],
-                    'user' => $user->name,
+                    'user_id' => $user->id,
                     'created' => $this->input->server('REQUEST_TIME'),
                     'updated' => $this->input->server('REQUEST_TIME'),
                 );
@@ -102,7 +115,69 @@ class House extends MY_Controller {
             }
             
         }
+    }
 
+    public function ajax_save_house() {
+        $this->load->model(array('MHouse', 'MLandlord'));
+        $str = $this->input->post('input', TRUE);
+        $input = preg_replace("/[+]/","", $str);
+        $inputs = explode('&', $input);
+        $user = $this->Muser->geto($this->user->uid);
+        $data = array();
+        foreach ($inputs as $value) {
+            $inputsa = explode('=', $value);
+            $data[$inputsa[0]] = trim($inputsa[1]);
+        }
+        if (!isset($data['agree'])) {
+            $res['msg'] = '亲,你还不确定吗?你再重写吧!';
+            $this->_return_json($res);
+        }
+        if (strlen(trim($data['identity'])) == 18) {
+            $res['msg'] = '你的写的身份证不对吧!亲';
+            $this->_return_json($res);
+        }
+        unset($data['agree']);
+        $res = array();
+        $res = array(
+            'user_id' => $user->id,
+            'mobile' => $data['mobile'],
+        );
+        $landlord = $this->MLandlord->query(array($res));
+        $item = array();
+        $item = array(
+            'user_id' => $user->name,
+            'town_id' => $data['town'],
+            'street_id' => $data['street'],
+            'community_id' => $data['community'],
+            'address' => $data['address'],
+            'expect' => $data['expect'],
+            'condition' => $data['condition'],
+            'status' => $data['status'],
+            'created' => $this->input->server('REQUEST_TIME'),
+            'updated' => $this->input->server('REQUEST_TIME'),
+        );
+        if (! $landlord) {
+            $res = array(
+                'user_id' => $user->id,
+                'mobile' => $data['mobile'],
+                'landlord_name' => $data['name'],
+                'site' => $data['site'],
+                'created' => $this->input->server('REQUEST_TIME'),
+                'updated' => $this->input->server('REQUEST_TIME'),
+            );
+            $land = $this->MLandlord->add($res);
+            $item['landlord_id'] = $land;
+        } else {
+            foreach ($landlord as $value) {
+                $this->MLandlord->update($value->id, array('updated' => $this->input->server('REQUEST_TIME')));
+                $item['landlord_id'] = $value->id;
+            }
+        }
+        $valu = $this->MHouse->add($item);
+        if ($value) {
+            $res['msgs'] = '亲,已经给你加上了,你再去看看吧';
+            $this->_return_json($res);
+        }
     }
 
     public function select_address() {

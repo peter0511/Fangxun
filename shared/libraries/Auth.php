@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Auth {
-
     public $current_user = NULL;
     public $current_mobile = NULL;
     public $current_user_name = NULL;
@@ -18,11 +17,9 @@ class Auth {
 
     public function logined() {
         $users = $this->CI->Muser->user_current();
-        if ($users->status == C('status.yuangong.code.lizhi')) {
+        if ($users->status == C('user.yuangong.code.lizhi')) {
             redirect('login');
         }
         return $users;
     }
-
-
 }
