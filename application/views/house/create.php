@@ -71,12 +71,6 @@
         <input type="text" class="form-control" name="identity" maxlength=18 placeholder="身份证号应该是18位对不!">
     </div>
 </div>
-<div class="form-group">
-    <label class="control-label col-lg-3">房东地址</label>
-    <div class="col-lg-6">
-        <input type="text" class="form-control" name="site" placeholder="哪个区哪条街哪个小区几号楼几单元几室">
-    </div>
-</div>
 <!-- Country -->
 <div class="form-group">
     <label class="control-label col-lg-3">房源位置</label>
@@ -95,29 +89,70 @@
     </div>
     <div class="col-lg-3">
         <select class="form-control community" name="community">
-            <option value="" disabled> --- 社区,如果没有到.去添加地址页面添加 --- </option>
+            <option value="" disabled> --- 小区,如果没有找到.去添加地址页面添加 --- </option>
         </select>
     </div>
 </div>
 <!-- Address -->
 <div class="form-group">
-    <label class="control-label col-lg-3">具体地址</label>
-    <div class="col-lg-6">
-        <textarea class="form-control" name="address" placeholder="仅仅需要几号楼几单元几室"></textarea>
+    <label class="control-label col-lg-8">具体地址</label>
+    <div class="col-lg-8">
+        <input type="text" style=""class="filterinput" name="build" placeholder="仅可用阿拉伯数字">号楼&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="element" placeholder="仅可用阿拉伯数字">单元&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="house" placeholder="仅可用阿拉伯数字">室
     </div>
 </div>
 <!-- State -->
 <div class="form-group">
-    <label class="control-label col-lg-3">房东期望价</label>
+    <label class="control-label col-lg-8">房源条件</label>
+    <div class="col-lg-8">
+        <input type="text" class="filterinput" name="birth">年代&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="orientation" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="storey" placeholder="5/12">楼层
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-8">房源户型</label>
+    <div class="col-lg-8">
+        <input type="text" style=""class="filterinput" name="room" placeholder="仅可用阿拉伯数字">室&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="hall" placeholder="仅可用阿拉伯数字">厅&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="toilet" placeholder="仅可用阿拉伯数字">卫&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="area" placeholder="仅可用阿拉伯数字">平米
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">房东报价</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="expect" placeholder="仅仅需要写多少元,不需要单位元">
+        <input type="text" class="form-control" name="expect" placeholder="格式:租金为1200元/月,长租可降为1000元/月.押金500元">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">中介费</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="agency">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">装修状态</label>
+    <div class="col-lg-6">
+        <?php foreach ($decoration as $key => $value): ?>
+        <input type="radio" name="decoration" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">家电情况</label>
+    <div class="col-lg-6">
+        <?php foreach ($appliance as $key => $value): ?>
+        <input type="radio" name="appliance" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- City -->
 <div class="form-group">
-    <label class="control-label col-lg-3">房屋条件</label>
+    <label class="control-label col-lg-3">其余备注</label>
     <div class="col-lg-6">
-        <textarea class="form-control"  name="condition" placeholder="房屋条件,精装简装,是否有卫生间厨房,是否有家具,诸如此类"></textarea>
+        <textarea class="form-control"  name="condition" placeholder="如小区环境,门口公交"></textarea>
     </div>
 </div>
 <div class="form-group">

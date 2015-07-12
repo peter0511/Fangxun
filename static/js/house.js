@@ -39,7 +39,7 @@ $(document).ready(function(){
         success : function(data){
           if (data.msgs) {
             alert(data.msgs);
-            window.location.href="/user";
+            window.location.href="/house";
           }else{
             alert(data.msg);
           }

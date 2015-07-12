@@ -16,10 +16,10 @@ class User extends MY_Controller {
 
 	public function index() { 
         $this->load->model('Muser');
-        if ($this->user->position < C('user.position.code.waiqing')) {
+        if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
             $users = $this->Muser->query(array(array('status' => C('user.yuangong.code'))));
         } else {
-            $users = $this->Muser->query(array(array('position' => C('user.position.code.waiqing'), 'status' => C('user.yuangong.code.zaizhi'))));
+            $users = $this->Muser->query(array(array('position' => C('user.position.code.zishengzhiyeguwen'), 'status' => C('user.yuangong.code.zaizhi'))));
         }
         $data = array();
         foreach ($users as $value) {
@@ -38,7 +38,7 @@ class User extends MY_Controller {
 	}
 
 	public function add() {
-        if ($this->permissions > C('user.position.code.jinli')) {
+        if ($this->permissions > C('user.position.code.zishengzhiyeguwen')) {
             redirect('user');
         }
         //$this->load->library(array('form_validation'));

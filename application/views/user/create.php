@@ -130,7 +130,7 @@
 <!-- Email -->
 <div class="form-group">
     <label class="control-label col-lg-3">员工职位</label>
-    <div class="col-lg-6">
+    <div class="col-lg-11">
         <?php foreach ($position as $kk => $vv): ?>
         <input type="radio" name="position" value="<?php echo $kk; ?>"><?php echo $vv; ?>&nbsp;&nbsp;&nbsp;&nbsp;
         <?php endforeach; ?>
