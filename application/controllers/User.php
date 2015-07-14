@@ -6,7 +6,7 @@ class User extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->library('Auth');
+        $this->load->library(array('Auth', 'Pagination'));
         $this->user = $this->auth->logined();
         if (!isset($this->user->uid)) {
             redirect('login');
@@ -14,13 +14,29 @@ class User extends MY_Controller {
         $this->permissions = $this->user->position;
     }
 
-	public function index() { 
+	public function index($tab = 0) { 
         $this->load->model('Muser');
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
-            $users = $this->Muser->query(array(array('status' => C('user.yuangong.code'))));
+            $page_size = 2;
+            $item = array(
+                'status' => C('user.yuangong.code'),
+            );
+            $users = $this->Muser->query(array($item), $tab, $page_size);
+            //$users = $this->Muser->query(array($item));
         } else {
-            $users = $this->Muser->query(array(array('position <' => C('user.position.code.dianzhu'), 'status' => C('user.yuangong.code.zaizhi'))));
+            $item = array(
+                'position <' => C('user.position.code.dianzhu'), 
+                'status' => C('user.yuangong.code.zaizhi'),
+            );
+            $users = $this->Muser->query(array($item), $tab, $page_size);
         }
+        $this->pagination->initialize(array(
+            'per_page'    => $page_size,
+            'base_url'    => site_url('user/index'),
+            'uri_segment' => 3,
+            'total_rows'  => $this->Muser->count(array($item)),
+            //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
+        ));
         $data = array();
         foreach ($users as $value) {
             $data['user'][] = array(
@@ -34,6 +50,7 @@ class User extends MY_Controller {
                 'user' => $this->user->position,
             );
         }
+        $data['pager'] = $this->pagination->create_links(); 
 		$this->load->view('User/index', $data);
         $this->load->view('Common/footer');
 	}

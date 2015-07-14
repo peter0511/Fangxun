@@ -86,13 +86,13 @@ class MY_Model extends CI_Model
     }
     
     public function query($query = array(), $start = 0, $size = 0, $order_by = array()) {
-        $status = FALSE;
+//        $status = FALSE;
         foreach($query as $condition) {
             foreach($condition as $key => $value) {
                 $keys = explode(' ', $key);
-                if($keys[0] == 'status') {
-                    $status = TRUE;
-                }
+//                if($keys[0] == 'status') {
+//                    $status = TRUE;
+//                }
                 if(is_array($value)){
                     $this->db->where_in($key, $value);
                 }else{
@@ -100,9 +100,9 @@ class MY_Model extends CI_Model
                 }
             }
         }
-        if(!$status) {
-            $this->db->where('status', 0);
-        }
+//        if(!$status) {
+//            $this->db->where('status', 0);
+//        }
 
         if($size > 0) {
             $this->db->limit($size, $start);
@@ -159,15 +159,23 @@ class MY_Model extends CI_Model
      *                * @author zp( huster.zhangpeng@gmail.com )
      *                     **/
     public function count($query = array()) {
+//        $status = FALSE;
         foreach($query as $condition) {
             foreach($condition as $key => $value) {
-                if(!empty($value) && is_array($value)) {
+                $keys = explode(' ', $key);
+//                if($keys[0] == 'status') {
+//                    $status = TRUE;
+//                }
+                if(is_array($value)){
                     $this->db->where_in($key, $value);
-                } else {
+                }else{
                     $this->db->where($key, $value);
                 }
             }
         }
+//        if(!$status) {
+//            $this->db->where('status', 0);
+//        }
         $res = $this->db->count_all_results($this->table);
         return $res;
     }

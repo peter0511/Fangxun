@@ -7,7 +7,7 @@ class House extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->Model(array('Mlocation'));
-        $this->load->library('Auth');
+        $this->load->library(array('Auth', 'Pagination'));
         $this->user = $this->auth->logined();
         if (!isset($this->user->uid)) {
             redirect('login');
@@ -15,16 +15,26 @@ class House extends MY_Controller {
         $this->permissions = $this->user->position;
     }
 
-	public function index() {
+	public function index($tab = 0) {
         $this->load->model(array('Muser', 'MHouse', 'MLocation'));
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
-            $house = $this->MHouse->query(array(array('status' => C('house.house.code'))));
+            $page_size = 3;
+            $item = array(
+                'status' => C('house.house.code'),
+            );
+            $house = $this->MHouse->query(array($item), $tab, $page_size);
         } else {
             $house = $this->MHouse->query(array(array('status' => C('house.house.code'), 'user_id' => $this->user->uid)));
             $other_house = $this->MHouse->query(array(array('status' => C('house.house.code.weizu'), 'user_id <>' => $this->user->uid)));
         }
+        $this->pagination->initialize(array(
+            'per_page'    => $page_size,
+            'base_url'    => site_url('house/index'),
+            'uri_segment' => 3,
+            'total_rows'  => $this->MHouse->count(array($item)),
+            //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
+        ));
         
-        $data = array();
         foreach ($house as $value) {
             $array = explode('.', $value->location);
             $town = $this->MLocation->geto($array[0])->name;
@@ -33,8 +43,8 @@ class House extends MY_Controller {
             $location = $town . $street . $community;
             $arr = explode('_', $value->house_type);
             $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫,' . $value->area . '平米';
-            //$user = $this->Muser->geto($value->user_id);
             $user = $this->Muser->get($value->user_id);
+
             $data['house'][] = array(
                 'id' => $value->id,
                 'user' => $user[0]['name'],
@@ -73,6 +83,8 @@ class House extends MY_Controller {
                 );
             }
         }
+
+        $data['pager'] = $this->pagination->create_links(); 
 		$this->load->view('House/index', $data);
         $this->load->view('Common/footer');
 	}

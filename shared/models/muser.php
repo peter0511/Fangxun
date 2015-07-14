@@ -76,13 +76,6 @@ class MUser extends MY_Model {
         return $this->db->from($this->table)->count_all_results();
     }
 
-    function count($query_type = '', $query_word = '') {
-        if(!empty($query_type) && !empty($query_word)) {
-            $this->db->where($query_type, $query_word);
-        }
-        return $this->db->where('status', 1)->count_all_results($this->table);
-    }
-
     function list_user($start = 0, $size = 20, $query_type = '', $query_word = '') {
         if(!empty($query_type) && !empty($query_word)) {
             $this->db->where($query_type, $query_word);

@@ -1,4 +1,15 @@
 <div class="mainbar">
+<style type="text/css">
+.widget-foot>a{
+    position: relative;
+    float: right;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+</style>
 
 <!-- Page heading -->
 <div class="page-head">
@@ -78,16 +89,7 @@
         </table>
 
         <div class="widget-foot">
-
-
-            <ul class="pagination pull-right">
-                <li><a href="#">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">Next</a></li>
-            </ul>
-
-            <div class="clearfix"></div>
-
+            <?php echo $pager; ?>
         </div>
 
     </div>
