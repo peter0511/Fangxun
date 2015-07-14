@@ -1,9 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+class Home extends REAL_Controller {
 
 	public function index() {
-		$this->load->view('Index');
-        $this->load->view('Common/footer');
+		$this->load->view('first');
 	}
 }

@@ -58,31 +58,32 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-                <th>员工编号</th>
-                <th>姓名</th>
-                <th>性别</th>
-                <th>电话号码</th>
-                <th>员工职务</th>
-                <th>状态</th>
-                <th>入职时间</th>
-                <th>操作</th>
+                <th>房东编号</th>
+                <th>房东姓名</th>
+                <th>房东联络人</th>
+                <th>房东电话</th>
+                <th>房东身份证号</th>
+                <th>房东地址</th>
+                <th>房东房源地址</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach($user as $val): ?>
+            <?php foreach($landlord as $val): ?>
             <tr>
                 <td><?php echo $val['id']; ?></td>
                 <td><?php echo $val['name']; ?></td>
-                <td><?php echo $val['sex']; ?></td>
+                <td><?php echo $val['user']; ?></td>
                 <td><?php echo $val['mobile']; ?></td>
-                <td><?php echo $val['position']; ?></td>
-                <td><span class="label <?php echo $val['status'] == '在职' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
+                <td><?php echo $val['identity']; ?></td>
+                <td><?php echo $val['site']; ?></td>
+                <td><?php echo $val['house']; ?></td>
+                <!--<td><span class="label <?php echo $val['status'] == '在职' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <td><?php echo $val['create']; ?></td>
                 <td>
                     <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
                     <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
                     <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
-                </td>
+                </td>-->
             </tr>
             <?php endforeach; ?>
             </tbody>

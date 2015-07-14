@@ -12,24 +12,25 @@
     <link href="<?php echo static_url('css/bootstrap.css'); ?>" rel="stylesheet">
     <!-- Font awesome icon -->
     <link rel="stylesheet" href="<?php echo static_url('css/font-awesome.css'); ?>">
+    <link href="<?php echo static_url('css/style.css'); ?>" rel="stylesheet">
+    <script src="<?php echo static_url('js/jquery.js'); ?>"></script> <!-- jQuery -->
     <!-- jQuery UI -->
-    <link rel="stylesheet" href="<?php echo static_url('css/jquery-ui.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/jquery-ui.css'); ?>">
     <!-- Calendar -->
-    <link rel="stylesheet" href="<?php echo static_url('css/fullcalendar.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/fullcalendar.css'); ?>">
     <!-- prettyPhoto -->
-    <link rel="stylesheet" href="<?php echo static_url('css/prettyPhoto.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/prettyPhoto.css'); ?>">
     <!-- Star rating -->
-    <link rel="stylesheet" href="<?php echo static_url('css/rateit.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/rateit.css'); ?>">
     <!-- Date picker -->
-    <link rel="stylesheet" href="<?php echo static_url('css/bootstrap-datetimepicker.min.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/bootstrap-datetimepicker.min.css'); ?>">
     <!-- CLEditor -->
-    <link rel="stylesheet" href="<?php echo static_url('css/jquery.cleditor.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/jquery.cleditor.css'); ?>">
     <!-- Uniform -->
     <link rel="stylesheet" href="<?php //echo static_url('css/uniform.default.css'); ?>">
     <!-- Bootstrap toggle -->
-    <link rel="stylesheet" href="<?php echo static_url('css/bootstrap-switch.css'); ?>">
+    <link rel="stylesheet" href="<?php //echo static_url('css/bootstrap-switch.css'); ?>">
     <!-- Main stylesheet -->
-    <link href="<?php echo static_url('css/style.css'); ?>" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
@@ -47,53 +48,10 @@
         <ul class="nav navbar-nav">
             <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
             <li class="dropdown dropdown-big">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="icon-cloud-upload"></i></span> 上传到云服务器</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="icon-cloud-upload"></i></span>aaaaaa</a>
                 <!-- Dropdown -->
-                <ul class="dropdown-menu">
-                    <li>
-                        <!-- Progress bar -->
-                        <p>图片上传进度</p>
-                        <!-- Bootstrap progress bar -->
-                        <div class="progress progress-striped active">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                <span class="sr-only">完成40%</span>
-                            </div>
-                        </div>
-                        <hr>
-                        <!-- Progress bar -->
-                        <p>视频上传进度</p>
-                        <!-- Bootstrap progress bar -->
-                        <div class="progress progress-striped active">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                <span class="sr-only">完成80%</span>
-                            </div>
-                        </div>
-                        <hr>
-                        <!-- Dropdown menu footer -->
-                        <div class="drop-foot">
-                            <a href="#">查看所有</a>
-                        </div>
-                    </li>
-                </ul>
             </li>
             <!-- Sync to server link -->
-            <li class="dropdown dropdown-big">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger"><i class="icon-refresh"></i></span> 同步到服务器</a>
-                <!-- Dropdown -->
-                <ul class="dropdown-menu">
-                    <li>
-                        <!-- Using "icon-spin" class to rotate icon. -->
-                        <p><span class="label label-info"><i class="icon-cloud"></i></span>同步会员到服务器</p>
-                        <hr>
-                        <p><span class="label label-warning"><i class="icon-cloud"></i></span>同步书签到云端</p>
-                        <hr>
-                        <!-- Dropdown menu footer -->
-                        <div class="drop-foot">
-                            <a href="#">查看所有</a>
-                        </div>
-                    </li>
-                </ul>
-            </li>
         </ul>
         <!-- Search form -->
         <form class="navbar-form navbar-left" role="search">
@@ -111,7 +69,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> 资料</a></li>
                     <li><a href="#"><i class="icon-cogs"></i> 设置</a></li>
-                    <li><a href="login.html"><i class="icon-off"></i> 退出</a></li>
+                    <li><a href="<?php echo site_url('Login/quit'); ?>"><i class="icon-off"></i> 退出</a></li>
                 </ul>
             </li>
         </ul>
