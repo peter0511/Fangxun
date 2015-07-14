@@ -122,14 +122,11 @@
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东报价</label>
-    <div class="col-lg-6">
-        <input type="text" class="form-control" name="expect" placeholder="格式:租金为1200元/月,长租可降为1000元/月.押金500元">
-    </div>
-</div>
-<div class="form-group">
-    <label class="control-label col-lg-3">中介费</label>
-    <div class="col-lg-6">
-        <input type="text" class="form-control" name="agency">
+    <div class="col-lg-12">
+        租金:<input type="text" style=""class="filterinput" name="h_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        长租最低价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        押金:<input type="text" class="filterinput" name="deposit" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        我们收取的中介费:<input type="text" class="filterinput" name="cash" placeholder="仅可用阿拉伯数字">元
     </div>
 </div>
 <div class="form-group">
@@ -153,14 +150,6 @@
     <label class="control-label col-lg-3">其余备注</label>
     <div class="col-lg-6">
         <textarea class="form-control"  name="condition" placeholder="如小区环境,门口公交"></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label class="control-label col-lg-3">房源状态</label>
-    <div class="col-lg-6">
-        <?php foreach ($house as $key => $value): ?>
-        <input type="radio" name="status" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
-        <?php endforeach; ?>
     </div>
 </div>
 <!--<div class="form-group">

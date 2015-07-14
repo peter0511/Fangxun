@@ -47,7 +47,7 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-                <th>编号</th>
+                <th>员工编号</th>
                 <th>姓名</th>
                 <th>性别</th>
                 <th>电话号码</th>
@@ -83,9 +83,6 @@
             <ul class="pagination pull-right">
                 <li><a href="#">Prev</a></li>
                 <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
                 <li><a href="#">Next</a></li>
             </ul>
 

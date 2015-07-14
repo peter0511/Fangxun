@@ -19,7 +19,7 @@ class User extends MY_Controller {
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
             $users = $this->Muser->query(array(array('status' => C('user.yuangong.code'))));
         } else {
-            $users = $this->Muser->query(array(array('position' => C('user.position.code.zishengzhiyeguwen'), 'status' => C('user.yuangong.code.zaizhi'))));
+            $users = $this->Muser->query(array(array('position <' => C('user.position.code.dianzhu'), 'status' => C('user.yuangong.code.zaizhi'))));
         }
         $data = array();
         foreach ($users as $value) {
@@ -31,6 +31,7 @@ class User extends MY_Controller {
                 'position' => C('user.position.text.' . $value->position),
                 'status' => C('user.yuangong.text.' . $value->status),
                 'create' => date('Y-m-d', $value->created),
+                'user' => $this->user->position,
             );
         }
 		$this->load->view('User/index', $data);

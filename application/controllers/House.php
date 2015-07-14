@@ -16,24 +16,64 @@ class House extends MY_Controller {
     }
 
 	public function index() {
-        $this->load->model(array('MHouse', 'Mlocation'));
+        $this->load->model(array('Muser', 'MHouse', 'MLocation'));
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
-            $house = $this->MHouse->query(array(array('status' => C('house.house.code'))), 0, 0, array('updated' => 'DESC'));
+            $house = $this->MHouse->query(array(array('status' => C('house.house.code'))));
         } else {
-            $users = $this->Muser->query(array(array('position' => C('user.position.code.zishengzhiyeguwen'), 'status' => C('user.yuangong.code.zaizhi'))));
-            $house = $this->MHouse->query(array(array('status' => C('house.house.code'))), 0, 0, array('updated' => 'DESC'));
+            $house = $this->MHouse->query(array(array('status' => C('house.house.code'), 'user_id' => $this->user->uid)));
+            $other_house = $this->MHouse->query(array(array('status' => C('house.house.code.weizu'), 'user_id <>' => $this->user->uid)));
         }
+        
         $data = array();
         foreach ($house as $value) {
-            $town = $this->Mlocation->geto($value->town_id);
-            $street = $this->Mlocation->geto($value->street_id);
-            $community = $this->Mlocation->geto($value->community_id);
+            $array = explode('.', $value->location);
+            $town = $this->MLocation->geto($array[0])->name;
+            $street = $this->MLocation->geto($array[1])->name;
+            $community = $this->MLocation->geto($array[2])->name;
+            $location = $town . $street . $community;
+            $arr = explode('_', $value->house_type);
+            $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫,' . $value->area . '平米';
+            //$user = $this->Muser->geto($value->user_id);
+            $user = $this->Muser->get($value->user_id);
             $data['house'][] = array(
-
+                'id' => $value->id,
+                'user' => $user[0]['name'],
+                'location' => $location,
+                'type' => $type,
+                'expect' => $value->h_expect . '元',
+                'decoration' => C('house.decoration.text.' . $value->decoration),
+                'storey' => $value->storey,
+                'status' => C('house.house.text.' . $value->status),
+                'orientation' => $value->orientation,
+                'appliance' => C('house.appliance.text.' . $value->appliance),
             );
         }
+        if (isset($other_house)) {
+            foreach ($other_house as $value) {
+                $array = explode('.', $value->location);
+                $town = $this->MLocation->geto($array[0])->name;
+                $street = $this->MLocation->geto($array[1])->name;
+                $community = $this->MLocation->geto($array[2])->name;
+                $location = $town . $street . $community;
+                $arr = explode('_', $value->house_type);
+                $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫,' . $value->area . '平米';
 
-		$this->load->view('House/index');
+                $user = $this->Muser->geto($value->user_id);
+                $data['other_house'][] = array(
+                    'id' => $value->id,
+                    'user' => $user->name,
+                    'location' => $location,
+                    'type' => $type,
+                    'expect' => $value->h_expect . '元',
+                    'decoration' => C('house.decoration.text.' . $value->decoration),
+                    'storey' => $value->storey,
+                    'status' => C('house.house.text.' . $value->status),
+                    'orientation' => $value->orientation,
+                    'appliance' => C('house.appliance.text.' . $value->appliance),
+                );
+            }
+        }
+		$this->load->view('House/index', $data);
         $this->load->view('Common/footer');
 	}
 
@@ -77,15 +117,17 @@ class House extends MY_Controller {
         }
         unset($data['agree']);
 
+        $rest = array();
         $rest = array(
             'location' => $data['town'] . '.' . $data['street'] . '.' . $data['community'],
             'address'=> $data['build'] . '-' . $data['element'] . '-' . $data['house'],
         );
-        $house = $this->MHouse->query(array($res));
+        $house = $this->MHouse->query(array($rest));
         if ( ! $house) {
             $rest['user_id'] = $user->id;
-            $rest['expect'] = $data['expect'];
-            $rest['agency'] = $data['agency'];
+            $rest['h_expect'] = $data['h_expect'];
+            $rest['d_expect'] = $data['d_expect'];
+            $rest['agency'] = $data['deposit'] . '+' . $data['cash'];
             $rest['decoration'] = $data['decoration'];
             $rest['appliance'] = $data['appliance'];
             $rest['birth'] = $data['birth'];
@@ -94,11 +136,31 @@ class House extends MY_Controller {
             $rest['orientation'] = $data['orientation'];
             $rest['storey'] = $data['storey'];
             $rest['condition'] = $data['condition'];
-            $rest['status'] = $data['status'];
             $rest['created'] = $this->input->server('REQUEST_TIME');
             $rest['updated'] = $this->input->server('REQUEST_TIME');
             $houses = $this->MHouse->add($rest);
-        } else{
+            $lord = $this->MLandlord->get_byo('mobile', $data['mobile']);
+            if ( ! $lord) {
+                $item = array(
+                    'user_id' => $user->id,
+                    'mobile' => $data['mobile'],
+                    'landlord_name' => $data['name'],
+                    'house_id' => $houses,
+                    'created' => $this->input->server('REQUEST_TIME'),
+                    'updated' => $this->input->server('REQUEST_TIME'),
+                    'house_id' => $houses,
+                );
+                $item['site'] = empty($data['site']) ? '' : $data['site'];
+                $item['identity'] = empty($data['identity']) ? '' : $data['identity'];
+                $land = $this->MLandlord->add($item);
+            } else{
+                $land = $this->MLandlord->update($lord->id, array('updated' => $this->input->server('REQUEST_TIME'), 'house_id' => $lord->house_id . '~' . $houses));
+            }
+            if ($land) {
+                $res['msgs'] = '亲,这条数据已经添加,继续加油哦!';
+                $this->_return_json($res);
+            }
+        } else {
             foreach ($house as $value) {
                 $user = $this->Muser->geto($value->user_id);
                 if ($value) {
@@ -106,22 +168,6 @@ class House extends MY_Controller {
                     $this->_return_json($res);
                 }
             }
-        }
-        $lord = $this->MLandlord->geto($data['mobile']);
-        if ( ! $lord) {
-            $item = array(
-                'user_id' => $user->id,
-                'mobile' => $data['mobile'],
-                'landlord_name' => $data['name'],
-                'site' => $data['site'],
-                'house_id' => $house,
-                'created' => $this->input->server('REQUEST_TIME'),
-                'updated' => $this->input->server('REQUEST_TIME'),
-            );
-            $item['identity'] = empty($data['identity']) ? '' : $data['identity'];
-            $land = $this->MLandlord->add($item);
-        } else {
-            $this->MLandlord->update($lord->id, array('updated' => $this->input->server('REQUEST_TIME'), 'house_id' => $lord->house_id . '~' . $lond));
         }
     }
 
