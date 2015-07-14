@@ -64,6 +64,7 @@
                 <th>楼层</th>
                 <th>朝向</th>
                 <th>家电情况</th>
+                <th>录入时间</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
@@ -80,6 +81,7 @@
                 <td><?php echo $val['storey']; ?></td>
                 <td><?php echo $val['orientation']; ?></td>
                 <td><?php echo $val['appliance']; ?></td>
+                <td><?php echo $val['time']; ?></td>
                 <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <td>
                     <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>

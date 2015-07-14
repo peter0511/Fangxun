@@ -39,8 +39,8 @@
                 <li><a href="grid.html">网格</a></li>
             </ul>
         </li>-->
+        <li><a href="<?php echo site_url('landlord/index'); ?>"><i class="icon-table"></i>房东信息</a></li>
         <li><a href="#"><i class="icon-bar-chart"></i>租户信息</a></li>
-        <li><a href="#"><i class="icon-table"></i>房东信息</a></li>
         <li><a href="forms.html"><i class="icon-tasks"></i>订单信息</a></li>
         <li><a href="ui.html"><i class="icon-magic"></i>合同信息</a></li>
         <!--<li><a href="calendar.html"><i class="icon-calendar"></i></a></li>-->

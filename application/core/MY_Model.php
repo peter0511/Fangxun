@@ -78,9 +78,9 @@ class MY_Model extends CI_Model
      **/
     public function get_byo($key, $value, $status_strict = TRUE) {
         $this->db->where($key, $value);
-        if ($status_strict) {
-            $this->db->where('status', 0);
-        }
+        //if ($status_strict) {
+        //    $this->db->where('status', 0);
+        //}
         $res = $this->db->get($this->table, 1)->first_row();
         return $res;
     }

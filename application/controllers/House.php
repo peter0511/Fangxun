@@ -22,7 +22,7 @@ class House extends MY_Controller {
             $item = array(
                 'status' => C('house.house.code'),
             );
-            $house = $this->MHouse->query(array($item), $tab, $page_size);
+            $house = $this->MHouse->query(array($item), $tab, $page_size, array('status' => 'asc', 'updated' => 'Asc'));
         } else {
             $house = $this->MHouse->query(array(array('status' => C('house.house.code'), 'user_id' => $this->user->uid)));
             $other_house = $this->MHouse->query(array(array('status' => C('house.house.code.weizu'), 'user_id <>' => $this->user->uid)));
@@ -53,6 +53,7 @@ class House extends MY_Controller {
                 'expect' => $value->h_expect . '元',
                 'decoration' => C('house.decoration.text.' . $value->decoration),
                 'storey' => $value->storey,
+                'time' => date('Y-m-d', $value->updated),
                 'status' => C('house.house.text.' . $value->status),
                 'orientation' => $value->orientation,
                 'appliance' => C('house.appliance.text.' . $value->appliance),
@@ -77,6 +78,7 @@ class House extends MY_Controller {
                     'expect' => $value->h_expect . '元',
                     'decoration' => C('house.decoration.text.' . $value->decoration),
                     'storey' => $value->storey,
+                    'time' => date('Y-m-d', $value->updated),
                     'status' => C('house.house.text.' . $value->status),
                     'orientation' => $value->orientation,
                     'appliance' => C('house.appliance.text.' . $value->appliance),

@@ -16,8 +16,8 @@ class User extends MY_Controller {
 
 	public function index($tab = 0) { 
         $this->load->model('Muser');
+        $page_size = 2;
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
-            $page_size = 2;
             $item = array(
                 'status' => C('user.yuangong.code'),
             );
