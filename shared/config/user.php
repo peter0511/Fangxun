@@ -1,6 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $config = array(
+    'is_mine' => array(
+        'text' => array(
+            0 => 'yes',
+            1 => 'no',
+        ),
+        'code' => array(
+            'yes' => 0,
+            'no' => 1,
+        ),
+    ),
     'sex' => array(
         'code' => array(
             'nv' => 0,

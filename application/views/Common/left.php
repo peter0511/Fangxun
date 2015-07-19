@@ -21,11 +21,20 @@
                 <li><a href="#">备用</a></li>
             </ul>
         </li>
-        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>房源信息<span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+        <li><a href="<?php echo site_url('house/address'); ?>"><i class="icon-table"></i>添加新地址</a></li>
+        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>租房信息<span class="pull-right"><i class="icon-chevron-right"></i></span></a>
             <ul style="">
-                <li><a href="<?php echo site_url('house'); ?>">房源列表</a></li>
-                <li><a href="<?php echo site_url('house/add'); ?>">添加房源</a></li>
-                <li><a href="<?php echo site_url('house/address') ?>">添加地址</a></li>
+                <li><a href="<?php echo site_url('house'); ?>">我的租房列表</a></li>
+                <li><a href="<?php echo site_url('house/init'); ?>">所有租房列表</a></li>
+                <li><a href="<?php echo site_url('house/add'); ?>">添加售房</a></li>
+                <li><a href="#">备用</a></li>
+            </ul>
+        </li>
+        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>售房信息<span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul style="">
+                <li><a href="<?php echo site_url('family'); ?>">我的售房列表</a></li>
+                <li><a href="<?php echo site_url('family/init'); ?>">所有售房列表</a></li>
+                <li><a href="<?php echo site_url('family/add'); ?>">添加售房</a></li>
                 <li><a href="#">备用</a></li>
             </ul>
         </li>

@@ -21,19 +21,18 @@ class Landlord extends MY_Controller {
             $item = array(
                 'status' => C('landlord.status.code'),
             );
-            $landlord = $this->MLandlord->query(array($item), $tab, $page_size, array('status' => 'ASC','created' => 'DESC'));
         } else {
             $item = array(
                 'user_id' => $this->user->uid, 
                 'status' => C('Landlord.status.code'),
             );
-            $landlord = $this->MLandlord->query(array($item), $tab, $page_size);
         }
+        $landlord = $this->MLandlord->query(array($item), $tab, $page_size, array('status' => 'ASC','created' => 'DESC'));
         $this->pagination->initialize(array(
             'per_page'    => $page_size,
             'base_url'    => site_url('landlord/index'),
             'uri_segment' => 3,
-            'total_rows'  => $this->Muser->count(array($item)),
+            'total_rows'  => $this->MLandlord->count(array($item)),
             //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
         ));
         $data = array();
