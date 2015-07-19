@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class House extends MY_Controller {
+class Family extends MY_Controller {
     protected $user;
     protected $permissions;
 
@@ -16,100 +16,12 @@ class House extends MY_Controller {
     }
 
 	public function index($tab = 0) {
-        $this->load->model(array('Muser', 'MHouse', 'MLocation'));
-        $page_size = 3;
-        $order_by = array('status' => 'ASC', 'updated' => 'ASC');
-        $item = array(
-            'status' => C('house.house.code'),
-            'user_id' => $this->user->uid,
-        );
-        $house = $this->MHouse->query(array($item), $tab, $page_size, $order_by);
-        $this->pagination->initialize(array(
-            'per_page'    => $page_size,
-            'base_url'    => site_url('house/index'),
-            'uri_segment' => 3,
-            'total_rows'  => $this->MHouse->count(array($item)),
-            //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
-        ));
-        
-        foreach ($house as $value) {
-            $array = explode('.', $value->location);
-            $town = $this->MLocation->geto($array[0])->name;
-            $street = $this->MLocation->geto($array[1])->name;
-            $community = $this->MLocation->geto($array[2])->name;
-            $location = $town . $street . $community;
-            $arr = explode('_', $value->house_type);
-            $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫,' . $value->area . '平米';
-            $user = $this->Muser->get($value->user_id);
-
-            $data['house'][] = array(
-                'id' => $value->id,
-                'user' => $user[0]['name'],
-                'location' => $location,
-                'type' => $type,
-                'expect' => $value->h_expect . '元',
-                'decoration' => C('house.decoration.text.' . $value->decoration),
-                'storey' => $value->storey,
-                'time' => date('Y-m-d', $value->updated),
-                'status' => C('house.house.text.' . $value->status),
-                'orientation' => $value->orientation,
-                'appliance' => C('house.appliance.text.' . $value->appliance),
-            );
-        }
-        $data['is_mine'] = C('user.is_mine.code.yes');
-        $data['pager'] = $this->pagination->create_links(); 
-		$this->load->view('House/index', $data);
+		$this->load->view('family/index');
         $this->load->view('Common/footer');
 	}
 
     public function init($tab = 0) {
-        $this->load->model(array('Muser', 'MHouse', 'MLocation'));
-        $page_size = 3;
-        $order_by = array('status' => 'ASC', 'updated' => 'ASC');
-        if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
-            $item = array(
-                'status' => C('house.house.code'),
-            );
-            $data['is_mine'] = C('user.is_mine.code.yes');
-        } else {
-            $item = array(
-                'status' => C('house.house.code.weizu'),
-            );
-        }
-        $this->pagination->initialize(array(
-            'per_page'    => $page_size,
-            'base_url'    => site_url('house/init'),
-            'uri_segment' => 3,
-            'total_rows'  => $this->MHouse->count(array($item)),
-            //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
-        ));
-        $other_house = $this->MHouse->query(array($item), $tab, $page_size, $order_by);
-        foreach ($other_house as $value) {
-            $array = explode('.', $value->location);
-            $town = $this->MLocation->geto($array[0])->name;
-            $street = $this->MLocation->geto($array[1])->name;
-            $community = $this->MLocation->geto($array[2])->name;
-            $location = $town . $street . $community;
-            $arr = explode('_', $value->house_type);
-            $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫,' . $value->area . '平米';
-
-            $user = $this->Muser->geto($value->user_id);
-            $data['house'][] = array(
-                'id' => $value->id,
-                'user' => $user->name,
-                'location' => $location,
-                'type' => $type,
-                'expect' => $value->h_expect . '元',
-                'decoration' => C('house.decoration.text.' . $value->decoration),
-                'storey' => $value->storey,
-                'time' => date('Y-m-d', $value->updated),
-                'status' => C('house.house.text.' . $value->status),
-                'orientation' => $value->orientation,
-                'appliance' => C('house.appliance.text.' . $value->appliance),
-            );
-        }
-        $data['pager'] = $this->pagination->create_links(); 
-		$this->load->view('House/index', $data);
+		$this->load->view('family/index');
         $this->load->view('Common/footer');
     }
 
@@ -118,12 +30,20 @@ class House extends MY_Controller {
         $house = C('house.house.text');
         $appliance = C('house.appliance.text');
         $decoration = C('house.decoration.text');
+        $property = C('house.property.text');
+        $property_type = C('house.property_type.text');
+        $structure = C('house.structure.text');
+        $house_type = C('house.house_type.text');
         $data = array();
         $location = $this->Mlocation->query(array(array('upid' => 0)));
         $data = array(
             'house' => $house,
             'appliance' => $appliance,
             'decoration' => $decoration,
+            'property' => $property,
+            'property_type' => $property_type,
+            'structure' => $structure,
+            'house_type' => $house_type,
         );
         foreach ($location as $value) {
             $data['town'][] = array(
@@ -132,7 +52,7 @@ class House extends MY_Controller {
                 'upid' => $value->upid,
             );
         }
-		$this->load->view('House/create', $data);
+		$this->load->view('family/create', $data);
         $this->load->view('Common/footer');
 	}
 
@@ -141,12 +61,12 @@ class House extends MY_Controller {
         $str = $this->input->post('input', TRUE);
         $input = preg_replace("/[+]/","", $str);
         $inputs = explode('&', $input);
-        $user = $this->Muser->geto($this->user->uid);
         $data = array();
         foreach ($inputs as $value) {
             $inputsa = explode('=', $value);
             $data[$inputsa[0]] = trim($inputsa[1]);
         }
+        $user = $this->Muser->geto($this->user->uid);
         if (!isset($data['agree'])) {
             $res['msg'] = '亲,你还不确定吗?你再重写吧!';
             $this->_return_json($res);
@@ -156,14 +76,13 @@ class House extends MY_Controller {
         $rest = array();
         $rest = array(
             'location' => $data['town'] . '.' . $data['street'] . '.' . $data['community'],
-            'address'=> $data['build'] . '-' . $data['element'] . '-' . $data['house'],
+            'address' => $data['build'] . '-' . $data['element'] . '-' . $data['house'],
         );
         $house = $this->MHouse->query(array($rest));
         if ( ! $house) {
             $rest['user_id'] = $user->id;
-            $rest['h_expect'] = $data['h_expect'];
             $rest['d_expect'] = $data['d_expect'];
-            $rest['agency'] = $data['deposit'] . '+' . $data['cash'];
+            $rest['agency'] = $data['cash'];
             $rest['decoration'] = $data['decoration'];
             $rest['appliance'] = $data['appliance'];
             $rest['birth'] = $data['birth'];
@@ -171,9 +90,12 @@ class House extends MY_Controller {
             $rest['house_type'] = $data['room'] . '_' . $data['hall'] . '_' . $data['toilet'];
             $rest['orientation'] = $data['orientation'];
             $rest['storey'] = $data['storey'];
+            $rest['property_structure'] = $data['property'] . ',' . $data['property_type'] . ',' . $data['house_type'] . ',' . $data['structure'];
             $rest['condition'] = $data['condition'];
             $rest['created'] = $this->input->server('REQUEST_TIME');
             $rest['updated'] = $this->input->server('REQUEST_TIME');
+            $rest['loan'] = $data['loan'];
+            $rest['status'] = C('house.house.sale_code.weishou');
             $houses = $this->MHouse->add($rest);
             $lord = $this->MLandlord->get_byo('mobile', $data['mobile']);
             if ( ! $lord) {
@@ -220,7 +142,7 @@ class House extends MY_Controller {
             );
             
         }
-		$this->load->view('House/address', $data);
+		$this->load->view('family/address', $data);
         $this->load->view('Common/footer');
 	}
 

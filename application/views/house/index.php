@@ -61,12 +61,12 @@
                 <th>房源户型</th>
                 <th>租金</th>
                 <th>装修状况</th>
-                <th>楼层</th>
-                <th>朝向</th>
                 <th>家电情况</th>
                 <th>录入时间</th>
                 <th>状态</th>
+                <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <th>操作</th>
+                <?php endif; ?>
             </tr>
             </thead>
             <tbody>
@@ -79,15 +79,15 @@
                 <td><?php echo $val['expect']; ?></td>
                 <td><?php echo $val['decoration']; ?></td>
                 <td><?php echo $val['storey']; ?></td>
-                <td><?php echo $val['orientation']; ?></td>
-                <td><?php echo $val['appliance']; ?></td>
                 <td><?php echo $val['time']; ?></td>
                 <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
+                <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <td>
                     <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
                     <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
                     <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
                 </td>
+                <?php endif; ?>
             </tr>
             <?php endforeach; ?>
             </tbody>
@@ -98,66 +98,6 @@
         </div>
 
     </div>
-    <?php if(isset($other_house)): ?>
-    <div class="widget-head">
-        <div class="pull-left">Tables</div>
-        <div class="widget-icons pull-right">
-            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-            <a href="#" class="wclose"><i class="icon-remove"></i></a>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-
-    <div class="widget-content">
-
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th>编号</th>
-                <th>负责人</th>
-                <th>房源位置</th>
-                <th>房源户型</th>
-                <th>租金</th>
-                <th>装修状况</th>
-                <th>楼层</th>
-                <th>朝向</th>
-                <th>家电情况</th>
-                <th>状态</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach($other_house as $val): ?>
-            <tr>
-                <td><?php echo $val['id']; ?></td>
-                <td><?php echo $val['user']; ?></td>
-                <td><?php echo $val['location']; ?></td>
-                <td><?php echo $val['type']; ?></td>
-                <td><?php echo $val['expect']; ?></td>
-                <td><?php echo $val['decoration']; ?></td>
-                <td><?php echo $val['storey']; ?></td>
-                <td><?php echo $val['orientation']; ?></td>
-                <td><?php echo $val['appliance']; ?></td>
-                <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
-            </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-
-        <div class="widget-foot">
-
-
-            <ul class="pagination pull-right">
-                <li><a href="#">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">Next</a></li>
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
-
-    </div>
-    <?php endif; ?>
 
 </div>
 
