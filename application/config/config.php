@@ -212,7 +212,7 @@ $config['directory_trigger'] = 'd';
 | ??????????日志log
 */
 
-$config['log_threshold'] = 3;
+$config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------
