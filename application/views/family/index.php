@@ -59,9 +59,10 @@
                 <th>负责人</th>
                 <th>房源位置</th>
                 <th>房源户型</th>
-                <th>租金</th>
-                <th>装修状况</th>
-                <th>家电情况</th>
+                <th>建筑面积</th>
+                <th>报价</th>
+                <th>装修状态</th>
+                <th>楼层</th>
                 <th>录入时间</th>
                 <th>状态</th>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
@@ -76,6 +77,7 @@
                 <td><?php echo $val['user']; ?></td>
                 <td><?php echo $val['location']; ?></td>
                 <td><?php echo $val['type']; ?></td>
+                <td><?php echo $val['area']; ?></td>
                 <td><?php echo $val['expect']; ?></td>
                 <td><?php echo $val['decoration']; ?></td>
                 <td><?php echo $val['storey']; ?></td>

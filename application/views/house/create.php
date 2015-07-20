@@ -84,12 +84,12 @@
     </div>
     <div class="col-lg-3">
         <select class="form-control street" name="street">
-            <option value="" disabled> --- 街道,如果没有到.去添加地址页面添加 --- </option>
+            <option value="" disabled> -- 街道,没有就去添加地址页面添加-- </option>
         </select>
     </div>
     <div class="col-lg-3">
         <select class="form-control community" name="community">
-            <option value="" disabled> --- 小区,如果没有找到.去添加地址页面添加 --- </option>
+            <option value="" disabled> -- 小区,没有就去添加地址页面添加-- </option>
         </select>
     </div>
 </div>
@@ -190,3 +190,4 @@
 </div>
 <div class="clearfix"></div>
 <script src="<?php echo static_url('js/house.js'); ?>"></script> 
+<script src="<?php echo static_url('js/select_address.js'); ?>"></script> 

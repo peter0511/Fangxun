@@ -166,7 +166,7 @@
     <label class="control-label col-lg-3">房东报价</label>
     <div class="col-lg-12">
         <input type="checkbox" name="loan" value="1" />可以贷款&nbsp;&nbsp;&nbsp;&nbsp;
-        总价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        总价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">万元&nbsp;&nbsp;&nbsp;&nbsp;
         我们收取的中介费:<input type="text" class="filterinput" name="cash" placeholder="仅可用阿拉伯数字">元
     </div>
 </div>
@@ -231,3 +231,4 @@
 </div>
 <div class="clearfix"></div>
 <script src="<?php echo static_url('js/family.js'); ?>"></script> 
+<script src="<?php echo static_url('js/select_address.js'); ?>"></script> 
