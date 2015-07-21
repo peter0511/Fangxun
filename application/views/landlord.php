@@ -58,12 +58,13 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-                <th>房东编号</th>
+                <th>#</th>
                 <th>房东姓名</th>
                 <th>房东联络人</th>
                 <th>房东电话</th>
                 <th>房东身份证号</th>
                 <th>房东地址</th>
+                <th>租or售</th>
                 <th>房东房源地址</th>
             </tr>
             </thead>
@@ -76,6 +77,7 @@
                 <td><?php echo $val['mobile']; ?></td>
                 <td><?php echo $val['identity']; ?></td>
                 <td><?php echo $val['site']; ?></td>
+                <td><?php echo $val['type']; ?></td>
                 <td><?php echo $val['house']; ?></td>
                 <!--<td><span class="label <?php echo $val['status'] == '在职' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <td><?php echo $val['create']; ?></td>

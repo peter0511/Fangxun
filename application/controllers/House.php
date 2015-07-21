@@ -176,22 +176,19 @@ class House extends MY_Controller {
             $rest['updated'] = $this->input->server('REQUEST_TIME');
             $houses = $this->MHouse->add($rest);
             $lord = $this->MLandlord->get_byo('mobile', $data['mobile']);
-            if ( ! $lord) {
-                $item = array(
-                    'user_id' => $user->id,
-                    'mobile' => $data['mobile'],
-                    'landlord_name' => $data['name'],
-                    'house_id' => $houses,
-                    'created' => $this->input->server('REQUEST_TIME'),
-                    'updated' => $this->input->server('REQUEST_TIME'),
-                    'house_id' => $houses,
-                );
-                $item['site'] = empty($data['site']) ? '' : $data['site'];
-                $item['identity'] = empty($data['identity']) ? '' : $data['identity'];
-                $land = $this->MLandlord->add($item);
-            } else{
-                $land = $this->MLandlord->update($lord->id, array('updated' => $this->input->server('REQUEST_TIME'), 'house_id' => $lord->house_id . '~' . $houses));
-            }
+            $item = array(
+                'user_id' => $user->id,
+                'mobile' => $data['mobile'],
+                'landlord_name' => $data['name'],
+                'house_id' => $houses,
+                'created' => $this->input->server('REQUEST_TIME'),
+                'updated' => $this->input->server('REQUEST_TIME'),
+                'house_id' => $houses,
+                'type' => C('landlord.type.code.chuzu'),
+            );
+            $item['site'] = empty($data['site']) ? '' : $data['site'];
+            $item['identity'] = empty($data['identity']) ? '' : $data['identity'];
+            $land = $this->MLandlord->add($item);
             if ($land) {
                 $res['msgs'] = '亲,这条数据已经添加,继续加油哦!';
                 $this->_return_json($res);
