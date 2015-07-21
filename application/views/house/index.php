@@ -54,6 +54,7 @@
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
+            <?php if(!empty($house)): ?>
             <tr>
                 <th>#</th>
                 <th>负责人</th>
@@ -89,7 +90,9 @@
                 </td>
                 <?php endif; ?>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach;else: ?>
+            <tr>你新来的同事?还没有传过数据吧!</tr>
+            <?php endif; ?>
             </tbody>
         </table>
 

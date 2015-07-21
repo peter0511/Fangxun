@@ -42,7 +42,7 @@ class Family extends MY_Controller {
             $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫';
             $user = $this->Muser->get($value->user_id);
             $storey = explode('/', $value->storey);
-            $storeys = $storey[1] . '层楼的' . $storey[0] . '层';
+            $storeys = $storey[0] . '层,共' . $storey[1] . '层';
 
             $data['house'][] = array(
                 'id' => $value->id,
@@ -66,7 +66,56 @@ class Family extends MY_Controller {
 	}
 
     public function init($tab = 0) {
-		$this->load->view('family/index');
+        $this->load->model(array('Muser', 'MHouse', 'MLocation'));
+        $page_size = 3;
+        $order_by = array('status' => 'ASC', 'updated' => 'ASC');
+        if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
+            $item = array(
+                'status' => C('house.house.sale_code'),
+            );
+            $data['is_mine'] = C('user.is_mine.code.yes');
+        } else {
+            $item = array(
+                'status' => C('house.house.sale_code.weishou'),
+            );
+        }
+        $this->pagination->initialize(array(
+            'per_page'    => $page_size,
+            'base_url'    => site_url('family/init'),
+            'uri_segment' => 3,
+            'total_rows'  => $this->MHouse->count(array($item)),
+            //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
+        ));
+        $other_house = $this->MHouse->query(array($item), $tab, $page_size, $order_by);
+        foreach ($other_house as $value) {
+            $array = explode('.', $value->location);
+            $town = $this->MLocation->geto($array[0])->name;
+            $street = $this->MLocation->geto($array[1])->name;
+            $community = $this->MLocation->geto($array[2])->name;
+            $location = $town . $street . $community;
+            $arr = explode('_', $value->house_type);
+            $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫';
+            $user = $this->Muser->get($value->user_id);
+            $storey = explode('/', $value->storey);
+            $storeys = $storey[0] . '层,共' . $storey[1] . '层';
+
+            $data['house'][] = array(
+                'id' => $value->id,
+                'user' => $user[0]['name'],
+                'location' => $location,
+                'type' => $type,
+                'area' => $value->j_area . '平米',
+                'expect' => $value->d_expect . '万元',
+                'decoration' => C('house.decoration.text.' . $value->decoration),
+                'storey' => $storeys,
+                'time' => date('Y-m-d', $value->updated),
+                'status' => C('house.house.sale_text.' . $value->status),
+                'orientation' => $value->orientation,
+                'appliance' => C('house.appliance.text.' . $value->appliance),
+            );
+        }
+        $data['pager'] = $this->pagination->create_links(); 
+		$this->load->view('family/index', $data);
         $this->load->view('Common/footer');
     }
 

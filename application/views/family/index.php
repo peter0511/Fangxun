@@ -54,6 +54,7 @@
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
+            <?php if(!empty($house)): ?>
             <tr>
                 <th>#</th>
                 <th>负责人</th>
@@ -61,6 +62,7 @@
                 <th>房源户型</th>
                 <th>建筑面积</th>
                 <th>报价</th>
+                <th>朝向</th>
                 <th>装修状态</th>
                 <th>楼层</th>
                 <th>录入时间</th>
@@ -79,19 +81,22 @@
                 <td><?php echo $val['type']; ?></td>
                 <td><?php echo $val['area']; ?></td>
                 <td><?php echo $val['expect']; ?></td>
+                <td><?php echo $val['orientation']; ?></td>
                 <td><?php echo $val['decoration']; ?></td>
                 <td><?php echo $val['storey']; ?></td>
                 <td><?php echo $val['time']; ?></td>
                 <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <td>
-                    <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
+                    <button class="btn btn-xs btn-success"><i class="icon-ok">aa</i> bb</button>
                     <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
                     <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
                 </td>
                 <?php endif; ?>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach;else: ?>
+            <tr>你新来的同事?还没有传过数据吧!</tr>
+            <?php endif; ?>
             </tbody>
         </table>
 
