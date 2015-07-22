@@ -1,17 +1,18 @@
 $(document).ready(function(){
   $('.btn-success').click(function(){
     var Input = $('form').serialize(),
+        Url = $('.add').data('url'),
         Agree = $("input[name='agree']:checked").val();
     if (Agree) {
       $.ajax({
-        url: "/family/ajax_save_house",
+        url: "/"+Url+"/ajax_save_house",
         type: "POST",
         dataType: "json",
         data : {input: Input},
         success : function(data){
           if (data.msgs) {
             alert(data.msgs);
-            window.location.href="/family";
+            window.location.href="/"+Url+"/";
           }else{
             alert(data.msg);
           }

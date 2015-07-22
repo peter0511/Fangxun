@@ -50,83 +50,94 @@
 
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<form class="form-horizontal add" data-url="house">
+<div class="form-horizontal">
 <!-- Name -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东姓名</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="name" placeholder="房东的姓名,你不会不知道吧">
+        <div class="view-control">aaaaaa</div>
     </div>
 </div>
 <!-- Telephone -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东电话</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="mobile" placeholder="房东的电话">
+        <div class="view-control">bbbb</div>
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东身份证</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="identity" maxlength=18 placeholder="身份证号应该是18位对不!">
+        <div class="view-control">cccc</div>
     </div>
 </div>
 <!-- Country -->
 <div class="form-group">
     <label class="control-label col-lg-3">房源位置</label>
     <div class="col-lg-3">
-    <select class="form-control town" name="town">
-        <option value=""> --- 市区 --- </option>
-        <?php foreach($town as $val): ?>
-        <option value="<?php echo $val['id']; ?>" class="true"><?php echo $val['name']; ?></option>
-        <?php endforeach; ?>
-    </select>
+        <div class="view-control">dddd</div>
     </div>
     <div class="col-lg-3">
-        <select class="form-control street" name="street">
-            <option value="" disabled> -- 街道,没有就去添加地址页面添加-- </option>
-        </select>
+        <div class="view-control">eeee</div>
     </div>
     <div class="col-lg-3">
-        <select class="form-control community" name="community">
-            <option value="" disabled> -- 小区,没有就去添加地址页面添加-- </option>
-        </select>
+        <div class="view-control">eeee</div>
     </div>
 </div>
 <!-- Address -->
 <div class="form-group">
     <label class="control-label col-lg-8">具体地址</label>
-    <div class="col-lg-8">
-        <input type="text" style=""class="filterinput" name="build" placeholder="仅可用阿拉伯数字">号楼&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="element" placeholder="仅可用阿拉伯数字">单元&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="house" placeholder="仅可用阿拉伯数字">室
+    <div class="col-lg-3">
+        <div class="view-control">号楼</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-3">
+        <div class="view-control">单元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-3">
+        <div class="view-control">室</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <!-- State -->
 <div class="form-group">
     <label class="control-label col-lg-8">房源条件</label>
-    <div class="col-lg-8">
-        <input type="text" class="filterinput" name="birth">年代&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="orientation" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="storey" placeholder="5/12,必须安此格式来填写楼层!">楼层
+    <div class="col-lg-3">
+        <div class="view-control">年代</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-3">
+        <div class="view-control">朝向</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-3">
+        <div class="view-control">楼层</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-8">房源户型</label>
-    <div class="col-lg-8">
-        <input type="text" style=""class="filterinput" name="room" placeholder="仅可用阿拉伯数字">室&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="hall" placeholder="仅可用阿拉伯数字">厅&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="toilet" placeholder="仅可用阿拉伯数字">卫&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="area" placeholder="仅可用阿拉伯数字">平米
+    <div class="col-lg-2">
+        <div class="view-control">室</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">厅</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">卫</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">平米</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东报价</label>
-    <div class="col-lg-12">
-        租金:<input type="text" style=""class="filterinput" name="h_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        长租最低价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        押金:<input type="text" class="filterinput" name="deposit" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        我们收取的中介费:<input type="text" class="filterinput" name="cash" placeholder="仅可用阿拉伯数字">元
+    <div class="col-lg-2">
+        <div class="view-control">租金元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">长租最低价为元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">押金:元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">收取中介费:元</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <div class="form-group">
@@ -149,13 +160,13 @@
 <div class="form-group">
     <label class="control-label col-lg-3">其余备注</label>
     <div class="col-lg-6">
-        <textarea class="form-control"  name="condition" placeholder="如小区环境,门口公交"></textarea>
+        <textarea class="view-control"  name="condition" placeholder="如小区环境,门口公交"></textarea>
     </div>
 </div>
 <!--<div class="form-group">
     <label class="control-label col-lg-3">房源照片</label>
     <div class="col-lg-6">
-        <input type="file" class="form-control" name="telephone">
+        <input type="file" class="view-control" name="telephone">
     </div>
 </div>-->
 <div class="form-group">
@@ -171,7 +182,7 @@
         <button type="reset" class="btn btn-default">不对重写吧</button>
     </div>
 </div>
-</form>
+</div>
 </div>
 
 </div>
@@ -189,5 +200,3 @@
 
 </div>
 <div class="clearfix"></div>
-<script src="<?php echo static_url('js/house.js'); ?>"></script> 
-<script src="<?php echo static_url('js/select_address.js'); ?>"></script> 

@@ -203,4 +203,9 @@ class House extends MY_Controller {
             }
         }
     }
+
+    public function view($id){
+		$this->load->view('House/view');
+        $this->load->view('Common/footer');
+    }
 }

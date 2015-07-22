@@ -13,6 +13,7 @@
     <!-- Font awesome icon -->
     <link rel="stylesheet" href="<?php echo static_url('css/font-awesome.css'); ?>">
     <link href="<?php echo static_url('css/style.css'); ?>" rel="stylesheet">
+    <link href="<?php echo static_url('css/view.css'); ?>" rel="stylesheet">
     <script src="<?php echo static_url('js/jquery.js'); ?>"></script> <!-- jQuery -->
     <!-- jQuery UI -->
     <link rel="stylesheet" href="<?php //echo static_url('css/jquery-ui.css'); ?>">

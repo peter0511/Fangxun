@@ -50,7 +50,7 @@
 
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<form class="form-horizontal">
+<form class="form-horizontal add" data-url="family">
 <!-- Name -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东姓名</label>
@@ -114,7 +114,7 @@
     <div class="col-lg-12">
         <input type="text" class="filterinput" name="birth" placeholder="建筑年代">年代&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="orientation" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="storey" placeholder="5/12">楼层
+        <input type="text" class="filterinput" name="storey" placeholder="5/12,必须是这个格式的哦">楼层
     </div>
 </div>
 <div class="form-group">
@@ -230,5 +230,6 @@
 
 </div>
 <div class="clearfix"></div>
+<script src="<?php //echo static_url('js/house.js'); ?>"></script> 
 <script src="<?php echo static_url('js/family.js'); ?>"></script> 
 <script src="<?php echo static_url('js/select_address.js'); ?>"></script> 

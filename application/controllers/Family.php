@@ -52,6 +52,7 @@ class Family extends MY_Controller {
                 'area' => $value->j_area . '平米',
                 'expect' => $value->d_expect . '万元',
                 'decoration' => C('house.decoration.text.' . $value->decoration),
+                'orientation' => $value->orientation,
                 'storey' => $storeys,
                 'time' => date('Y-m-d', $value->updated),
                 'status' => C('house.house.sale_text.' . $value->status),
