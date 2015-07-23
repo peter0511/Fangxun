@@ -35,7 +35,7 @@
 
 <div class="widget wred">
 <div class="widget-head">
-    <div class="pull-left">Profile</div>
+    <div class="pull-left"><span class="label label-danger"><?php echo $status; ?></span> 的房源 <span class="label label-info"><?php echo $id; ?></span>号</div>
     <div class="widget-icons pull-right">
         <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
         <a href="#" class="wclose"><i class="icon-remove"></i></a>
@@ -44,142 +44,108 @@
 </div>
 
 <div class="widget-content">
-<div class="padd">
+<div class="padd" data-house="<?php echo $id; ?>">
 
 <!-- Profile form -->
 
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<div class="form-horizontal">
+<div class="form-horizontal add" data-url="house">
 <!-- Name -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东姓名</label>
     <div class="col-lg-6">
-        <div class="view-control">aaaaaa</div>
+        <div class="view-control"><?php echo $landlord; ?></div>
     </div>
 </div>
 <!-- Telephone -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东电话</label>
     <div class="col-lg-6">
-        <div class="view-control">bbbb</div>
+        <div class="view-control"><?php echo $mobile; ?></div>
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东身份证</label>
     <div class="col-lg-6">
-        <div class="view-control">cccc</div>
+        <div class="view-control"><?php echo $identity; ?></div>
     </div>
 </div>
 <!-- Country -->
 <div class="form-group">
     <label class="control-label col-lg-3">房源位置</label>
-    <div class="col-lg-3">
-        <div class="view-control">dddd</div>
-    </div>
-    <div class="col-lg-3">
-        <div class="view-control">eeee</div>
-    </div>
-    <div class="col-lg-3">
-        <div class="view-control">eeee</div>
+    <div class="col-lg-6">
+        <div class="view-control"><?php echo $location; ?></div>
     </div>
 </div>
 <!-- Address -->
 <div class="form-group">
     <label class="control-label col-lg-8">具体地址</label>
-    <div class="col-lg-3">
-        <div class="view-control">号楼</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-3">
-        <div class="view-control">单元</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-3">
-        <div class="view-control">室</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-lg-6">
+        <div class="view-control"><?php echo $address; ?></div>
     </div>
 </div>
 <!-- State -->
 <div class="form-group">
     <label class="control-label col-lg-8">房源条件</label>
     <div class="col-lg-3">
-        <div class="view-control">年代</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control"><?php echo $birth; ?> 年</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-lg-3">
-        <div class="view-control">朝向</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control">朝向: <?php echo $orientation; ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-lg-3">
-        <div class="view-control">楼层</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control">楼层: <?php echo $storey; ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-8">房源户型</label>
-    <div class="col-lg-2">
-        <div class="view-control">室</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-2">
-        <div class="view-control">厅</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-2">
-        <div class="view-control">卫</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-2">
-        <div class="view-control">平米</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-lg-6">
+        <div class="view-control"><?php echo $house_type; ?></div>
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东报价</label>
     <div class="col-lg-2">
-        <div class="view-control">租金元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control">租金: <?php echo $h_expect; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-lg-3">
+        <div class="view-control">长租最低价: <?php echo $d_expect; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-lg-2">
-        <div class="view-control">长租最低价为元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control">押金: <?php echo $deposit; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
-    <div class="col-lg-2">
-        <div class="view-control">押金:元</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-2">
-        <div class="view-control">收取中介费:元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-lg-3">
+        <div class="view-control">收取中介费: <?php echo $cash; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">装修状态</label>
     <div class="col-lg-6">
-        <?php foreach ($decoration as $key => $value): ?>
-        <input type="radio" name="decoration" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
-        <?php endforeach; ?>
+        <div class="view-control"><?php echo $decoration; ?></div>
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">家电情况</label>
     <div class="col-lg-6">
-        <?php foreach ($appliance as $key => $value): ?>
-        <input type="radio" name="appliance" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
-        <?php endforeach; ?>
+        <div class="view-control"><?php echo $appliance; ?></div>
     </div>
 </div>
 <!-- City -->
 <div class="form-group">
     <label class="control-label col-lg-3">其余备注</label>
     <div class="col-lg-6">
-        <textarea class="view-control"  name="condition" placeholder="如小区环境,门口公交"></textarea>
-    </div>
-</div>
-<!--<div class="form-group">
-    <label class="control-label col-lg-3">房源照片</label>
-    <div class="col-lg-6">
-        <input type="file" class="view-control" name="telephone">
-    </div>
-</div>-->
-<div class="form-group">
-    <div class="col-lg-6 col-lg-offset-1">
-        <label class="checkbox inline"><input type="checkbox" name="agree" value="agree">确定了哦!怕你看不到,再问一遍,你真的确定了啊!!</label>
+        <div class="view-control"><?php echo $condition; ?></div>
     </div>
 </div>
 <!-- Buttons -->
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <a type="submit" class="btn btn-success">确定录入了</a>
-        <button type="reset" class="btn btn-default">不对重写吧</button>
+        <?php if($statuss == C('house.house.code.weizu')): ?>
+        <button class="btn btn-success edit" data-val="<?php echo C('house.house.code.yizu'); ?>">已经租出去,填写租客信息</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endif; ?>
+        <a type="reset" class="btn btn-default">修改</a>
     </div>
 </div>
 </div>
@@ -200,3 +166,4 @@
 
 </div>
 <div class="clearfix"></div>
+<script src="<?php echo static_url('js/house.js'); ?>"></script> 

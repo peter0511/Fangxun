@@ -3,6 +3,7 @@
 class House extends MY_Controller {
     protected $user;
     protected $permissions;
+    protected $uid;
 
     public function __construct() {
         parent::__construct();
@@ -13,6 +14,7 @@ class House extends MY_Controller {
             redirect('login');
         }
         $this->permissions = $this->user->position;
+        $this->uid = $this->user->uid;
     }
 
 	public function index($tab = 0) {
@@ -204,8 +206,67 @@ class House extends MY_Controller {
         }
     }
 
-    public function view($id){
-		$this->load->view('House/view');
-        $this->load->view('Common/footer');
+    public function view($house_id){
+        $this->load->model(array('MHouse', 'MLandlord', 'MLocation'));
+        $house = $this->MHouse->geto($house_id);
+        if (empty($house)) {
+            redirect('house');
+        }
+        //if ($this->uid == $house->user_id && $this->user->position < C('user.position.code.zishengzhiyeguwen')) {
+            $array = explode('.', $house->location);
+            $town = $this->MLocation->geto($array[0])->name;
+            $street = $this->MLocation->geto($array[1])->name;
+            $community = $this->MLocation->geto($array[2])->name;
+            $address = explode('-', $house->address);
+            $arra = explode('+', $house->agency);
+            $arr = explode('_', $house->house_type);
+            $storey = explode('/', $house->storey);
+        
+            $landlord = $this->MLandlord->get_byo('house_id', $house_id);
+            $data = array(
+                'id'          => $house->id,
+                'landlord'    => $landlord->landlord_name,
+                'mobile'      => $landlord->mobile,
+                'identity'    => $landlord->identity,
+                'site'        => $landlord->site,
+                'location'    => $town . $street . $community,
+                'address'     => $address[0] . ' 号楼, ' . $address[1] . ' 单元, ' . $address[2] . ' 室 ',
+                'birth'       => $house->birth,
+                'orientation' => $house->orientation,
+                'storey'      => $storey[0] . '层, 共有' . $storey[1] . '层',
+                'house_type'  => $arr[0] . ' 室 ' . $arr[1] . ' 厅 ' . $arr[2] . ' 卫 ,' . $house->area . ' 平米',
+                'h_expect'    => $house->h_expect,
+                'd_expect'    => $house->d_expect,
+                'deposit'     => $arra[0],
+                'cash'        => $arra[1],
+                'decoration'  => C('house.decoration.text.' . $house->decoration),
+                'appliance'   => C('house.appliance.text.' . $house->appliance),
+                'condition'   => $house->condition,
+                'status'      => C('house.house.text.' . $house->status),
+                'statuss'     => $house->status,
+
+            );
+            $this->load->view('House/view', $data);
+            $this->load->view('Common/footer');
+        //} 
+    }
+
+    public function ajax_save_edit(){
+        $this->load->model(array('MHouse'));
+        $id = $this->input->post('id', TRUE);
+        $status = $this->input->post('stat', TRUE);
+        $contract = $this->input->post('contract', TRUE);
+        $house = $this->MHouse->geto($id);
+        $update = $this->input->server('REQUEST_TIME');
+        if ($house->status !== C('house.house.code.weizu')) {
+            $success = $this->MHouse->update($id, array('status' => $status, 'contract' => $contract, 'updated' => $update));
+            if ($success) {
+                $res['msgs'] = '嗯,亲,不错啊!继续加油哦';
+                $this->_return_json($res);
+            }else{
+                $res['msg'] = '等等,再看看什么情况';
+                $this->_return_json($res);
+            }
+        }
     }
 }

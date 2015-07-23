@@ -167,7 +167,7 @@
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <a type="submit" class="btn btn-success">确定录入了</a>
+        <a type="submit" class="btn btn-success success">确定录入了</a>
         <button type="reset" class="btn btn-default">不对重写吧</button>
     </div>
 </div>

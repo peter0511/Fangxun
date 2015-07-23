@@ -63,6 +63,7 @@
                 <th>租金</th>
                 <th>装修状况</th>
                 <th>家电情况</th>
+                <th>楼层</th>
                 <th>录入时间</th>
                 <th>状态</th>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
@@ -79,14 +80,13 @@
                 <td><?php echo $val['type']; ?></td>
                 <td><?php echo $val['expect']; ?></td>
                 <td><?php echo $val['decoration']; ?></td>
+                <td><?php echo $val['appliance']; ?></td>
                 <td><?php echo $val['storey']; ?></td>
                 <td><?php echo $val['time']; ?></td>
                 <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <td>
-                    <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
-                    <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
-                    <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+                    <a class="btn btn-xs btn-success" href="<?php echo site_url('house/view/'.$val['id']); ?>">aa</a>
                 </td>
                 <?php endif; ?>
             </tr>
