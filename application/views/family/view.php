@@ -44,13 +44,13 @@
 </div>
 
 <div class="widget-content">
-<div class="padd" data-house="<?php echo $id; ?>">
+<div class="padd">
 
 <!-- Profile form -->
 
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<div class="form-horizontal add" data-url="house">
+<div class="form-horizontal add" data-url="family">
 <!-- Name -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东姓名</label>
@@ -69,6 +69,12 @@
     <label class="control-label col-lg-3">房东身份证</label>
     <div class="col-lg-6">
         <div class="view-control"><?php echo $identity; ?></div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">房东住址</label>
+    <div class="col-lg-6">
+        <div class="view-control"><?php echo $site; ?></div>
     </div>
 </div>
 <!-- Country -->
@@ -105,18 +111,30 @@
     </div>
 </div>
 <div class="form-group">
+    <label class="control-label col-lg-3">产权</label>
+    <div class="col-lg-2">
+        <div class="view-control">产权年限:<?php echo $property; ?></div>
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">产权类型:<?php echo $property_type; ?></div>
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">建筑类型:<?php echo $house_status; ?></div>
+    </div>
+    <div class="col-lg-2">
+        <div class="view-control">建筑结构:<?php echo $structure; ?></div>
+    </div>
+</div>
+<div class="form-group">
     <label class="control-label col-lg-3">房东报价</label>
-    <div class="col-lg-2">
-        <div class="view-control">租金: <?php echo $h_expect; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-lg-3">
+        <div class="view-control"><?php if($loan): ?>可以贷款<?php endif; ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-lg-3">
-        <div class="view-control">长租最低价: <?php echo $d_expect; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="col-lg-2">
-        <div class="view-control">押金: <?php echo $deposit; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control">总价: <?php echo $d_expect; ?>万元</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-lg-3">
-        <div class="view-control">收取中介费: <?php echo $cash; ?>元</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="view-control">我们收取: <?php echo $cash; ?>元中介费</div>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <div class="form-group">
@@ -142,10 +160,10 @@
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <?php if($statuss == C('house.house.code.weizu')): ?>
-        <button class="btn btn-success edit" data-val="<?php echo C('house.house.code.yizu'); ?>">已经租出去,填写合同编号</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php if($statuss == C('house.house.sale_code.weishou')): ?>
+        <button class="btn btn-success edit" data-val="<?php echo C('house.house.sale_code.yishou'); ?>">已经售出,填写合同编号</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <?php endif; ?>
-        <a href="<?php echo site_url('house/add/' . $id); ?>" class="btn btn-default">修改</a>
+        <a class="btn btn-default">修改</a>
     </div>
 </div>
 </div>

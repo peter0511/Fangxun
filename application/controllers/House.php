@@ -1,7 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class House extends MY_Controller {
-    protected $user;
     protected $permissions;
     protected $uid;
 
@@ -9,10 +8,6 @@ class House extends MY_Controller {
         parent::__construct();
         $this->load->Model(array('Mlocation'));
         $this->load->library(array('Auth', 'Pagination'));
-        $this->user = $this->auth->logined();
-        if (!isset($this->user->uid)) {
-            redirect('login');
-        }
         $this->permissions = $this->user->position;
         $this->uid = $this->user->uid;
     }
@@ -115,25 +110,74 @@ class House extends MY_Controller {
         $this->load->view('Common/footer');
     }
 
-	public function add() {
-        $this->load->model('Mlocation');
-        $house = C('house.house.text');
-        $appliance = C('house.appliance.text');
-        $decoration = C('house.decoration.text');
-        $data = array();
-        $location = $this->Mlocation->query(array(array('upid' => 0)));
-        $data = array(
-            'house' => $house,
-            'appliance' => $appliance,
-            'decoration' => $decoration,
-        );
-        foreach ($location as $value) {
-            $data['town'][] = array(
-                'name' => $value->name,
-                'id'   => $value->id,
-                'upid' => $value->upid,
-            );
+	public function add($house_id = False) {
+        $this->load->model(array('MHouse', 'MLocation', 'MLandlord'));
+        if ($house_id) {
+            $houses = $this->MHouse->query(array(array('id' => $house_id, 'status' => C('house.house.code'))));
+            if (empty($houses)) {
+                redirect('house');
+            }
+            foreach ($houses as $house) {
+                $array = explode('.', $house->location);
+                $town = $this->MLocation->geto($array[0]);
+                $street = $this->MLocation->geto($array[1]);
+                $community = $this->MLocation->geto($array[2]);
+                $address = explode('-', $house->address);
+                $arra = explode('+', $house->agency);
+                $arr = explode('_', $house->house_type);
+            
+                $landlord = $this->MLandlord->get_byo('house_id', $house_id);
+                $data = array(
+                    'id'          => $house->id,
+                    'name'    => $landlord->landlord_name,
+                    'mobile'      => $landlord->mobile,
+                    'identity'    => $landlord->identity,
+                    'tow'        => $town,
+                    'stree'      => $street,
+                    'communit'   => $community,
+                    'build'       => $address[0],
+                    'element'     => $address[1],
+                    'hous'       => $address[2],
+                    'birth'       => $house->birth,
+                    'orientation' => $house->orientation,
+                    'storey'      => $house->storey,
+                    'room'        => $arr[0],
+                    'hall'        => $arr[1],
+                    'toilet'      => $arr[2],
+                    'area'        => $house->area,
+                    'h_expect'    => $house->h_expect,
+                    'd_expect'    => $house->d_expect,
+                    'deposit'     => $arra[0],
+                    'cash'        => $arra[1],
+                    'decoratio'   => C('house.decoration.text.' . $house->decoration),
+                    'applianc'    => C('house.appliance.text.' . $house->appliance),
+                    'condition'   => $house->condition,
+                    'status'      => $house->status,
+                    'statuss'     => C('house.house.text.' . $house->status),
+                );
+            }
         }
+            $this->load->model('Mlocation');
+            $house = C('house.house.text');
+            $appliance = C('house.appliance.text');
+            $decoration = C('house.decoration.text');
+            //$data = array();
+            $location = $this->Mlocation->query(array(array('upid' => 0)));
+            //$data = array(
+            //    'house' => $house,
+            //    'appliance' => $appliance,
+            //    'decoration' => $decoration,
+            //);
+            $data['house'] = $house;
+            $data['appliance'] = $appliance;
+            $data['decoration'] = $decoration;
+            foreach ($location as $value) {
+                $data['town'][] = array(
+                    'name' => $value->name,
+                    'id'   => $value->id,
+                    'upid' => $value->upid,
+                );
+            }
 		$this->load->view('House/create', $data);
         $this->load->view('Common/footer');
 	}
@@ -149,6 +193,7 @@ class House extends MY_Controller {
             $inputsa = explode('=', $value);
             $data[$inputsa[0]] = trim($inputsa[1]);
         }
+        echo '<pre>'; var_dump($data); echo '</pre>'; die();
         if (!isset($data['agree'])) {
             $res['msg'] = '亲,你还不确定吗?你再重写吧!';
             $this->_return_json($res);
@@ -208,11 +253,13 @@ class House extends MY_Controller {
 
     public function view($house_id){
         $this->load->model(array('MHouse', 'MLandlord', 'MLocation'));
-        $house = $this->MHouse->geto($house_id);
-        if (empty($house)) {
+        //$house = $this->MHouse->geto($house_id);
+        $houses = $this->MHouse->query(array(array('id' => $house_id, 'status' => C('house.house.code'))));
+        if (empty($houses)) {
             redirect('house');
         }
         //if ($this->uid == $house->user_id && $this->user->position < C('user.position.code.zishengzhiyeguwen')) {
+        foreach ($houses as $house) {
             $array = explode('.', $house->location);
             $town = $this->MLocation->geto($array[0])->name;
             $street = $this->MLocation->geto($array[1])->name;
@@ -246,8 +293,9 @@ class House extends MY_Controller {
                 'statuss'     => $house->status,
 
             );
-            $this->load->view('House/view', $data);
-            $this->load->view('Common/footer');
+        }
+        $this->load->view('House/view', $data);
+        $this->load->view('Common/footer');
         //} 
     }
 

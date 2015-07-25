@@ -35,7 +35,7 @@
 
 <div class="widget wred">
 <div class="widget-head">
-    <div class="pull-left">Profile</div>
+    <div class="pull-left"><span class="label label-danger"><?php echo isset($statuss) ? $statuss : '新建';?></span> 的房源 <span class="label label-info"><?php echo isset($id) ? $id.'号' : ''; ?></span></div>
     <div class="widget-icons pull-right">
         <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
         <a href="#" class="wclose"><i class="icon-remove"></i></a>
@@ -55,20 +55,20 @@
 <div class="form-group">
     <label class="control-label col-lg-3">房东姓名</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="name" placeholder="房东的姓名,你不会不知道吧">
+        <input type="text" class="form-control" name="name" value="<?php echo isset($name) ? $name : ''; ?>" placeholder="房东的姓名,你不会不知道吧">
     </div>
 </div>
 <!-- Telephone -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东电话</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="mobile" placeholder="房东的电话">
+        <input type="text" class="form-control" name="mobile" value="<?php echo isset($mobile) ? $mobile : ''; ?>" placeholder="房东的电话">
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东身份证</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" name="identity" maxlength=18 placeholder="身份证号应该是18位对不!">
+        <input type="text" class="form-control" name="identity" value="<?php echo isset($identity) ? $identity : ''; ?>" maxlength=18 placeholder="身份证号应该是18位对不!">
     </div>
 </div>
 <!-- Country -->
@@ -76,7 +76,7 @@
     <label class="control-label col-lg-3">房源位置</label>
     <div class="col-lg-3">
     <select class="form-control town" name="town">
-        <option value=""> --- 市区 --- </option>
+        <option value="<?php echo isset($tow) ? $tow->id : '';?>"><?php echo isset($tow) ? $tow->name : ' --- 市区 --- ';?></option>
         <?php foreach($town as $val): ?>
         <option value="<?php echo $val['id']; ?>" class="true"><?php echo $val['name']; ?></option>
         <?php endforeach; ?>
@@ -84,12 +84,12 @@
     </div>
     <div class="col-lg-3">
         <select class="form-control street" name="street">
-            <option value="" disabled> -- 街道,没有就去添加地址页面添加-- </option>
+            <option value="<?php echo isset($stree) ? $stree->id : ''; ?>" disabled><?php echo isset($stree) ? $stree->name : ' -- 街道,没有就去添加地址页面添加-- '?></option>
         </select>
     </div>
     <div class="col-lg-3">
         <select class="form-control community" name="community">
-            <option value="" disabled> -- 小区,没有就去添加地址页面添加-- </option>
+            <option value="<?php echo isset($communit) ? $communit->id : ''?>" disabled><?php echo isset($communit) ? $communit->name : ' -- 小区,没有就去添加地址页面添加-- '; ?></option>
         </select>
     </div>
 </div>
@@ -97,41 +97,42 @@
 <div class="form-group">
     <label class="control-label col-lg-8">具体地址</label>
     <div class="col-lg-8">
-        <input type="text" style=""class="filterinput" name="build" placeholder="仅可用阿拉伯数字">号楼&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="element" placeholder="仅可用阿拉伯数字">单元&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="house" placeholder="仅可用阿拉伯数字">室
+        <input type="text" class="filterinput" name="build" value="<?php echo isset($build) ? $build : ''; ?>" placeholder="仅可用阿拉伯数字">号楼&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="element" value="<?php echo isset($element) ? $build : ''; ?>" placeholder="仅可用阿拉伯数字">单元&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="house" value="<?php echo isset($hous) ? $hous : ''; ?>" placeholder="仅可用阿拉伯数字">室
     </div>
 </div>
 <!-- State -->
 <div class="form-group">
     <label class="control-label col-lg-8">房源条件</label>
     <div class="col-lg-8">
-        <input type="text" class="filterinput" name="birth">年代&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="orientation" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="storey" placeholder="5/12,必须安此格式来填写楼层!">楼层
+        <input type="text" class="filterinput" name="birth" value="<?php echo isset($birth) ? $birth : ''; ?>">年代&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="orientation" value="<?php echo isset($orientation) ? $orientation : ''; ?>" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="storey" value="<?php echo isset($storey) ? $storey : ''; ?>" placeholder="5/12,必须按此格式来填写楼层!">楼层
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-8">房源户型</label>
     <div class="col-lg-8">
-        <input type="text" style=""class="filterinput" name="room" placeholder="仅可用阿拉伯数字">室&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="hall" placeholder="仅可用阿拉伯数字">厅&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="toilet" placeholder="仅可用阿拉伯数字">卫&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="area" placeholder="仅可用阿拉伯数字">平米
+        <input type="text" class="filterinput" name="room" value="<?php echo isset($room) ? $room : ''; ?>" placeholder="仅可用阿拉伯数字">室&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="hall" value="<?php echo isset($hall) ? $hall : '';?>" placeholder="仅可用阿拉伯数字">厅&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="toilet" value="<?php echo isset($toilet) ? $toilet : ''; ?>" placeholder="仅可用阿拉伯数字">卫&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="filterinput" name="area" value="<?php echo isset($area) ? $area : ''; ?>" placeholder="仅可用阿拉伯数字">平米
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东报价</label>
     <div class="col-lg-12">
-        租金:<input type="text" style=""class="filterinput" name="h_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        长租最低价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        押金:<input type="text" class="filterinput" name="deposit" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        我们收取的中介费:<input type="text" class="filterinput" name="cash" placeholder="仅可用阿拉伯数字">元
+        租金:<input type="text" style=""class="filterinput" name="h_expect" value="<?php echo isset($h_expect) ? $h_expect : ''; ?>" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        长租最低价:<input type="text" class="filterinput" name="d_expect" value="<?php echo isset($d_expect) ? $d_expect : ''; ?>" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        押金:<input type="text" class="filterinput" name="deposit" value="<?php echo isset($deposit) ? $deposit : ''; ?>" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        我们收取的中介费:<input type="text" class="filterinput" name="cash" value="<?php echo isset($cash) ? $cash : ''; ?>" placeholder="仅可用阿拉伯数字">元
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">装修状态</label>
-    <div class="col-lg-6">
+    <div class="col-lg-12">
+        <?php if(isset($decoratio)): ?><div class="col-lg-2">你已选择:<?php echo $decoratio; ?></div><?php endif; ?>
         <?php foreach ($decoration as $key => $value): ?>
         <input type="radio" name="decoration" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
         <?php endforeach; ?>
@@ -139,7 +140,8 @@
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">家电情况</label>
-    <div class="col-lg-6">
+    <div class="col-lg-12">
+        <?php if(isset($applianc)): ?><div class="col-lg-2">你已选择:<?php echo $applianc; ?></div><?php endif; ?>
         <?php foreach ($appliance as $key => $value): ?>
         <input type="radio" name="appliance" value="<?php echo $key; ?>"><?php echo $value; ?>&nbsp;&nbsp;&nbsp;&nbsp;
         <?php endforeach; ?>
@@ -149,7 +151,7 @@
 <div class="form-group">
     <label class="control-label col-lg-3">其余备注</label>
     <div class="col-lg-6">
-        <textarea class="form-control"  name="condition" placeholder="如小区环境,门口公交"></textarea>
+        <textarea class="form-control"  name="condition" placeholder="如小区环境,门口公交"><?php echo isset($condition) ? $condition : ''; ?></textarea>
     </div>
 </div>
 <!--<div class="form-group">
@@ -167,7 +169,7 @@
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <a type="submit" class="btn btn-success success">确定录入了</a>
+        <a class="btn btn-success success" data-id="<?php echo isset($id) ? $id : ''; ?>">确定录入了</a>
         <button type="reset" class="btn btn-default">不对重写吧</button>
     </div>
 </div>

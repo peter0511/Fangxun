@@ -23,8 +23,10 @@
 //  })
 //})
 $(document).ready(function(){
-  var Url = $('.add').data('url');
+  var Url = $('.add').data('url')
+      Id  = $('.success').data('id');
   $('.success').click(function(){
+    alert(Id);
     var Input = $('form').serialize(),
         Agree = $("input[name='agree']:checked").val();
     if (Agree) {

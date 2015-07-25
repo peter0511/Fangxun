@@ -88,9 +88,7 @@
                 <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <td>
-                    <button class="btn btn-xs btn-success"><i class="icon-ok">aa</i> bb</button>
-                    <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
-                    <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+                    <a class="btn btn-xs btn-success" href="<?php echo site_url('family/view/'.$val['id']); ?>">查看及修改</a>
                 </td>
                 <?php endif; ?>
             </tr>
