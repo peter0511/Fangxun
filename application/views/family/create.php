@@ -71,6 +71,12 @@
         <input type="text" class="form-control" name="identity" maxlength=18 placeholder="身份证号应该是18位对不!">
     </div>
 </div>
+<div class="form-group">
+    <label class="control-label col-lg-3">房东地址</label>
+    <div class="col-lg-6">
+        <input type="text" class="form-control" name="site" maxlength=18 placeholder="房东家庭住址知道,对你以后回访有好处的哦!">
+    </div>
+</div>
 <!-- Country -->
 <div class="form-group">
     <label class="control-label col-lg-3">房源位置</label>
@@ -96,36 +102,71 @@
 <!-- Address -->
 <div class="form-group">
     <label class="control-label col-lg-8">具体地址</label>
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <input type="text" style=""class="filterinput" name="build" placeholder="仅可用阿拉伯数字">号楼&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="element" placeholder="仅可用阿拉伯数字">单元&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="house" placeholder="仅可用阿拉伯数字">室
+        <input type="text" class="filterinput" name="house" placeholder="仅可用阿拉伯数字">室&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
 <!-- State -->
 <div class="form-group">
     <label class="control-label col-lg-8">房源条件</label>
-    <div class="col-lg-8">
-        <input type="text" class="filterinput" name="birth">年代&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-lg-12">
+        <input type="text" class="filterinput" name="birth" placeholder="建筑年代">年代&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="orientation" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="storey" placeholder="5/12">楼层
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-8">房源户型</label>
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <input type="text" style=""class="filterinput" name="room" placeholder="仅可用阿拉伯数字">室&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="hall" placeholder="仅可用阿拉伯数字">厅&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="toilet" placeholder="仅可用阿拉伯数字">卫&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="area" placeholder="仅可用阿拉伯数字">平米
+        <input type="text" class="filterinput" name="j_area" placeholder="建筑面积">平米
+        <input type="text" class="filterinput" name="area" placeholder="实际面积">平米
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-lg-3">产权</label>
+    <div class="col-lg-2">
+        <select class="form-control" name="property">
+            <option value="" class="true"> -- 请选择产权年限 -- </option>
+            <?php foreach($property as $key => $val): ?>
+            <option value="<?php echo $key; ?>" class="true"><?php echo $val; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-lg-2">
+        <select class="form-control" name="property_type">
+            <option value="" class="true"> -- 请选择产权类型 -- </option>
+            <?php foreach($property_type as $key => $val): ?>
+            <option value="<?php echo $key; ?>" class="true"><?php echo $val; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-lg-2">
+        <select class="form-control" name="house_type">
+            <option value="" class="true"> -- 请选择建筑类型 -- </option>
+            <?php foreach($house_type as $key => $val): ?>
+            <option value="<?php echo $key; ?>" class="true"><?php echo $val; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-lg-2">
+        <select class="form-control" name="structure">
+            <option value="" class="true"> -- 请选择建筑结构 -- </option>
+            <?php foreach($structure as $key => $val): ?>
+            <option value="<?php echo $key; ?>" class="true"><?php echo $val; ?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-lg-3">房东报价</label>
     <div class="col-lg-12">
-        租金:<input type="text" style=""class="filterinput" name="h_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        长租最低价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
-        押金:<input type="text" class="filterinput" name="deposit" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="loan" value="1" />可以贷款&nbsp;&nbsp;&nbsp;&nbsp;
+        总价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
         我们收取的中介费:<input type="text" class="filterinput" name="cash" placeholder="仅可用阿拉伯数字">元
     </div>
 </div>
@@ -189,4 +230,4 @@
 
 </div>
 <div class="clearfix"></div>
-<script src="<?php echo static_url('js/house.js'); ?>"></script> 
+<script src="<?php echo static_url('js/family.js'); ?>"></script> 

@@ -50,40 +50,46 @@
 
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<form class="form-horizontal">
+<?php echo form_open('', array('autocomplete' => 'on', 'class' => 'form-horizontal')); ?>
 <!-- Country -->
 <div class="form-group">
     <label class="control-label col-lg-3">城区</label>
     <div class="col-lg-6">
-    <select class="form-control">
-        <option value=""> --- Please Select --- </option>
-        <option value="239">城西区</option>
+    <select class="form-control town" name="town">
+        <option value=""> --- 请选择城区 --- </option>
+        <?php foreach($town as $val): ?>
+        <option value="<?php echo $val['id']; ?>"><?php echo $val['name']; ?></option>
+        <?php endforeach; ?>
     </select>
     </div>
 </div>
 <!-- Name -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="name1">街道</label>
+    <label class="control-label col-lg-3" >街道</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="name1">
+    <select class="form-control street" name="street" disabled>
+        <option value=""> --- 请选择街道,如果没有你要的街道,请点我 --- </option>
+        <option value=""> --- 请选择街道,如果没有你要的街道,请点我 --- </option>
+    </select>
+    <input type="hidden" class="form-control" placeholder="请填写没有的街道">
     </div>
 </div>
 <!-- Name -->
 <div class="form-group">
-    <label class="control-label col-lg-3" for="name1">街道</label>
+    <label class="control-label col-lg-3" >社区</label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="name1">
+        <input type="text" class="form-control community" name="community" placeholder="请填写没有的社区" disabled>
     </div>
 </div>
 <!-- Buttons -->
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <button type="submit" class="btn btn-success">嗯,就这样了</button>
+        <a type="submit" class="btn btn-success">嗯,就这样了</a>
         <button type="reset" class="btn btn-default">不行重写吧</button>
     </div>
 </div>
-</form>
+<?php echo form_close(); ?>
 </div>
 
 </div>
@@ -101,3 +107,4 @@
 
 </div>
 <div class="clearfix"></div>
+<script src="<?php echo static_url('js/address.js'); ?>"></script> 

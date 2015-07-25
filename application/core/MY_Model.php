@@ -12,6 +12,17 @@ class MY_Model extends CI_Model
         parent::__construct();
     }
 
+    public function end1($start = 0, $size = 0, $order_by = array())
+    {
+        if($size > 0) {
+            $this->db->limit($size, $start);
+        }
+        foreach($order_by as $field => $order) {
+            $this->db->order_by($field, $order);
+        }
+        return $this->db->get($this->table)->result();
+    } 
+
     /**
      * switch_db
      * @return void
@@ -67,21 +78,21 @@ class MY_Model extends CI_Model
      **/
     public function get_byo($key, $value, $status_strict = TRUE) {
         $this->db->where($key, $value);
-        if ($status_strict) {
-            $this->db->where('status', 1);
-        }
+        //if ($status_strict) {
+        //    $this->db->where('status', 0);
+        //}
         $res = $this->db->get($this->table, 1)->first_row();
         return $res;
     }
     
     public function query($query = array(), $start = 0, $size = 0, $order_by = array()) {
-        $status = FALSE;
+//        $status = FALSE;
         foreach($query as $condition) {
             foreach($condition as $key => $value) {
                 $keys = explode(' ', $key);
-                if($keys[0] == 'status') {
-                    $status = TRUE;
-                }
+//                if($keys[0] == 'status') {
+//                    $status = TRUE;
+//                }
                 if(is_array($value)){
                     $this->db->where_in($key, $value);
                 }else{
@@ -89,9 +100,9 @@ class MY_Model extends CI_Model
                 }
             }
         }
-        if(!$status) {
-            $this->db->where('status', 1);
-        }
+//        if(!$status) {
+//            $this->db->where('status', 0);
+//        }
 
         if($size > 0) {
             $this->db->limit($size, $start);
@@ -148,15 +159,23 @@ class MY_Model extends CI_Model
      *                * @author zp( huster.zhangpeng@gmail.com )
      *                     **/
     public function count($query = array()) {
+//        $status = FALSE;
         foreach($query as $condition) {
             foreach($condition as $key => $value) {
-                if(!empty($value) && is_array($value)) {
+                $keys = explode(' ', $key);
+//                if($keys[0] == 'status') {
+//                    $status = TRUE;
+//                }
+                if(is_array($value)){
                     $this->db->where_in($key, $value);
-                } else {
+                }else{
                     $this->db->where($key, $value);
                 }
             }
         }
+//        if(!$status) {
+//            $this->db->where('status', 0);
+//        }
         $res = $this->db->count_all_results($this->table);
         return $res;
     }
