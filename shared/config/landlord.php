@@ -6,8 +6,18 @@ $config = array(
             'haiyou' => 1,
         ),
         'text' => array(
-            0 => '没有了', 
-            1 => '还有呢',
+            0 => '还在呢', 
+            1 => '删除了',
+        ),
+    ),
+    'type' => array(
+        'code' => array(
+            'chuzu' => 0,
+            'chushou' => 1,
+        ),
+        'text' => array(
+            0 => '出租',
+            1 => '出售'
         ),
     ),
 );

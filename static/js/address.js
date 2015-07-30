@@ -4,7 +4,7 @@ $(document).ready(function(){
         Street = $(".street"), 
         Community = $(".community");
     if (Town) {
-      $.getJSON("/House/select_address",{address:Town},function(json){ 
+      $.getJSON("/address/select_address",{address:Town},function(json){ 
         $("option[class='true']",Street).remove(); //清空原有的选项 
         Street.siblings().removeAttr('name').attr('type','hidden');
         Street.removeAttr('style').removeAttr('disabled');
@@ -16,6 +16,7 @@ $(document).ready(function(){
       }); 
     } else {
       Street.attr('disabled','disabled');
+      Community.attr('disabled','disabled');
     }
   })
 
@@ -43,7 +44,7 @@ $(document).ready(function(){
   $('.btn-success').click(function(){
     var Input = $('form').serialize();
     $.ajax({
-      url: "/House/ajax_save_address",
+      url: "/address/ajax_save_address",
       type: "POST",
       dataType: "json",
       data : {input: Input},

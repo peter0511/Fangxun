@@ -1,16 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends MY_Controller {
-    protected $user;
     protected $permissions;
 
     function __construct() {
         parent::__construct();
         $this->load->library(array('Auth', 'Pagination'));
         $this->user = $this->auth->logined();
-        if (!isset($this->user->uid)) {
-            redirect('login');
-        }
         $this->permissions = $this->user->position;
     }
 

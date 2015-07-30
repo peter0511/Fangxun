@@ -1,45 +1,44 @@
+//$(document).ready(function(){
+//  $('.btn-success').click(function(){
+//    var Input = $('form').serialize(),
+//        Agree = $("input[name='agree']:checked").val();
+//    if (Agree) {
+//      $.ajax({
+//        url: "/house/ajax_save_house",
+//        type: "POST",
+//        dataType: "json",
+//        data : {input: Input},
+//        success : function(data){
+//          if (data.msgs) {
+//            alert(data.msgs);
+//            window.location.href="/house";
+//          }else{
+//            alert(data.msg);
+//          }
+//        },
+//      })
+//    }else{
+//      alert('亲,你还不确定吗?你再重写吧!');
+//    }
+//  })
+//})
 $(document).ready(function(){
-  $('.town').change(function(){
-    var Street = $(".street"),
-        Town = $('.town').val(),
-        Community = $('.community');
-    $.getJSON("/House/select_address",{address:Town},function(json){ 
-      $("option[class='true']",Street).remove(); //清空原有的选项 
-      $("option[class='true']",Community).remove(); //清空原有的选项 
-      Street.removeAttr('disabled');
-      $.each(json,function(index,array){ 
-        var option = "<option value='"+array['id']+"' class='true'>"+array['name']+"</option>"; 
-        Street.append(option); 
-      }); 
-    }); 
-  })
-
-  $('.street').change(function(){
-    var Community = $('.community'),
-        Street = $(".street").val();
-    $.getJSON("/House/select_address",{address:Street},function(json){ 
-      $("option[class='true']",Community).remove(); //清空原有的选项 
-      Community.removeAttr('disabled');
-      $.each(json,function(index,array){ 
-        var option = "<option value='"+array['id']+"' class='true'>"+array['name']+"</option>"; 
-        Community.append(option); 
-      }); 
-    }); 
-  })
-
-  $('.btn-success').click(function(){
+  var Url = $('.add').data('url')
+      Id  = $('.success').data('id');
+  $('.success').click(function(){
+    alert(Id);
     var Input = $('form').serialize(),
         Agree = $("input[name='agree']:checked").val();
     if (Agree) {
       $.ajax({
-        url: "/house/ajax_save_house",
+        url: "/"+Url+"/ajax_save_house",
         type: "POST",
         dataType: "json",
         data : {input: Input},
         success : function(data){
           if (data.msgs) {
             alert(data.msgs);
-            window.location.href="/house";
+            window.location.href="/"+Url+"/";
           }else{
             alert(data.msg);
           }
@@ -49,4 +48,30 @@ $(document).ready(function(){
       alert('亲,你还不确定吗?你再重写吧!');
     }
   })
+
+  $('.edit').click(function prom(){
+    var contract = prompt("请输入合同号","");
+    if(contract){
+      var Val = $('.edit').data('val'),
+          House = $('.padd').data('house'),
+          Contract = contract;
+      $.ajax({
+        url: "/"+Url+"/ajax_save_edit",
+        type: "POST",
+        dataType: "json",
+        data : {stat:Val,id:House,contract:Contract},
+        success : function(data){
+          if (data.msgs) {
+            alert(data.msgs);
+            window.location.href="/"+Url+"/";
+          }else{
+            alert(data.msg);
+          }
+        },
+      })
+    }else{
+      alert("你没填合同号!")
+    }
+  })
 })
+

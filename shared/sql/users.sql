@@ -3,7 +3,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL DEFAULT '0' COMMENT '登陆账号',
   `name` varchar(255) NOT NULL COMMENT '姓名',
   `password` varchar(255) NOT NULL COMMENT '密码',
-  `age` varchar(255) NOT NULL COMMENT '年龄',
+  `age` tinyint(11) NOT NULL COMMENT '年龄',
   `sex` tinyint(11) NOT NULL COMMENT '性别,0:女,1:男',
   `native` varchar(11) NOT NULL COMMENT '籍贯',
   `avatar` varchar(255) DEFAULT '' COMMENT '头像',
@@ -17,4 +17,14 @@ CREATE TABLE `users` (
   `created` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` (`id`, `username`, `name`, `password`, `age`, `sex`, `native`, `avatar`, `education`, `identity`, `mobile`, `address`, `phone`, `position`, `status`, `created`, `updated`)
+VALUES
+	(1,'peter0511','曾攀','JWwjRFzFzgoCKkeSnX/YC8x/UfT0eyBBmLa8YTBpPeVWWZq9L0XrfJKYfw+A9uIftv3siSU9yHyOJo8FoQLEze4rxVFcq8o7s6R0+3DhPUhtMyN+HpFeHu4F7o+Vmebf',127,1,'青海省西宁市','',1,'630104198605111518','18519742361','青海省西宁市昆仑路35号','13519742361',0,0,1435903570,1435903570);
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
