@@ -13,6 +13,7 @@
     <!-- Font awesome icon -->
     <link rel="stylesheet" href="<?php echo static_url('css/font-awesome.css'); ?>">
     <link href="<?php echo static_url('css/style.css'); ?>" rel="stylesheet">
+    <link href="<?php echo static_url('css/view.css'); ?>" rel="stylesheet">
     <script src="<?php echo static_url('js/jquery.js'); ?>"></script> <!-- jQuery -->
     <!-- jQuery UI -->
     <link rel="stylesheet" href="<?php //echo static_url('css/jquery-ui.css'); ?>">
@@ -48,7 +49,7 @@
         <ul class="nav navbar-nav">
             <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
             <li class="dropdown dropdown-big">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="icon-cloud-upload"></i></span>aaaaaa</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="icon-cloud-upload"></i></span><?php echo $user; ?>,欢迎回来!</a>
                 <!-- Dropdown -->
             </li>
             <!-- Sync to server link -->

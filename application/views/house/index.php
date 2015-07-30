@@ -54,14 +54,16 @@
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
+            <?php if(!empty($house)): ?>
             <tr>
-                <th>编号</th>
+                <th>#</th>
                 <th>负责人</th>
                 <th>房源位置</th>
                 <th>房源户型</th>
                 <th>租金</th>
                 <th>装修状况</th>
                 <th>家电情况</th>
+                <th>楼层</th>
                 <th>录入时间</th>
                 <th>状态</th>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
@@ -78,18 +80,19 @@
                 <td><?php echo $val['type']; ?></td>
                 <td><?php echo $val['expect']; ?></td>
                 <td><?php echo $val['decoration']; ?></td>
+                <td><?php echo $val['appliance']; ?></td>
                 <td><?php echo $val['storey']; ?></td>
                 <td><?php echo $val['time']; ?></td>
                 <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
                 <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <td>
-                    <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
-                    <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
-                    <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+                    <a class="btn btn-xs btn-success" href="<?php echo site_url('house/view/'.$val['id']); ?>">查看及修改</a>
                 </td>
                 <?php endif; ?>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach;else: ?>
+            <tr>你新来的同事?还没有传过数据吧!</tr>
+            <?php endif; ?>
             </tbody>
         </table>
 

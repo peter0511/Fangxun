@@ -39,13 +39,10 @@
 
 <div class="col-md-12">
 
-
-
-
 <div class="widget">
 
     <div class="widget-head">
-        <div class="pull-left">Tables</div>
+        <div class="pull-left">我的房源</div>
         <div class="widget-icons pull-right">
             <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
             <a href="#" class="wclose"><i class="icon-remove"></i></a>
@@ -57,37 +54,47 @@
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
+            <?php if(!empty($house)): ?>
             <tr>
                 <th>#</th>
-                <th>房东姓名</th>
-                <th>房东联络人</th>
-                <th>房东电话</th>
-                <th>房东身份证号</th>
-                <th>房东地址</th>
-                <th>租or售</th>
-                <th>房东房源地址</th>
+                <th>负责人</th>
+                <th>房源位置</th>
+                <th>房源户型</th>
+                <th>建筑面积</th>
+                <th>报价</th>
+                <th>朝向</th>
+                <th>装修状态</th>
+                <th>楼层</th>
+                <th>录入时间</th>
+                <th>状态</th>
+                <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
+                <th>操作</th>
+                <?php endif; ?>
             </tr>
             </thead>
             <tbody>
-            <?php foreach($landlord as $val): ?>
+            <?php foreach($house as $val): ?>
             <tr>
                 <td><?php echo $val['id']; ?></td>
-                <td><?php echo $val['name']; ?></td>
                 <td><?php echo $val['user']; ?></td>
-                <td><?php echo $val['mobile']; ?></td>
-                <td><?php echo $val['identity']; ?></td>
-                <td><?php echo $val['site']; ?></td>
+                <td><?php echo $val['location']; ?></td>
                 <td><?php echo $val['type']; ?></td>
-                <td><?php echo $val['house']; ?></td>
-                <!--<td><span class="label <?php echo $val['status'] == '在职' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
-                <td><?php echo $val['create']; ?></td>
+                <td><?php echo $val['area']; ?></td>
+                <td><?php echo $val['expect']; ?></td>
+                <td><?php echo $val['orientation']; ?></td>
+                <td><?php echo $val['decoration']; ?></td>
+                <td><?php echo $val['storey']; ?></td>
+                <td><?php echo $val['time']; ?></td>
+                <td><span class="label <?php echo $val['status'] == '已经出租' ? 'label-success' : 'label-danger'; ?>"><?php echo $val['status']; ?></span></td>
+                <?php if(isset($is_mine) && $is_mine == C('user.is_mine.code.yes')): ?>
                 <td>
-                    <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
-                    <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
-                    <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
-                </td>-->
+                    <a class="btn btn-xs btn-success" href="<?php echo site_url('family/view/'.$val['id']); ?>">查看及修改</a>
+                </td>
+                <?php endif; ?>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach;else: ?>
+            <tr>你新来的同事?还没有传过数据吧!</tr>
+            <?php endif; ?>
             </tbody>
         </table>
 
