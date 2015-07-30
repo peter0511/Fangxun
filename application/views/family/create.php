@@ -50,7 +50,7 @@
 
 <div class="form profile">
 <!-- Edit profile form (not working)-->
-<form class="form-horizontal">
+<form class="form-horizontal add" data-url="family">
 <!-- Name -->
 <div class="form-group">
     <label class="control-label col-lg-3">房东姓名</label>
@@ -114,7 +114,7 @@
     <div class="col-lg-12">
         <input type="text" class="filterinput" name="birth" placeholder="建筑年代">年代&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="text" class="filterinput" name="orientation" placeholder="坐北朝南,坐南朝北">朝向&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" class="filterinput" name="storey" placeholder="5/12">楼层
+        <input type="text" class="filterinput" name="storey" placeholder="5/12,必须是这个格式的哦">楼层
     </div>
 </div>
 <div class="form-group">
@@ -166,7 +166,7 @@
     <label class="control-label col-lg-3">房东报价</label>
     <div class="col-lg-12">
         <input type="checkbox" name="loan" value="1" />可以贷款&nbsp;&nbsp;&nbsp;&nbsp;
-        总价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">元&nbsp;&nbsp;&nbsp;&nbsp;
+        总价:<input type="text" class="filterinput" name="d_expect" placeholder="仅可用阿拉伯数字">万元&nbsp;&nbsp;&nbsp;&nbsp;
         我们收取的中介费:<input type="text" class="filterinput" name="cash" placeholder="仅可用阿拉伯数字">元
     </div>
 </div>
@@ -208,7 +208,7 @@
 <div class="form-group">
     <!-- Buttons -->
     <div class="col-lg-6 col-lg-offset-1">
-        <a type="submit" class="btn btn-success">确定录入了</a>
+        <a type="submit" class="btn btn-success success">确定录入了</a>
         <button type="reset" class="btn btn-default">不对重写吧</button>
     </div>
 </div>
@@ -230,4 +230,6 @@
 
 </div>
 <div class="clearfix"></div>
-<script src="<?php echo static_url('js/family.js'); ?>"></script> 
+<script src="<?php echo static_url('js/house.js'); ?>"></script> 
+<script src="<?php //echo static_url('js/family.js'); ?>"></script> 
+<script src="<?php echo static_url('js/select_address.js'); ?>"></script> 

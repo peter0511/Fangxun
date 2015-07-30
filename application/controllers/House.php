@@ -1,18 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class House extends MY_Controller {
-    protected $user;
     protected $permissions;
+    protected $uid;
 
     public function __construct() {
         parent::__construct();
         $this->load->Model(array('Mlocation'));
         $this->load->library(array('Auth', 'Pagination'));
-        $this->user = $this->auth->logined();
-        if (!isset($this->user->uid)) {
-            redirect('login');
-        }
         $this->permissions = $this->user->position;
+        $this->uid = $this->user->uid;
     }
 
 	public function index($tab = 0) {
@@ -113,25 +110,74 @@ class House extends MY_Controller {
         $this->load->view('Common/footer');
     }
 
-	public function add() {
-        $this->load->model('Mlocation');
-        $house = C('house.house.text');
-        $appliance = C('house.appliance.text');
-        $decoration = C('house.decoration.text');
-        $data = array();
-        $location = $this->Mlocation->query(array(array('upid' => 0)));
-        $data = array(
-            'house' => $house,
-            'appliance' => $appliance,
-            'decoration' => $decoration,
-        );
-        foreach ($location as $value) {
-            $data['town'][] = array(
-                'name' => $value->name,
-                'id'   => $value->id,
-                'upid' => $value->upid,
-            );
+	public function add($house_id = False) {
+        $this->load->model(array('MHouse', 'MLocation', 'MLandlord'));
+        if ($house_id) {
+            $houses = $this->MHouse->query(array(array('id' => $house_id, 'status' => C('house.house.code'))));
+            if (empty($houses)) {
+                redirect('house');
+            }
+            foreach ($houses as $house) {
+                $array = explode('.', $house->location);
+                $town = $this->MLocation->geto($array[0]);
+                $street = $this->MLocation->geto($array[1]);
+                $community = $this->MLocation->geto($array[2]);
+                $address = explode('-', $house->address);
+                $arra = explode('+', $house->agency);
+                $arr = explode('_', $house->house_type);
+            
+                $landlord = $this->MLandlord->get_byo('house_id', $house_id);
+                $data = array(
+                    'id'          => $house->id,
+                    'name'    => $landlord->landlord_name,
+                    'mobile'      => $landlord->mobile,
+                    'identity'    => $landlord->identity,
+                    'tow'        => $town,
+                    'stree'      => $street,
+                    'communit'   => $community,
+                    'build'       => $address[0],
+                    'element'     => $address[1],
+                    'hous'       => $address[2],
+                    'birth'       => $house->birth,
+                    'orientation' => $house->orientation,
+                    'storey'      => $house->storey,
+                    'room'        => $arr[0],
+                    'hall'        => $arr[1],
+                    'toilet'      => $arr[2],
+                    'area'        => $house->area,
+                    'h_expect'    => $house->h_expect,
+                    'd_expect'    => $house->d_expect,
+                    'deposit'     => $arra[0],
+                    'cash'        => $arra[1],
+                    'decoratio'   => C('house.decoration.text.' . $house->decoration),
+                    'applianc'    => C('house.appliance.text.' . $house->appliance),
+                    'condition'   => $house->condition,
+                    'status'      => $house->status,
+                    'statuss'     => C('house.house.text.' . $house->status),
+                );
+            }
         }
+            $this->load->model('Mlocation');
+            $house = C('house.house.text');
+            $appliance = C('house.appliance.text');
+            $decoration = C('house.decoration.text');
+            //$data = array();
+            $location = $this->Mlocation->query(array(array('upid' => 0)));
+            //$data = array(
+            //    'house' => $house,
+            //    'appliance' => $appliance,
+            //    'decoration' => $decoration,
+            //);
+            $data['house'] = $house;
+            $data['appliance'] = $appliance;
+            $data['decoration'] = $decoration;
+            foreach ($location as $value) {
+                $data['town'][] = array(
+                    'name' => $value->name,
+                    'id'   => $value->id,
+                    'upid' => $value->upid,
+                );
+            }
 		$this->load->view('House/create', $data);
         $this->load->view('Common/footer');
 	}
@@ -147,6 +193,7 @@ class House extends MY_Controller {
             $inputsa = explode('=', $value);
             $data[$inputsa[0]] = trim($inputsa[1]);
         }
+        echo '<pre>'; var_dump($data); echo '</pre>'; die();
         if (!isset($data['agree'])) {
             $res['msg'] = '亲,你还不确定吗?你再重写吧!';
             $this->_return_json($res);
@@ -176,22 +223,19 @@ class House extends MY_Controller {
             $rest['updated'] = $this->input->server('REQUEST_TIME');
             $houses = $this->MHouse->add($rest);
             $lord = $this->MLandlord->get_byo('mobile', $data['mobile']);
-            if ( ! $lord) {
-                $item = array(
-                    'user_id' => $user->id,
-                    'mobile' => $data['mobile'],
-                    'landlord_name' => $data['name'],
-                    'house_id' => $houses,
-                    'created' => $this->input->server('REQUEST_TIME'),
-                    'updated' => $this->input->server('REQUEST_TIME'),
-                    'house_id' => $houses,
-                );
-                $item['site'] = empty($data['site']) ? '' : $data['site'];
-                $item['identity'] = empty($data['identity']) ? '' : $data['identity'];
-                $land = $this->MLandlord->add($item);
-            } else{
-                $land = $this->MLandlord->update($lord->id, array('updated' => $this->input->server('REQUEST_TIME'), 'house_id' => $lord->house_id . '~' . $houses));
-            }
+            $item = array(
+                'user_id' => $user->id,
+                'mobile' => $data['mobile'],
+                'landlord_name' => $data['name'],
+                'house_id' => $houses,
+                'created' => $this->input->server('REQUEST_TIME'),
+                'updated' => $this->input->server('REQUEST_TIME'),
+                'house_id' => $houses,
+                'type' => C('landlord.type.code.chuzu'),
+            );
+            $item['site'] = empty($data['site']) ? '' : $data['site'];
+            $item['identity'] = empty($data['identity']) ? '' : $data['identity'];
+            $land = $this->MLandlord->add($item);
             if ($land) {
                 $res['msgs'] = '亲,这条数据已经添加,继续加油哦!';
                 $this->_return_json($res);
@@ -207,90 +251,70 @@ class House extends MY_Controller {
         }
     }
 
-	public function address() {
-        $this->load->model('Mlocation');
-        $this->load->library(array('form_validation', 'encrypt'));
-        $location = $this->Mlocation->query(array(array('upid' => 0)));
-        foreach ($location as $value) {
-            $data['town'][] = array(
-                'name' => $value->name,
-                'id'   => $value->id,
-                'upid' => $value->upid,
-                'path' => $value->path,
-            );
-            
+    public function view($house_id){
+        $this->load->model(array('MHouse', 'MLandlord', 'MLocation'));
+        //$house = $this->MHouse->geto($house_id);
+        $houses = $this->MHouse->query(array(array('id' => $house_id, 'status' => C('house.house.code'))));
+        if (empty($houses)) {
+            redirect('house');
         }
-		$this->load->view('House/address', $data);
+        //if ($this->uid == $house->user_id && $this->user->position < C('user.position.code.zishengzhiyeguwen')) {
+        foreach ($houses as $house) {
+            $array = explode('.', $house->location);
+            $town = $this->MLocation->geto($array[0])->name;
+            $street = $this->MLocation->geto($array[1])->name;
+            $community = $this->MLocation->geto($array[2])->name;
+            $address = explode('-', $house->address);
+            $arra = explode('+', $house->agency);
+            $arr = explode('_', $house->house_type);
+            $storey = explode('/', $house->storey);
+        
+            $landlord = $this->MLandlord->get_byo('house_id', $house_id);
+            $data = array(
+                'id'          => $house->id,
+                'landlord'    => $landlord->landlord_name,
+                'mobile'      => $landlord->mobile,
+                'identity'    => $landlord->identity,
+                'site'        => $landlord->site,
+                'location'    => $town . $street . $community,
+                'address'     => $address[0] . ' 号楼, ' . $address[1] . ' 单元, ' . $address[2] . ' 室 ',
+                'birth'       => $house->birth,
+                'orientation' => $house->orientation,
+                'storey'      => $storey[0] . '层, 共有' . $storey[1] . '层',
+                'house_type'  => $arr[0] . ' 室 ' . $arr[1] . ' 厅 ' . $arr[2] . ' 卫 ,' . $house->area . ' 平米',
+                'h_expect'    => $house->h_expect,
+                'd_expect'    => $house->d_expect,
+                'deposit'     => $arra[0],
+                'cash'        => $arra[1],
+                'decoration'  => C('house.decoration.text.' . $house->decoration),
+                'appliance'   => C('house.appliance.text.' . $house->appliance),
+                'condition'   => $house->condition,
+                'status'      => C('house.house.text.' . $house->status),
+                'statuss'     => $house->status,
+
+            );
+        }
+        $this->load->view('House/view', $data);
         $this->load->view('Common/footer');
-	}
-
-    public function ajax_save_address() {
-        $this->load->model(array('Muser', 'Mlocation'));
-        $user = $this->Muser->geto($this->user->uid);
-        $this->load->library(array('form_validation', 'encrypt'));
-        $str = $this->input->post('input', TRUE);
-        $input = preg_replace("/[+]/","", $str);
-        $inputs = explode('&', $input);
-        $data = array();
-        foreach ($inputs as $value) {
-            $inputsa = explode('=', $value);
-            $data[$inputsa[0]] = trim($inputsa[1]);
-        }
-        if (empty($data['community']) || empty($data['street'])) {
-            $res['msg'] = '别逗我啊,你有没有填写的吧';
-            $this->_return_json($res);
-        }
-
-        if (is_numeric($data['street'])) {
-            $item = array();
-            $item = array(
-                'upid' => $data['street'],
-                'path' => $data['town'] . '-' . $data['street'],
-                'name' => $data['community'],
-                'user_id' => $user->id,
-                'created' => $this->input->server('REQUEST_TIME'),
-                'updated' => $this->input->server('REQUEST_TIME'),
-            );
-            $rest = $this->Mlocation->add($item);
-            if ($rest) {
-                $res['msgs'] = '亲,已经给你加上了,你再去看看吧';
-                $this->_return_json($res);
-            }
-        } else {
-            $item = array();
-            $item = array(
-                'upid' => $data['town'],
-                'path' => $data['town'],
-                'name' => $data['street'],
-                'user_id' => $user->id,
-                'created' => $this->input->server('REQUEST_TIME'),
-                'updated' => $this->input->server('REQUEST_TIME'),
-            );
-            $rest = $this->Mlocation->add($item);
-            if ($rest) {
-                $val = array();
-                $val = array(
-                    'upid' => $rest,
-                    'path' => $data['town'] . '-' . $rest,
-                    'name' => $data['community'],
-                    'user_id' => $user->id,
-                    'created' => $this->input->server('REQUEST_TIME'),
-                    'updated' => $this->input->server('REQUEST_TIME'),
-                );
-                $value = $this->Mlocation->add($val);
-                if ($value) {
-                    $res['msgs'] = '亲,已经给你加上了,你再去看看吧';
-                    $this->_return_json($res);
-                }
-            }
-            
-        }
+        //} 
     }
 
-    public function select_address() {
-        $this->load->model('Mlocation');
-        $address = $this->input->get('address', TRUE);
-        $street = $this->Mlocation->query(array(array('upid' => $address)));
-        $this->_return_json($street);
-    } 
+    public function ajax_save_edit(){
+        $this->load->model(array('MHouse'));
+        $id = $this->input->post('id', TRUE);
+        $status = $this->input->post('stat', TRUE);
+        $contract = $this->input->post('contract', TRUE);
+        $house = $this->MHouse->geto($id);
+        $update = $this->input->server('REQUEST_TIME');
+        if ($house->status !== C('house.house.code.weizu')) {
+            $success = $this->MHouse->update($id, array('status' => $status, 'contract' => $contract, 'updated' => $update));
+            if ($success) {
+                $res['msgs'] = '嗯,亲,不错啊!继续加油哦';
+                $this->_return_json($res);
+            }else{
+                $res['msg'] = '等等,再看看什么情况';
+                $this->_return_json($res);
+            }
+        }
+    }
 }

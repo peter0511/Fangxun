@@ -16,7 +16,7 @@ class Landlord extends MY_Controller {
 
 	public function index($tab = 0) { 
         $this->load->model(array('Muser', 'MLandlord', 'MHouse', 'MLocation'));
-        $page_size = 15;
+        $page_size = 3;
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
             $item = array(
                 'status' => C('landlord.status.code'),
@@ -42,7 +42,7 @@ class Landlord extends MY_Controller {
             $town = $this->MLocation->geto($array[0])->name;
             $street = $this->MLocation->geto($array[1])->name;
             $community = $this->MLocation->geto($array[2])->name;
-            $house = '房源编号:' . $value->house_id . ' ; ' . $town . $street . $community;
+            $house = '编号:' . $value->house_id . ' ; 地址:' . $town . $street . $community;
             $data['landlord'][] = array(
                 'id' => $value->id,
                 'name' => $value->landlord_name,
@@ -51,6 +51,7 @@ class Landlord extends MY_Controller {
                 'site' => $value->site,
                 'user' => $this->Muser->geto($value->user_id)->name,
                 'house' => $house,
+                'type' => C('landlord.type.text.' . $value->type),
             );
         }
         $data['pager'] = $this->pagination->create_links(); 
