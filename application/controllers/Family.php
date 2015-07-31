@@ -11,7 +11,7 @@ class Family extends MY_Controller {
     }
 
 	public function index($tab = 0) {
-        $this->load->model(array('Muser', 'MHouse', 'MLocation'));
+        $this->load->model(array('MUser', 'MHouse', 'MLocation'));
         $page_size = 3;
         $order_by = array('status' => 'ASC', 'updated' => 'ASC');
         $item = array(
@@ -35,7 +35,7 @@ class Family extends MY_Controller {
             $location = $town . $street . $community;
             $arr = explode('_', $value->house_type);
             $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫';
-            $user = $this->Muser->get($value->user_id);
+            $user = $this->MUser->get($value->user_id);
             $storey = explode('/', $value->storey);
             $storeys = $storey[0] . '层,共' . $storey[1] . '层';
 
@@ -62,7 +62,7 @@ class Family extends MY_Controller {
 	}
 
     public function init($tab = 0) {
-        $this->load->model(array('Muser', 'MHouse', 'MLocation'));
+        $this->load->model(array('MUser', 'MHouse', 'MLocation'));
         $page_size = 3;
         $order_by = array('status' => 'ASC', 'updated' => 'ASC');
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
@@ -91,7 +91,7 @@ class Family extends MY_Controller {
             $location = $town . $street . $community;
             $arr = explode('_', $value->house_type);
             $type = $arr[0] . '室' . $arr[1] . '厅' . $arr[2] . '卫';
-            $user = $this->Muser->get($value->user_id);
+            $user = $this->MUser->get($value->user_id);
             $storey = explode('/', $value->storey);
             $storeys = $storey[0] . '层,共' . $storey[1] . '层';
 
@@ -156,7 +156,7 @@ class Family extends MY_Controller {
             $inputsa = explode('=', $value);
             $data[$inputsa[0]] = trim($inputsa[1]);
         }
-        $user = $this->Muser->geto($this->user->uid);
+        $user = $this->MUser->geto($this->user->uid);
         if (!isset($data['agree'])) {
             $res['msg'] = '亲,你还不确定吗?你再重写吧!';
             $this->_return_json($res);
@@ -208,7 +208,7 @@ class Family extends MY_Controller {
             }
         } else {
             foreach ($house as $value) {
-                $user = $this->Muser->geto($value->user_id);
+                $user = $this->MUser->geto($value->user_id);
                 if ($value) {
                     $res['msgs'] = '亲,这条数据已有,你可以去问问' . $user->name . ',继续加油哦!';
                     $this->_return_json($res);

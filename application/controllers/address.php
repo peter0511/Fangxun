@@ -31,8 +31,8 @@ class Address extends MY_Controller {
 	}
 
     public function ajax_save_address() {
-        $this->load->model(array('Muser', 'Mlocation'));
-        $user = $this->Muser->geto($this->user->uid);
+        $this->load->model(array('MUser', 'Mlocation'));
+        $user = $this->MUser->geto($this->user->uid);
         $this->load->library(array('form_validation', 'encrypt'));
         $str = $this->input->post('input', TRUE);
         $input = preg_replace("/[+]/","", $str);

@@ -15,7 +15,7 @@ class Landlord extends MY_Controller {
     }
 
 	public function index($tab = 0) { 
-        $this->load->model(array('Muser', 'MLandlord', 'MHouse', 'MLocation'));
+        $this->load->model(array('MUser', 'MLandlord', 'MHouse', 'MLocation'));
         $page_size = 3;
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
             $item = array(
@@ -49,7 +49,7 @@ class Landlord extends MY_Controller {
                 'identity' => $value->identity,
                 'mobile' => $value->mobile,
                 'site' => $value->site,
-                'user' => $this->Muser->geto($value->user_id)->name,
+                'user' => $this->MUser->geto($value->user_id)->name,
                 'house' => $house,
                 'type' => C('landlord.type.text.' . $value->type),
             );

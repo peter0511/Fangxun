@@ -11,26 +11,26 @@ class User extends MY_Controller {
     }
 
 	public function index($tab = 0) { 
-        $this->load->model('Muser');
+        $this->load->model('MUser');
         $page_size = 2;
         if ($this->user->position < C('user.position.code.zishengzhiyeguwen')) {
             $item = array(
                 'status' => C('user.yuangong.code'),
             );
-            $users = $this->Muser->query(array($item), $tab, $page_size);
-            //$users = $this->Muser->query(array($item));
+            $users = $this->MUser->query(array($item), $tab, $page_size);
+            //$users = $this->MUser->query(array($item));
         } else {
             $item = array(
                 'position <' => C('user.position.code.dianzhu'), 
                 'status' => C('user.yuangong.code.zaizhi'),
             );
-            $users = $this->Muser->query(array($item), $tab, $page_size);
+            $users = $this->MUser->query(array($item), $tab, $page_size);
         }
         $this->pagination->initialize(array(
             'per_page'    => $page_size,
             'base_url'    => site_url('user/index'),
             'uri_segment' => 3,
-            'total_rows'  => $this->Muser->count(array($item)),
+            'total_rows'  => $this->MUser->count(array($item)),
             //'suffix' => $keyword ? sprintf('?keyword=%s', $keyword) : '    ',
         ));
         $data = array();
@@ -57,8 +57,8 @@ class User extends MY_Controller {
         }
         //$this->load->library(array('form_validation'));
         $this->load->helper('form');
-        $Muser = $this->load->model('Muser');
-        $user = $this->Muser->end1(0, 1, array('id' => 'DESC'));
+        $MUser = $this->load->model('MUser');
+        $user = $this->MUser->end1(0, 1, array('id' => 'DESC'));
         $status = C('user.yuangong.text');
         $education = C('user.education.text');
         $sex = C('user.sex.text');
@@ -93,7 +93,7 @@ class User extends MY_Controller {
 	}
     
     public function ajax_save_user() {
-        $this->load->model('Muser');
+        $this->load->model('MUser');
         $this->load->library(array('form_validation', 'encrypt'));
         $str = $this->input->post('input', TRUE);
         $input = preg_replace("/[+]/","", $str);
@@ -130,7 +130,7 @@ class User extends MY_Controller {
         $data['password'] = $return;
         unset($data['agree']);
         unset($data['id']);
-        $rest = $this->Muser->save($data);
+        $rest = $this->MUser->save($data);
         if ($rest) {
             $res['msgs'] = '亲,你们的队伍又庞大了,曾攀发来贺';
             $this->_return_json($res);
